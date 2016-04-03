@@ -1,0 +1,26 @@
+{
+  "name": "cordova-plugin-nativestorage",
+  "version": "1.0.0",
+  "description": "Cordova Native Storage",
+  "cordova": {
+    "id": "cordova-plugin-nativestorage",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gillesC/cordova-plugin-nativestorage"
+  },
+  "keywords": [
+    "cordova",
+    "device",
+    "ecosystem:cordova",
+    "cordova-firefoxos",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "Gilles Callebaut",
+  "license": "Apache-2.0"
+}

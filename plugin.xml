@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.gillescallebaut.nativestorage"
+    version="0.1">
+    <name>NativeStorage</name>
+    <description>Native storage of primitives in Android and iOS</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova, native storage, localstorage, NSUserDefaults, SharedPreferences</keywords>
+    <repo></repo>
+    <issue></issue>
+
+    <js-module src="www/NativeStorage.js" name="NativeStorage">
+        <clobbers target="NativeStorage" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="NativeStorage">
+                <param name="android-package" value="NativeStorage"/>
+            </feature>
+        </config-file>
+        <source-file src="src/android/NativeStorage.java" target-dir="src/" />
+    </platform>
+
+
+    <!-- android -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="NativeStorage">
+                <param name="ios-package" value="NativeStorage"/>
+            </feature>
+        </config-file>
+        <header-file src="src/ios/NativeStorage.h"/>
+        <source-file src="src/ios/NativeStorage.m"/>
+    </platform>
+
+</plugin>
