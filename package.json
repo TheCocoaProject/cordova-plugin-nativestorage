@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-nativestorage",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Cordova Native Storage",
   "cordova": {
     "id": "cordova-plugin-nativestorage",

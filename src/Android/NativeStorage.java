@@ -27,7 +27,7 @@ public class NativeStorage extends CordovaPlugin{
     }
 
     public boolean execute(final String action, final JSONArray args, final CallbackContext callbackContext) throws JSONException{
-        Log.v(TAG, "NativeStorage received: " + action);
+        //Log.v(TAG, "NativeStorage received: " + action);
         /*
         cordova.getThreadPool().execute(new Runnable() {
                 public void run() {

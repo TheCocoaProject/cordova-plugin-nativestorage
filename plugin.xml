@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id="com.gillescallebaut.nativestorage"
-    version="0.1">
+    id="cordova-plugin-nativestorage"
+    version="1.0.3">
     <name>NativeStorage</name>
     <description>Native storage of primitives in Android and iOS</description>
     <license>Apache 2.0</license>
