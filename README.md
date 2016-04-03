@@ -85,3 +85,17 @@ The values are native stored by using native functionalities provided by Android
   - SharedPreferences
 * iOS
   - NSUserDefaults
+
+## Defaults
+If the requested value for a giving response is not found a default value will be returned.
+* Android
+  - Boolean: `false`
+  - Integer: `-1`
+  - Double: `-1.0`
+  - String: `"null"`
+* iOS
+  - Boolean: `false`
+  - Integer: `0`
+  - Double: `0.0`
+  - String: `nil`
+  
