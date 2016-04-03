@@ -35,28 +35,28 @@ The parameter of the success-callback function will be the saved or retreived va
 ```javascript
 NativeStorage.putBoolean("reference_to_value",<bool-value>, <success-callback>, <error-callback>);
 
-NativeStorage.getBoolean("reference_to_value",<bool-value>, <success-callback>, <error-callback>);
+NativeStorage.getBoolean("reference_to_value",<success-callback>, <error-callback>);
 ```
 
 ### Integers
 ```javascript
 NativeStorage.putInt("reference_to_value",<int-value>, <success-callback>, <error-callback>);
 
-NativeStorage.getInt("reference_to_value",<int-value>, <success-callback>, <error-callback>);
+NativeStorage.getInt("reference_to_value", <success-callback>, <error-callback>);
 ```
 
 ### Doubles
 ```javascript
 NativeStorage.putDouble("reference_to_value",<double-value>, <success-callback>, <error-callback>);
 
-NativeStorage.getDouble("reference_to_value",<double-value>, <success-callback>, <error-callback>);
+NativeStorage.getDouble("reference_to_value",<success-callback>, <error-callback>);
 ```
 
 ### Strings
 ```javascript
 NativeStorage.putString("reference_to_value",<string>, <success-callback>, <error-callback>);
 
-NativeStorage.getString("reference_to_value",<string>, <success-callback>, <error-callback>);
+NativeStorage.getString("reference_to_value",<success-callback>, <error-callback>);
 ```
 
 ###Example
