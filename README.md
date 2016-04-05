@@ -31,6 +31,17 @@ cordova plugin add https://github.com/GillesC/cordova-plugin-nativestorage.git
 This plugin stores values in an asynchronous way, so the value must be set before asking the value back with that same specified reference.
 The parameter of the success-callback function will be the saved or retreived value, the error-callback will specify the occurred error.
 
+### Newly added (v1.0.4)
+Now developers can use a simple `set` method for saving all the supported types.
+An overall `get` method is'nt (yet) supported.
+
+```javascript
+NativeStorage.set("reference_to_value",<value>, <success-callback>, <error-callback>);
+
+NativeStorage.get<type>("reference_to_value",<success-callback>, <error-callback>);
+```
+The developers can also opt to call a `put` method specified by the type, like shown below.
+
 ### Booleans
 ```javascript
 NativeStorage.putBoolean("reference_to_value",<bool-value>, <success-callback>, <error-callback>);
