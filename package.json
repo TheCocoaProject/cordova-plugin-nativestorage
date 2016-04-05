@@ -1,7 +1,7 @@
 {
   "name": "cordova-plugin-nativestorage",
-  "version": "1.0.3",
-  "description": "Cordova Native Storage",
+  "version": "1.0.4",
+  "description": "Native storage of primitives in Android and iOS",
   "cordova": {
     "id": "cordova-plugin-nativestorage",
     "platforms": [
@@ -17,7 +17,6 @@
     "cordova",
     "device",
     "ecosystem:cordova",
-    "cordova-firefoxos",
     "cordova-android",
     "cordova-ios"
   ],

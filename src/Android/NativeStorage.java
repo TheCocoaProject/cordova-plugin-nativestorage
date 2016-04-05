@@ -66,7 +66,7 @@ public class NativeStorage extends CordovaPlugin{
                     try {
                         /* getting arguments */
                         String ref = args.getString(0);
-                        System.out.println("Receveived reference: " + ref);
+                        //System.out.println("Receveived reference: " + ref);
                         Boolean bool = sharedPref.getBoolean(ref, false);
                         callbackContext.success(String.valueOf(bool));
                     } catch (Exception e) {
@@ -104,7 +104,7 @@ public class NativeStorage extends CordovaPlugin{
                     try {
                         /* getting arguments */
                         String ref = args.getString(0);
-                        System.out.println("Receveived reference: "+ref);
+                        //System.out.println("Receveived reference: "+ref);
                         int anInt = sharedPref.getInt(ref, -1);
                         callbackContext.success(anInt);
                     } catch (Exception e) {
@@ -124,7 +124,7 @@ public class NativeStorage extends CordovaPlugin{
                         String ref = args.getString(0);
                         float f = (float) args.getDouble(1);
                         SharedPreferences.Editor editor = sharedPref.edit();
-                        Log.v(TAG,"Float value: "+f);
+                        //Log.v(TAG,"Float value: "+f);
                         editor.putFloat(ref, f);
                         editor.apply();
                         callbackContext.success(Float.toString(f));
@@ -143,7 +143,7 @@ public class NativeStorage extends CordovaPlugin{
                     try {
                         /* getting arguments */
                         String ref = args.getString(0);
-                        System.out.println("Receveived reference: " + ref);
+                        //System.out.println("Receveived reference: " + ref);
                         float f = sharedPref.getFloat(ref, (float) -1.0);
                         callbackContext.success(Float.toString(f));
                     } catch (Exception e) {
@@ -164,7 +164,7 @@ public class NativeStorage extends CordovaPlugin{
                         String aString = args.getString(1);
                         SharedPreferences.Editor editor = sharedPref.edit();
                         editor.putString(ref, aString);
-                        editor.commit();
+                        editor.apply();
                         callbackContext.success(aString);
                     } catch (Exception e) {
                         Log.e(TAG, "PutString failed :", e);
@@ -181,7 +181,7 @@ public class NativeStorage extends CordovaPlugin{
                     try {
                         /* getting arguments */
                         String ref = args.getString(0);
-                        System.out.println("Receveived reference: " + ref);
+                        //System.out.println("Receveived reference: " + ref);
                         String s = sharedPref.getString(ref, "null");
                         callbackContext.success(s);
                     } catch (Exception e) {
