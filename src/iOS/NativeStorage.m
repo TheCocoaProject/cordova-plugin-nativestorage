@@ -32,7 +32,7 @@
 
 		if(reference!=nil)
 		{
-			Bool aBoolean = [[NSUserDefaults standardUserDefaults] boolForKey:reference];
+			BOOL aBoolean = [[NSUserDefaults standardUserDefaults] boolForKey:reference];
 			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsBool:aBoolean];
 		}
 		else
@@ -96,7 +96,7 @@
 			NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 			[defaults setDouble: aDouble forKey:reference];
 			[defaults synchronize];
-			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsNSInteger:aDouble];
+			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsDouble:aDouble];
 		}
 		else
 		{
@@ -114,7 +114,7 @@
 		if(reference!=nil)
 		{
 			double aDouble = [[NSUserDefaults standardUserDefaults] doubleForKey:reference];
-			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsNSInteger:aDouble];
+			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsDouble:aDouble];
 		}
 		else
 		{
@@ -136,7 +136,7 @@
 			NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 			[defaults setObject: aString forKey:reference];
 			[defaults synchronize];
-			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsNSInteger:aDouble];
+			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsString:aString];
 		}
 		else
 		{
@@ -154,7 +154,7 @@
 		if(reference!=nil)
 		{
 			NSString* aString = [[NSUserDefaults standardUserDefaults] stringForKey:reference];
-			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsNSInteger:aString];
+			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsString:aString];
 		}
 		else
 		{
