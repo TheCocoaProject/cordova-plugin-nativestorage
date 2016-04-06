@@ -3,6 +3,27 @@
 
 @implementation NativeStorage
 
+- (void) remove: (CDVInvokedUrlCommand*) command
+{
+	[self.commandDelegate runInBackground:^{
+		CDVPluginResult* pluginResult = nil;
+		NSString* reference = [command.arguments objectAtIndex:0];
+
+		if(reference!=nil)
+		{
+			NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+			[defaults removeObjectForKey: reference];
+			[defaults synchronize];
+			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK];
+		}
+		else
+		{
+			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsString:@"Reference was null"];
+		}
+		[self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
+	}];
+}
+
 - (void) putBoolean: (CDVInvokedUrlCommand*) command
 {
 	[self.commandDelegate runInBackground:^{
@@ -48,14 +69,14 @@
 	[self.commandDelegate runInBackground:^{
 		CDVPluginResult* pluginResult = nil;
 		NSString* reference = [command.arguments objectAtIndex:0];
-		NSInteger anInt = [command.arguments objectAtIndex:1];
+		int anInt = [[command.arguments objectAtIndex:1] integerValue];
 
 		if(reference!=nil)
 		{
 			NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 			[defaults setInteger: anInt forKey:reference];
 			[defaults synchronize];
-			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsNSInteger:anInt];
+			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsInt:anInt];
 		}
 		else
 		{
@@ -72,8 +93,8 @@
 
 		if(reference!=nil)
 		{
-			NSInteger anInt = [[NSUserDefaults standardUserDefaults] integerForKey:reference];
-			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsNSInteger:anInt];
+			int anInt = [[NSUserDefaults standardUserDefaults] integerForKey:reference];
+			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsInt:anInt];
 		}
 		else
 		{
@@ -89,7 +110,7 @@
 	[self.commandDelegate runInBackground:^{
 		CDVPluginResult* pluginResult = nil;
 		NSString* reference = [command.arguments objectAtIndex:0];
-		double aDouble = [command.arguments objectAtIndex:1];
+		double aDouble = [[command.arguments objectAtIndex:1] doubleValue];
 
 		if(reference!=nil)
 		{

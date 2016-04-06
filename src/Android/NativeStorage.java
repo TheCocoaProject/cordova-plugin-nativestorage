@@ -16,6 +16,7 @@ import android.content.SharedPreferences;
 public class NativeStorage extends CordovaPlugin{
     public static final String TAG = "Native Storage";
     private SharedPreferences sharedPref;
+    private SharedPreferences.Editor editor;
 
     public NativeStorage() {}
 
@@ -24,22 +25,27 @@ public class NativeStorage extends CordovaPlugin{
         super.initialize(cordova,webView);
         Log.v(TAG, "Init NativeStorage");
         sharedPref = cordova.getActivity().getPreferences(Context.MODE_PRIVATE);
+        editor = sharedPref.edit();
     }
 
     public boolean execute(final String action, final JSONArray args, final CallbackContext callbackContext) throws JSONException{
-        //Log.v(TAG, "NativeStorage received: " + action);
-        /*
-        cordova.getThreadPool().execute(new Runnable() {
+        if(("remove").equals(action)){
+            cordova.getThreadPool().execute(new Runnable() {
                 public void run() {
                     try {
+                        String ref = args.getString(0);
+                        editor.remove(ref);
+                        editor.apply();
+                        callbackContext.success();
                     } catch (Exception e) {
-                        Log.e(TAG, "Romving failed :", e);
+                        Log.e(TAG, "Removing failed :", e);
                         callbackContext.error(e.getMessage());
                     }
                 }
             });
             return true;
-         */
+        }
+
         if(("putBoolean").equals(action)){
             cordova.getThreadPool().execute(new Runnable() {
                 public void run() {
@@ -47,7 +53,6 @@ public class NativeStorage extends CordovaPlugin{
                         /* getting arguments */
                         String ref = args.getString(0);
                         Boolean bool = args.getBoolean(1);
-                        SharedPreferences.Editor editor = sharedPref.edit();
                         editor.putBoolean(ref, bool);
                         editor.apply();
                         callbackContext.success(String.valueOf(bool));
@@ -85,7 +90,6 @@ public class NativeStorage extends CordovaPlugin{
                         /* getting arguments */
                         String ref = args.getString(0);
                         int anInt = args.getInt(1);
-                        SharedPreferences.Editor editor = sharedPref.edit();
                         editor.putInt(ref, anInt);
                         editor.apply();
                         callbackContext.success(anInt);
@@ -116,14 +120,13 @@ public class NativeStorage extends CordovaPlugin{
             return true;
         }
 
-        if(("putFloat").equals(action)){
+        if(("putDouble").equals(action)){
             cordova.getThreadPool().execute(new Runnable() {
                 public void run() {
                     try {
                         /* getting arguments */
                         String ref = args.getString(0);
                         float f = (float) args.getDouble(1);
-                        SharedPreferences.Editor editor = sharedPref.edit();
                         //Log.v(TAG,"Float value: "+f);
                         editor.putFloat(ref, f);
                         editor.apply();
@@ -137,7 +140,7 @@ public class NativeStorage extends CordovaPlugin{
             return true;
         }
 
-        if(("getFloat").equals(action)){
+        if(("getDouble").equals(action)){
             cordova.getThreadPool().execute(new Runnable() {
                 public void run() {
                     try {
@@ -162,7 +165,6 @@ public class NativeStorage extends CordovaPlugin{
                         /* getting arguments */
                         String ref = args.getString(0);
                         String aString = args.getString(1);
-                        SharedPreferences.Editor editor = sharedPref.edit();
                         editor.putString(ref, aString);
                         editor.apply();
                         callbackContext.success(aString);

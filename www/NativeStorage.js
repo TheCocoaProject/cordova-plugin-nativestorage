@@ -44,6 +44,16 @@ NativeStorage.prototype.set = function (reference, value, success, error) {
     }
 };
 
+/* removing */
+NativeStorage.prototype.remove = function (reference, success, error) {
+    //console.log(TAG+": putBoolean");
+    if(reference===null){
+        error("Null reference isn't supported"); return;
+    }
+
+    exec(success, error, "NativeStorage", "remove", [reference]);
+};
+
 
 /* boolean storage */
 NativeStorage.prototype.putBoolean = function (reference, aBoolean, success, error) {
@@ -95,14 +105,14 @@ NativeStorage.prototype.putDouble = function (reference, aFloat, success, error)
         error("Null reference isn't supported"); return;
     }
 
-    exec(success, error, "NativeStorage", "putFloat", [reference, aFloat]);
+    exec(success, error, "NativeStorage", "putDouble", [reference, aFloat]);
 };
 
 NativeStorage.prototype.getDouble = function (reference, success, error) {
     if(reference===null){
         error("Null reference isn't supported"); return;
     }
-    exec(success, error, "NativeStorage", "getFloat", [reference]);
+    exec(success, error, "NativeStorage", "getDouble", [reference]);
 };
 
 /* string storage */
