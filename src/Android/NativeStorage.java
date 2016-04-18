@@ -35,8 +35,9 @@ public class NativeStorage extends CordovaPlugin{
                     try {
                         String ref = args.getString(0);
                         editor.remove(ref);
-                        editor.apply();
-                        callbackContext.success();
+                        boolean success = editor.commit();
+                        if(success) callbackContext.success();
+                        else callbackContext.error("Remove operation failed");
                     } catch (Exception e) {
                         Log.e(TAG, "Removing failed :", e);
                         callbackContext.error(e.getMessage());
@@ -54,8 +55,9 @@ public class NativeStorage extends CordovaPlugin{
                         String ref = args.getString(0);
                         Boolean bool = args.getBoolean(1);
                         editor.putBoolean(ref, bool);
-                        editor.apply();
-                        callbackContext.success(String.valueOf(bool));
+                        boolean success = editor.commit();
+                        if(success) callbackContext.success(String.valueOf(bool));
+                        else callbackContext.error("Write failed");
                     } catch (Exception e) {
                         Log.e(TAG, "PutBoolean failed :", e);
                         callbackContext.error(e.getMessage());
@@ -91,8 +93,9 @@ public class NativeStorage extends CordovaPlugin{
                         String ref = args.getString(0);
                         int anInt = args.getInt(1);
                         editor.putInt(ref, anInt);
-                        editor.apply();
-                        callbackContext.success(anInt);
+                        boolean success = editor.commit();
+                        if(success) callbackContext.success(anInt);
+                        else callbackContext.error("Write failed");
                     } catch (Exception e) {
                         Log.e(TAG, "PutInt failed :", e);
                         callbackContext.error(e.getMessage());
@@ -129,8 +132,9 @@ public class NativeStorage extends CordovaPlugin{
                         float f = (float) args.getDouble(1);
                         //Log.v(TAG,"Float value: "+f);
                         editor.putFloat(ref, f);
-                        editor.apply();
-                        callbackContext.success(Float.toString(f));
+                        boolean success = editor.commit();
+                        if(success) callbackContext.success(Float.toString(f));
+                        else callbackContext.error("Write failed");
                     } catch (Exception e) {
                         Log.e(TAG, "PutFloat failed :", e);
                         callbackContext.error(e.getMessage());
@@ -166,8 +170,9 @@ public class NativeStorage extends CordovaPlugin{
                         String ref = args.getString(0);
                         String aString = args.getString(1);
                         editor.putString(ref, aString);
-                        editor.apply();
-                        callbackContext.success(aString);
+                        boolean success = editor.commit();
+                        if(success) callbackContext.success(aString);
+                        else callbackContext.error("Write failed");
                     } catch (Exception e) {
                         Log.e(TAG, "PutString failed :", e);
                         callbackContext.error(e.getMessage());

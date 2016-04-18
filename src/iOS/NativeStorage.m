@@ -13,8 +13,9 @@
 		{
 			NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 			[defaults removeObjectForKey: reference];
-			[defaults synchronize];
-			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK];
+			BOOL success = [defaults synchronize];
+			if(success) pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK];
+			else pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsString:@"Remove has failed"];
 		}
 		else
 		{
@@ -35,8 +36,9 @@
 		{
 			NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 			[defaults setBool: aBoolean forKey:reference];
-			[defaults synchronize];
-			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsBool:aBoolean];
+			BOOL success = [defaults synchronize];
+			if(success) pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsBool:aBoolean];
+			else pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsString:@"Write has failed"];		
 		}
 		else
 		{
@@ -75,8 +77,9 @@
 		{
 			NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 			[defaults setInteger: anInt forKey:reference];
-			[defaults synchronize];
-			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsInt:anInt];
+			BOOL success = [defaults synchronize];
+			if(success) pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsInt:anInt];
+			else pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsString:@"Write has failed"];
 		}
 		else
 		{
@@ -116,8 +119,9 @@
 		{
 			NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 			[defaults setDouble: aDouble forKey:reference];
-			[defaults synchronize];
-			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsDouble:aDouble];
+			BOOL success = [defaults synchronize];
+			if(success) pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsDouble:aDouble];
+			else pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsString:@"Write has failed"];
 		}
 		else
 		{
@@ -156,8 +160,10 @@
 		{
 			NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 			[defaults setObject: aString forKey:reference];
-			[defaults synchronize];
-			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsString:aString];
+			BOOL success = [defaults synchronize];
+			if(success) pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsString:aString];
+			else pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsString:@"Write has failed"];
+		
 		}
 		else
 		{
