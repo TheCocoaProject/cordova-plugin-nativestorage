@@ -1,4 +1,4 @@
-# cordova-plugin-nativestorage
+# Cordova plugin NativeStorage
 
 [![Build Status](https://travis-ci.org/GillesC/cordova-plugin-nativestorage.svg?branch=master)](https://travis-ci.org/GillesC/cordova-plugin-nativestorage)
 
