@@ -1,5 +1,7 @@
 # cordova-plugin-nativestorage
 
+[![Build Status](https://travis-ci.org/GillesC/cordova-plugin-nativestorage.svg?branch=master)](https://travis-ci.org/GillesC/cordova-plugin-nativestorage)
+
 Via this plugin the developer can store ints, doubles, strings and booleans native on Android and iOS in a persistence way.
 
 ALL VERSIONS ARE COMPATIBLE SO UPDATING THE PLUGIN WILL NOT BRICK YOUR APPLICATION, INSTEAD IT WILL GIVE YOU ALL THE LATEST FEATURES!
