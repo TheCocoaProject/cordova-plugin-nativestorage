@@ -46,6 +46,13 @@ cordova plugin add https://github.com/GillesC/cordova-plugin-nativestorage.git
 ##<a name="usage"></a>Usage
 The parameter of the success-callback function will be the saved or retreived value, the error-callback will specify the occurred error.
 
+###<a name="supported_types"></a>Supported types
+- Booleans
+- Strings
+- Doubles
+- Integers
+- Objects (thanks to [alokrajiv](https://github.com/alokrajiv))
+
 ###<a name="storing_values"></a>Storing values
 The developr can opt to store values through the `set` or the `put<type>` method.
 ```javascript
@@ -90,6 +97,13 @@ NativeStorage.getDouble("reference_to_value",<success-callback>, <error-callback
 NativeStorage.putString("reference_to_value",<string>, <success-callback>, <error-callback>);
 
 NativeStorage.getString("reference_to_value",<success-callback>, <error-callback>);
+```
+
+#### Objects
+```javascript
+NativeStorage.putObject("reference_to_value",<string>, <success-callback>, <error-callback>);
+
+NativeStorage.getObject("reference_to_value",<success-callback>, <error-callback>);
 ```
 
 ###<a name="full_example"></a>Full Example
@@ -174,6 +188,9 @@ app.initialize();
 ```
 
 ##<a name="changelog"></a>Changelog
+
+### Added object type - v1.0.9
+Storage and retrieval of objects are now possible. This is done by means of JSON functionalities.
 
 ### Added error when write to disk wasn't succesfull - v1.0.8
 Plugin-users will now be certain writing was successful when the `set` method is called. With thanks to [alokrajiv](https://github.com/GillesC/cordova-plugin-nativestorage/issues/1) for pointing out that the `apply()` method used in Android doesn't ensure the value is successful stored. As of version 1.0.8. the plugin-users will be certain the value is stored when the success-callback has been invoked --which is the case for both Android and iOS.
