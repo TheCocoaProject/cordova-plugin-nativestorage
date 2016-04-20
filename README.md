@@ -103,7 +103,7 @@ NativeStorage.getString("reference_to_value",<success-callback>, <error-callback
 
 #### Objects
 ```javascript
-NativeStorage.putObject("reference_to_value",<string>, <success-callback>, <error-callback>);
+NativeStorage.putObject("reference_to_value",<object>, <success-callback>, <error-callback>);
 
 NativeStorage.getObject("reference_to_value",<success-callback>, <error-callback>);
 ```
