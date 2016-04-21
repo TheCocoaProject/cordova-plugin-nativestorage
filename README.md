@@ -232,6 +232,8 @@ The values are native stored by using native functionalities provided by Android
   - SharedPreferences
 * iOS
   - NSUserDefaults
+* Browser (only for testing)
+ - JSON in combination with localStorage
 
 ##<a name="defaults"></a>Defaults
 If the requested value for a giving response is not found a default value will be returned.
