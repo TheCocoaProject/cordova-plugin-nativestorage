@@ -40,7 +40,7 @@ The plugin can be installed via the Cordova command line interface:
 ```sh
 cordova plugin add cordova-plugin-nativestorage
 ```
-or through this git repo
+or through this git repo if you want to be running the development version:
 ```sh
 cordova plugin add https://github.com/GillesC/cordova-plugin-nativestorage.git
 ```
