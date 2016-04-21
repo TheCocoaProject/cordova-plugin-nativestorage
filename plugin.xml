@@ -2,7 +2,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="cordova-plugin-nativestorage"
-    version="1.0.8">
+    version="1.0.10">
     <name>NativeStorage</name>
     <description>Native storage of primitives in Android and iOS (booleans, strings, ints, doubles)</description>
     <license>Apache 2.0</license>
@@ -25,7 +25,7 @@
     </platform>
 
 
-    <!-- android -->
+    <!-- ios -->
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
             <feature name="NativeStorage">
@@ -35,5 +35,15 @@
         <header-file src="src/ios/NativeStorage.h"/>
         <source-file src="src/ios/NativeStorage.m"/>
     </platform>
+
+    <!-- Browser -->
+    <platform name="browser">
+    <config-file target="config.xml" parent="/*">
+        <feature name="NativeStorage">
+            <param name="browser-package" value="NativeStorage" />
+        </feature>
+    </config-file>
+</platform>
+
 
 </plugin>

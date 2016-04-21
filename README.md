@@ -175,7 +175,7 @@ var app = {
 			NativeStorage.getString("ref_string", function(result){
 				console.log("Got: "+result);
 				console.log("Now removing it");
-				NativeStorage.remove("ref_string", function(){console.log("Removed with success!")}, function(e){console.log(e);})
+				NativeStorage.remove("ref_string", function(){console.log("Removed with success!");}, function(e){console.log(e);})
 			},
 			function(e){
 				console.log(e);
@@ -190,6 +190,9 @@ app.initialize();
 ```
 
 ##<a name="changelog"></a>Changelog
+
+### Added browser capability - v1.0.10
+For testing purposes the browser is also supported. If running in the browser localstorage is used.
 
 ### Added object type - v1.0.9
 Storage and retrieval of objects are now possible. This is done by means of JSON functionalities.
