@@ -8,6 +8,7 @@ ALL VERSIONS ARE COMPATIBLE SO UPDATING THE PLUGIN WILL NOT BRICK YOUR APPLICATI
 
 ## Contents
 - [Installation](#installation)
+- [Supported Platforms](#supported_platforms)
 - [Usage](#usage)
 	* [Storing values](#storing_values)
 	* [Retrieving values](#retrieving_values)
@@ -44,6 +45,11 @@ or through this git repo if you want to be running the development version:
 ```sh
 cordova plugin add https://github.com/GillesC/cordova-plugin-nativestorage.git
 ```
+
+##<a name="supported_platforms"></a>Supported platforms
+- Android
+- iOS
+- Browser (for testing purposes)
 
 ##<a name="usage"></a>Usage
 The parameter of the success-callback function will be the saved or retreived value, the error-callback will specify the occurred error.
