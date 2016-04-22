@@ -2,9 +2,9 @@
 
 [![Build Status](https://travis-ci.org/GillesC/cordova-plugin-nativestorage.svg?branch=master)](https://travis-ci.org/GillesC/cordova-plugin-nativestorage)
 
-Via this plugin the developer can store ints, doubles, strings and booleans native on Android and iOS in a persistence way.
+Via this plugin the developer can store ints, doubles, strings, booleans and objects native on Android and iOS, in a persistence way.
 
-ALL VERSIONS ARE COMPATIBLE SO UPDATING THE PLUGIN WILL NOT BRICK YOUR APPLICATION, INSTEAD IT WILL GIVE YOU ALL THE LATEST FEATURES!
+**REMARK**: All versions are backward compatbile, so updating the plugin will not brick our application, instead it will give you all the latest features.
 
 ## Contents
 - [Installation](#installation)
@@ -23,7 +23,7 @@ ALL VERSIONS ARE COMPATIBLE SO UPDATING THE PLUGIN WILL NOT BRICK YOUR APPLICATI
 
 ## Why?
 This plugin is created because of the non-persistent property of localstorage in the WebView of Android and iOS.
-In iOS the location of stored data for localstorage can be removed by the OS when running out of memory.
+In iOS stored data from localstorage can be removed by the OS, when running out of memory.
 
 Some complaints:
 
