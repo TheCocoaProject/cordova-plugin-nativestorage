@@ -4,7 +4,7 @@
     id="cordova-plugin-nativestorage"
     version="1.0.10">
     <name>NativeStorage</name>
-    <description>Native storage of primitives in Android and iOS (booleans, strings, ints, doubles)</description>
+    <description>Native storage of primitives in Android and iOS (booleans, strings, ints, doubles, objects)</description>
     <license>Apache 2.0</license>
     <keywords>cordova, native storage, localstorage, NSUserDefaults, SharedPreferences</keywords>
     <repo></repo>
