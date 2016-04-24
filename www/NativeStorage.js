@@ -2,7 +2,7 @@ var exec = require('cordova/exec');
 var TAG = "NativeStorage.js";
 
 function inBrowser() {
-    return (window.cordova && window.cordova.platformId === 'browser') || !window.phonegap || !window.cordova;
+    return (window.cordova && window.cordova.platformId === 'browser') || !(window.phonegap || window.cordova);
 }
 
 /* Method for storage in localstorage if run in browser */
