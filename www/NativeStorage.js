@@ -9,7 +9,7 @@ function inBrowser() {
 NativeStorage.prototype.setInLocalStorage = function (reference, variable, success, error) {
     try {
         var varAsString = JSON.stringify(variable);
-        console.log("Saving: "+varAsString);
+        console.log("LocalStorage Saving: "+varAsString);
         localStorage.setItem(reference, varAsString);
         success(varAsString);
     } catch (err) {
@@ -21,7 +21,7 @@ NativeStorage.prototype.setInLocalStorage = function (reference, variable, succe
 NativeStorage.prototype.getFromLocalStorage = function (reference, success, error) {
     try {
         var obj = JSON.parse(localStorage.getItem(reference));
-        console.log("Reading: "+obj);
+        console.log("LocalStorage Reading: "+obj);
         success(obj);
     } catch (err) {
         error(err);
