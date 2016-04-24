@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/GillesC/cordova-plugin-nativestorage.svg?branch=master)](https://travis-ci.org/GillesC/cordova-plugin-nativestorage)
 
+[![NPM](https://nodei.co/npm/cordova-plugin-nativestorage.png?downloads=true&downloadRank=true)](https://nodei.co/npm/cordova-plugin-nativestorage/)
+
 Via this plugin the developer can store integers, doubles, strings, booleans and objects, native on Android and iOS, in a persistence way.
 
 **REMARK**: All versions are backward compatible, so updating the plugin will not brick our application, instead it will give you all the latest features.
