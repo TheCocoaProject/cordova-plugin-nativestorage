@@ -8,6 +8,8 @@ Via this plugin the developer can store integers, doubles, strings, booleans and
 
 **REMARK**: All versions are backward compatible, so updating the plugin will not brick our application, instead it will give you all the latest features.
 
+This plugin was developed in the scope of an [IWT/VlAIO](http://www.vlaio.be/english) Tetra project [CrossMoS](https://www.msec.be/crossmos/) which assesses Mobile Cross-Platform Tools.
+
 ## Contents
 - [Installation](#installation)
 - [Supported Platforms](#supported_platforms)
