@@ -1,8 +1,15 @@
+---
+title: Cordova plugin NativeStorage
+description: Persistent storage of variables and objects.
+---
 # Cordova plugin NativeStorage
 
 [![Build Status](https://travis-ci.org/GillesC/cordova-plugin-nativestorage.svg?branch=master)](https://travis-ci.org/GillesC/cordova-plugin-nativestorage) [![npm version](https://badge.fury.io/js/cordova-plugin-nativestorage.svg)](https://badge.fury.io/js/cordova-plugin-nativestorage)
 
 [![NPM](https://nodei.co/npm/cordova-plugin-nativestorage.png?downloads=true&downloadRank=true)](https://nodei.co/npm/cordova-plugin-nativestorage/)
+
+
+
 
 Via this plugin the developer can store integers, doubles, strings, booleans and objects, native on Android and iOS, in a persistence way.
 
