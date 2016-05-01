@@ -1,3 +1,5 @@
+/* jshint jasmine: true */
+/* global NativeStorage */
 exports.defineAutoTests = function () {
     
     describe('Write/Read Tests', function () {
