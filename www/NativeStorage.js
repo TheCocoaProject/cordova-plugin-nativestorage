@@ -1,15 +1,25 @@
 var exec = require('cordova/exec');
 var TAG = "NativeStorage.js";
+var inBrowser = false;
 
-function inBrowser() {
-    return (window.cordova && window.cordova.platformId === 'browser') || !(window.phonegap || window.cordova);
+function isInBrowser() {
+    inBrowser = (window.cordova && window.cordova.platformId === 'browser') || !(window.phonegap || window.cordova);
+    return inBrowser;
+}
+
+function NativeStorage() {
+    console.log(TAG + ": is created");
+    if(isInBrowser()){
+        console.log("browser detected!");
+        if(!window.localStorage) console.log("ALERT! localstorage isn't supported");
+    }
 }
 
 /* Method for storage in localstorage if run in browser */
 NativeStorage.prototype.setInLocalStorage = function (reference, variable, success, error) {
     try {
         var varAsString = JSON.stringify(variable);
-        console.log("LocalStorage Saving: "+varAsString);
+        //console.log("LocalStorage Saving: "+varAsString);
         localStorage.setItem(reference, varAsString);
         success(varAsString);
     } catch (err) {
@@ -21,7 +31,7 @@ NativeStorage.prototype.setInLocalStorage = function (reference, variable, succe
 NativeStorage.prototype.getFromLocalStorage = function (reference, success, error) {
     try {
         var obj = JSON.parse(localStorage.getItem(reference));
-        console.log("LocalStorage Reading: "+obj);
+        //console.log("LocalStorage Reading: "+obj);
         success(obj);
     } catch (err) {
         error(err);
@@ -30,13 +40,7 @@ NativeStorage.prototype.getFromLocalStorage = function (reference, success, erro
 
 
 
-function NativeStorage() {
-    console.log(TAG + ": is created");
-    if(inBrowser()){
-        console.log("browser detected!");
-        if(!window.localStorage) console.log("ALERT! localstorage isn't supported");
-    }
-}
+
 
 
 
@@ -91,7 +95,7 @@ NativeStorage.prototype.remove = function(reference, success, error) {
         error("Null reference isn't supported"); return;
     }
 
-    if(inBrowser()){
+    if(inBrowser){
         try {
             localStorage.removeItem(reference);
             success();
@@ -114,7 +118,7 @@ NativeStorage.prototype.putBoolean = function(reference, aBoolean, success, erro
     }
 
     if (typeof aBoolean === 'boolean') {
-        if(inBrowser()){
+        if(inBrowser){
             this.setInLocalStorage(reference,aBoolean, success, error);
         }else {
             exec(success, error, "NativeStorage", "putBoolean", [reference, aBoolean]);
@@ -129,7 +133,7 @@ NativeStorage.prototype.getBoolean = function(reference, success, error) {
     if (reference === null) {
         error("Null reference isn't supported"); return;
     }
-    if(inBrowser()){
+    if(inBrowser){
             this.getFromLocalStorage(reference, success, error);
     }else {
         exec(success, error, "NativeStorage", "getBoolean", [reference]);
@@ -143,7 +147,7 @@ NativeStorage.prototype.putInt = function(reference, anInt, success, error) {
         error("Null reference isn't supported"); return;
     }
 
-    if(inBrowser()){
+    if(inBrowser){
         this.setInLocalStorage(reference,anInt, success, error);
     }else {
         exec(success, error, "NativeStorage", "putInt", [reference, anInt]);
@@ -154,7 +158,7 @@ NativeStorage.prototype.getInt = function(reference, success, error) {
     if (reference === null) {
         error("Null reference isn't supported"); return;
     }
-    if(inBrowser()){
+    if(inBrowser){
         this.getFromLocalStorage(reference, success, error);
     }else {
         exec(success, error, "NativeStorage", "getInt", [reference]);
@@ -168,7 +172,7 @@ NativeStorage.prototype.putDouble = function(reference, aFloat, success, error) 
     if (reference === null) {
         error("Null reference isn't supported"); return;
     }
-    if(inBrowser()){
+    if(inBrowser){
         this.setInLocalStorage(reference,aFloat, success, error);
     }else {
         exec(success, error, "NativeStorage", "putDouble", [reference, aFloat]);
@@ -179,7 +183,7 @@ NativeStorage.prototype.getDouble = function(reference, success, error) {
     if (reference === null) {
         error("Null reference isn't supported"); return;
     }
-    if(inBrowser()){
+    if(inBrowser){
         this.getFromLocalStorage(reference, success, error);
     }else {
         exec(success, error, "NativeStorage", "getDouble", [reference]);
@@ -192,7 +196,7 @@ NativeStorage.prototype.putString = function(reference, s, success, error) {
     if (reference === null) {
         error("Null reference isn't supported"); return;
     }
-    if(inBrowser()){
+    if(inBrowser){
         this.setInLocalStorage(reference, s, success, error);
     }else {
         exec(success, error, "NativeStorage", "putString", [reference, s]);
@@ -204,7 +208,7 @@ NativeStorage.prototype.getString = function(reference, success, error) {
     if (reference === null) {
         error("Null reference isn't supported"); return;
     }
-    if(inBrowser()){
+    if(inBrowser){
         this.getFromLocalStorage(reference, success, error);
     }else {
         exec(success, error, "NativeStorage", "getString", [reference]);
@@ -213,7 +217,7 @@ NativeStorage.prototype.getString = function(reference, success, error) {
 
 /* object storage */
 NativeStorage.prototype.putObject = function(reference, obj, success, error) {
-    if(inBrowser()){
+    if(inBrowser){
         this.setInLocalStorage(reference, obj, success, error);
     }else {
         var objAsString = "";
@@ -228,7 +232,7 @@ NativeStorage.prototype.putObject = function(reference, obj, success, error) {
 
 NativeStorage.prototype.getObject = function(reference, success, error) {
     //console.log(TAG+": getObject");
-    if(inBrowser()){
+    if(inBrowser){
         this.getFromLocalStorage(reference, success, error);
     }else {
         this.getString(reference, function (data) {
