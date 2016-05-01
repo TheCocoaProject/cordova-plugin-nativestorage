@@ -43,9 +43,11 @@ function NativeStorage() {
 NativeStorage.prototype.set = function(reference, value, success, error) {
     if (reference === null) {
         error("The reference can't be null");
+        return;
     }
     if (value === null) {
         error("a Null value isn't supported");
+        return;
     }
     switch (typeof value) {
         case 'undefined':
