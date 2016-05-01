@@ -16,7 +16,7 @@
     },
     "scripts": {
         "test": "npm run jshint",
-        "jshint": "jshint www"
+        "jshint": "jshint www && jshint tests"
     },
     "keywords": [
         "cordova",
