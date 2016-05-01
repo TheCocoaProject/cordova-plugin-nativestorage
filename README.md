@@ -206,6 +206,8 @@ var app = {
 };
 app.initialize();
 ```
+### Demo Application
+A demo application can be found at `cordova-plugin-nativestorage/examples/demo`. This application will save a String when the SAVE (`btn_load`) is pushed. This String is the value which has been typed in the input field (`data_input`). When the LOAD button is pressed, the value is shown by means of an alert message. 
 
 ##<a name="changelog"></a>Changelog
 
