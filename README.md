@@ -24,6 +24,7 @@ This plugin was developed in the scope of an [IWT/VlAIO](http://www.vlaio.be/eng
 	* [Removing values](#removing_values)
 	* [Example per type](#example_per_type)
 	* [Full example](#full_example)
+	* [Demo Example](#demo_example)
 - [Changelog](#changelog)
 - [How it works](#how)
 - [Default values](#defaults)
@@ -204,7 +205,7 @@ var app = {
 };
 app.initialize();
 ```
-### Demo Application
+###<a name="demo_example"></a>Demo Example
 A demo application can be found at `cordova-plugin-nativestorage/examples/demo`. This application will save a String when the SAVE (`btn_load`) is pushed. This String is the value which has been typed in the input field (`data_input`). When the LOAD button is pressed, the value is shown by means of an alert message. 
 
 #### Installation
@@ -216,29 +217,20 @@ git clone https://github.com/GillesC/cordova-plugin-nativestorage.git
 ```sh
 cd cordova-plugin-nativestorage/examples/demo/
 ```
-* Adding a platform
+* Adding platforms you require
 ```sh
 cordova platform add ios
-```
-```sh
 cordova platform add android
-```
-```sh
 cordova platform add browser
 ```
-* Adding the plugin and dependencies
+* Adding the plugin
 ```sh
 cordova plugin add cordova-plugin-nativestorage
-cordova plugin add http://git-wip-us.apache.org/repos/asf/cordova-plugin-test-framework.git
 ```
 * Run or emulate the demo application
 ```sh
 cordova emulate ios
-```
-```sh
 cordova run android
-```
-```sh
 cordova run browser
 ```
 
