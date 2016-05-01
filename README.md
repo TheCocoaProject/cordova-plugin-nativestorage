@@ -9,8 +9,6 @@ description: Persistent storage of variables and objects.
 [![NPM](https://nodei.co/npm/cordova-plugin-nativestorage.png?downloads=true&downloadRank=true)](https://nodei.co/npm/cordova-plugin-nativestorage/)
 
 
-
-
 Via this plugin the developer can store integers, doubles, strings, booleans and objects, native on Android and iOS, in a persistence way.
 
 **REMARK**: All versions are backward compatible, so updating the plugin will not brick our application, instead it will give you all the latest features.
@@ -232,7 +230,6 @@ cordova platform add browser
 ```sh
 cordova plugin add cordova-plugin-nativestorage
 cordova plugin add http://git-wip-us.apache.org/repos/asf/cordova-plugin-test-framework.git
-cordova plugin add https://github.com/GillesC/cordova-plugin-nativestorage.git#:/tests
 ```
 * Run or emulate the demo application
 ```sh
