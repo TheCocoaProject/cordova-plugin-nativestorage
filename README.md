@@ -30,6 +30,7 @@ This plugin was developed in the scope of an [IWT/VlAIO](http://www.vlaio.be/eng
 - [Default values](#defaults)
 - [Problems](#problems)
 - [Applications using this plugin](#applications)
+- [Contributions](#contributions)
 
 
 ## Why?
@@ -295,3 +296,5 @@ This will install the latest version.
 
 ##<a name="applications"></a>Applications using this plugin
 Currently there are no registered applications which use this plugin. If you're utilizing this plugin and wish to add your application to this readme, please contact [me](mailto:callebaut.gilles@gmail.com).
+
+##<a name="contributions"></a>Contributions
