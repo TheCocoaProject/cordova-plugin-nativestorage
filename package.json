@@ -24,7 +24,8 @@
         "ecosystem:cordova",
         "cordova-android",
         "cordova-ios",
-        "localstorage",
+        "cordova-browser",
+        "LocalStorage",
         "NSUserDefaults",
         "SharedPreferences"
     ],
