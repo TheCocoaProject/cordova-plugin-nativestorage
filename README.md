@@ -13,7 +13,7 @@ Via this plugin the developer can store integers, doubles, strings, booleans and
 
 **REMARK**: All versions are backward compatible, so updating the plugin will not brick our application, instead it will give you all the latest features.
 
-This plugin was developed in the scope of an [IWT/VlAIO](http://www.vlaio.be/english) Tetra project [CrossMoS](https://www.msec.be/crossmos/) which assesses Mobile Cross-Platform Tools.
+The plugin was created and developed by [Gilles Callebaut](https://be.linkedin.com/in/gilles-callebaut-46a751104), in the scope of an [IWT/VlAIO](http://www.vlaio.be/english) Tetra project [CrossMoS](https://www.msec.be/crossmos/) which assesses Mobile Cross-Platform Tools. This wouldn't be possible without the contributions of [Alok Rajiv](https://github.com/alokrajiv), our Cordova and JavaScript guru.
 
 ## Contents
 - [Installation](#installation)
@@ -71,7 +71,7 @@ The parameter of the success-callback function will be the saved or retreived va
 - Strings
 - Doubles
 - Integers
-- Objects (thanks to [alokrajiv](https://github.com/alokrajiv))
+- Objects
 
 ###<a name="storing_values"></a>Storing values
 The developr can opt to store values through the `set` or the `put<type>` method.
@@ -298,3 +298,12 @@ This will install the latest version.
 Currently there are no registered applications which use this plugin. If you're utilizing this plugin and wish to add your application to this readme, please contact [me](mailto:callebaut.gilles@gmail.com).
 
 ##<a name="contributions"></a>Contributions
+### Team members
+* Gilles Callebaut (Creator)
+ - [LinkedIn](https://be.linkedin.com/in/gilles-callebaut-46a751104)
+ - [Website](http://gillescallebaut.github.io/)
+* Alok Rajiv (Collaborator)
+ - [Website](http://alokrajiv.com/)
+ - [Twitter](https://twitter.com/jovialark)
+
+### Contributors
