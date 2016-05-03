@@ -32,7 +32,6 @@ Pleas consider reading our [wiki](https://github.com/GillesC/cordova-plugin-nati
 - [Default values](#defaults)
 - [Problems](#problems)
 - [Applications using this plugin](#applications)
-- [Contributions](#contributions)
 
 
 ## Why?
@@ -304,13 +303,4 @@ This will install the latest version.
 ##<a name="applications"></a>Applications using this plugin
 Currently there are no registered applications which use this plugin. If you're utilizing this plugin and wish to add your application to this readme, please contact [me](mailto:callebaut.gilles@gmail.com).
 
-##<a name="contributions"></a>Contributions
-### Team members
-* Gilles Callebaut (Creator)
- - [LinkedIn](https://be.linkedin.com/in/gilles-callebaut-46a751104)
- - [Website](http://gillescallebaut.github.io/)
-* Alok Rajiv (Collaborator)
- - [Website](http://alokrajiv.com/)
- - [Twitter](https://twitter.com/jovialark)
 
-### Contributors
