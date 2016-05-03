@@ -1,6 +1,6 @@
 {
     "name": "cordova-plugin-nativestorage",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "Native storage of primitives in Android and iOS (booleans, strings, ints, doubles, objects)",
     "cordova": {
         "id": "cordova-plugin-nativestorage",

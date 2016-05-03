@@ -237,6 +237,11 @@ cordova run browser
 
 ##<a name="changelog"></a>Changelog
 
+### Fixes and rewiring - v1.1.1
+- Fixed wrong double/boolean behaviour in Android (Strings were being returned)
+- Increased Test Coverage
+- Rewire of the JS back-end (no change to API)
+
 ### Added browser capability - v1.0.10
 For testing purposes the browser is also supported. If running in the browser localstorage is used.
 
