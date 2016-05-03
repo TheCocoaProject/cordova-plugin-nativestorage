@@ -2,6 +2,10 @@
     "name": "cordova-plugin-nativestorage",
     "version": "1.1.1",
     "description": "Native storage of primitives in Android and iOS (booleans, strings, ints, doubles, objects)",
+    "author": "Gilles Callebaut <gilles.callebaut.cs@gmail.com>",
+    "contributors":[
+    {"name":"Alok Rajiv"}
+    ],
     "cordova": {
         "id": "cordova-plugin-nativestorage",
         "platforms": [
@@ -21,6 +25,7 @@
     "keywords": [
         "cordova",
         "device",
+        "storage",
         "ecosystem:cordova",
         "cordova-android",
         "cordova-ios",
@@ -29,9 +34,12 @@
         "NSUserDefaults",
         "SharedPreferences"
     ],
-    "author": "Gilles Callebaut",
     "license": "Apache-2.0",
     "devDependencies": {
         "jshint": "^2.9.1"
-    }
+    },
+    "bugs":{
+        "url" : "https://github.com/GillesC/cordova-plugin-nativestorage/issues"
+    },
+    "homepage": "https://github.com/GillesC/cordova-plugin-nativestorage#README.md"
 }
