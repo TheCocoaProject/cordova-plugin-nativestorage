@@ -1,8 +1,11 @@
 /* jshint jasmine: true */
 /* global NativeStorage */
 exports.defineAutoTests = function () {
-    
+
     describe('Write/Read Tests', function () {
+        it("Plugin available", function () {
+            expect(NativeStorage).toEqual(jasmine.anything());
+        });
         it('Objects', function (done) {
             var dummyData = { data1: "", data2: 2, data3: 3.0 };
             NativeStorage.set("dummy_ref_obj",
@@ -20,7 +23,6 @@ exports.defineAutoTests = function () {
                 function (e) {
                     fail("Write Object Failed");
                 });
-
         });
     });
 
