@@ -7,6 +7,7 @@
     "indent": 4,
     "unused": "vars",
     "latedef": "nofunc",
+    "esversion": 6,
     "globals": {
         "module": false,
         "exports": false,

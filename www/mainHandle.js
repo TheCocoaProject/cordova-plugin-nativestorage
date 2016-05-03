@@ -1,5 +1,3 @@
-"use strict";
-
 var inBrowser = false;
 function isInBrowser() {
     inBrowser = (window.cordova && window.cordova.platformId === 'browser') || !(window.phonegap || window.cordova);
