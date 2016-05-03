@@ -10,8 +10,10 @@
     <repo></repo>
     <issue></issue>
 
-    <js-module src="www/NativeStorage.js" name="NativeStorage">
+    <js-module src="www/mainHandle.js" name="mainHandle">
         <clobbers target="NativeStorage" />
+    </js-module>
+    <js-module src="www/LocalStorageHandle.js" name="LocalStorageHandle">
     </js-module>
 
     <!-- android -->

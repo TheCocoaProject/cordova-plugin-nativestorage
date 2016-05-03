@@ -2,7 +2,7 @@
 /* global NativeStorage */
 exports.defineAutoTests = function () {
 
-    describe('Write/Read Tests', function () {
+    describe('Write/Read/Delete Tests', function () {
         it("Plugin available", function () {
             expect(NativeStorage).toEqual(jasmine.anything());
         });
@@ -14,7 +14,11 @@ exports.defineAutoTests = function () {
                     NativeStorage.getBoolean("dummy_ref_bool",
                         function (result) {
                             expect(result).toEqual(dummyData);
-                            done();
+                            NativeStorage.remove("dummy_ref_bool", function () {
+                                done();
+                            }, function (e) {
+                                fail("Delete Boolean Failed");
+                            });
                         },
                         function (e) {
                             fail("Read Boolean Failed");
@@ -32,7 +36,11 @@ exports.defineAutoTests = function () {
                     NativeStorage.getInt("dummy_ref_int",
                         function (result) {
                             expect(result).toEqual(dummyData);
-                            done();
+                            NativeStorage.remove("dummy_ref_int", function () {
+                                done();
+                            }, function (e) {
+                                fail("Delete Boolean Failed");
+                            });
                         },
                         function (e) {
                             fail("Read Int Failed");
@@ -50,7 +58,11 @@ exports.defineAutoTests = function () {
                     NativeStorage.getDouble("dummy_ref_double",
                         function (result) {
                             expect(result).toEqual(dummyData);
-                            done();
+                            NativeStorage.remove("dummy_ref_double", function () {
+                                done();
+                            }, function (e) {
+                                fail("Delete Boolean Failed");
+                            });
                         },
                         function (e) {
                             fail("Read Double Failed");
@@ -68,7 +80,11 @@ exports.defineAutoTests = function () {
                     NativeStorage.getString("dummy_ref_str",
                         function (result) {
                             expect(result).toEqual(dummyData);
-                            done();
+                            NativeStorage.remove("dummy_ref_str", function () {
+                                done();
+                            }, function (e) {
+                                fail("Delete Boolean Failed");
+                            });
                         },
                         function (e) {
                             fail("Read String Failed");
@@ -86,7 +102,11 @@ exports.defineAutoTests = function () {
                     NativeStorage.getObject("dummy_ref_obj",
                         function (result) {
                             expect(result).toEqual(dummyData);
-                            done();
+                            NativeStorage.remove("dummy_ref_obj", function () {
+                                done();
+                            }, function (e) {
+                                fail("Delete Boolean Failed");
+                            });
                         },
                         function (e) {
                             fail("Read Object Failed");
