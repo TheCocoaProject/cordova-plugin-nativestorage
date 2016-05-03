@@ -1,2 +1,239 @@
-var nativeStorageHandle = require('./NativeStorageHandle');
-module.exports = nativeStorageHandle;
+"use strict";
+var exec = require('cordova/exec');
+var localStorageHandle = require('./LocalStorageHandle');
+var TAG = "NativeStorage.js";
+var inBrowser = false;
+var storageHandlerDelegate = null
+function isInBrowser() {
+    inBrowser = (window.cordova && window.cordova.platformId === 'browser') || !(window.phonegap || window.cordova);
+    return inBrowser;
+}
+function storageSupport() {
+    if (!isInBrowser()) {
+        storageHandlerDelegate = exec;
+    }
+    else {
+        if (window.localStorage) {
+            storageHandlerDelegate = localStorageHandle;
+        }
+        else {
+            console.log("ALERT! localstorage isn't supported");
+        }
+    }
+}
+
+function StorageHandle() {
+    console.log(TAG + ": is created");
+    if (isInBrowser()) {
+        console.log("browser detected!");
+        if (!window.localStorage) {
+            console.log("ALERT! localstorage isn't supported");
+        }
+    }
+}
+
+
+
+StorageHandle.prototype.set = function (reference, value, success, error) {
+    if (reference === null) {
+        error("The reference can't be null");
+        return;
+    }
+    if (value === null) {
+        error("a Null value isn't supported");
+        return;
+    }
+    switch (typeof value) {
+        case 'undefined':
+            error("an undefined type isn't supported");
+            break;
+        case 'boolean':
+            {
+                this.putBoolean(reference, value, success, error);
+                break;
+            }
+        case 'number':
+            {
+                // Good now check if it's a float or an int
+                if (value === +value) {
+                    if (value === (value | 0)) {
+                        // it's an int
+                        this.putInt(reference, value, success, error);
+                    } else if (value !== (value | 0)) {
+                        this.putDouble(reference, value, success, error);
+                    }
+                }
+                else {
+                    error("The value doesn't seem to be a number");
+                }
+                break;
+            }
+        case 'string': {
+            this.putString(reference, value, success, error);
+            break;
+        }
+        case 'object': {
+            this.putObject(reference, value, success, error);
+            break;
+        }
+        default:
+            error("The type isn't supported or isn't been recognized");
+            break;
+    }
+};
+
+/* removing */
+StorageHandle.prototype.remove = function (reference, success, error) {
+    if (reference === null) {
+        error("Null reference isn't supported"); return;
+    }
+
+    if (inBrowser) {
+        try {
+            localStorage.removeItem(reference);
+            success();
+        } catch (e) { error(e); }
+    } else {
+        exec(success, error, "NativeStorage", "remove", [reference]);
+    }
+};
+
+
+/* boolean storage */
+StorageHandle.prototype.putBoolean = function (reference, aBoolean, success, error) {
+    //console.log(TAG+": putBoolean");
+    if (reference === null) {
+        error("Null reference isn't supported"); return;
+    }
+
+    if (aBoolean === null) {
+        error("a Null value isn't supported"); return;
+    }
+
+    if (typeof aBoolean === 'boolean') {
+        if (inBrowser) {
+            localStorageHandle(success, error, "NativeStorage", "putBoolean", [reference, aBoolean]);
+        } else {
+            exec(success, error, "NativeStorage", "putBoolean", [reference, aBoolean]);
+        }
+    }
+    else {
+        error("Only boolean types are supported");
+    }
+};
+
+
+StorageHandle.prototype.getBoolean = function (reference, success, error) {
+    //console.log(TAG+": getBoolean");
+    if (reference === null) {
+        error("Null reference isn't supported"); return;
+    }
+    if (inBrowser) {
+        localStorageHandle(success, error, "NativeStorage", "getBoolean", [reference]);
+    } else {
+        exec(success, error, "NativeStorage", "getBoolean", [reference]);
+    }
+};
+
+/* int storage */
+StorageHandle.prototype.putInt = function (reference, anInt, success, error) {
+    //console.log(TAG+": putInt");
+    if (reference === null) {
+        error("Null reference isn't supported"); return;
+    }
+
+    if (inBrowser) {
+        localStorageHandle(success, error, "NativeStorage", "putInt", [reference, anInt]);
+    } else {
+        exec(success, error, "NativeStorage", "putInt", [reference, anInt]);
+    }
+};
+
+StorageHandle.prototype.getInt = function (reference, success, error) {
+    if (reference === null) {
+        error("Null reference isn't supported"); return;
+    }
+    if (inBrowser) {
+        localStorageHandle(success, error, "NativeStorage", "getInt", [reference]);
+    } else {
+        exec(success, error, "NativeStorage", "getInt", [reference]);
+    }
+};
+
+
+/* float storage */
+StorageHandle.prototype.putDouble = function (reference, aFloat, success, error) {
+    //console.log(TAG+": putFloat");
+    if (reference === null) {
+        error("Null reference isn't supported"); return;
+    }
+    if (inBrowser) {
+        localStorageHandle(success, error, "NativeStorage", "putDouble", [reference, aFloat]);
+    } else {
+        exec(success, error, "NativeStorage", "putDouble", [reference, aFloat]);
+    }
+};
+
+StorageHandle.prototype.getDouble = function (reference, success, error) {
+    if (reference === null) {
+        error("Null reference isn't supported"); return;
+    }
+    if (inBrowser) {
+        localStorageHandle(success, error, "NativeStorage", "getDouble", [reference]);
+    } else {
+        exec(success, error, "NativeStorage", "getDouble", [reference]);
+    }
+};
+
+/* string storage */
+StorageHandle.prototype.putString = function (reference, s, success, error) {
+    //console.log(TAG+": putString");
+    if (reference === null) {
+        error("Null reference isn't supported"); return;
+    }
+    if (inBrowser) {
+        localStorageHandle(success, error, "NativeStorage", "putString", [reference, s]);
+    } else {
+        exec(success, error, "NativeStorage", "putString", [reference, s]);
+    }
+};
+
+StorageHandle.prototype.getString = function (reference, success, error) {
+    //console.log(TAG+": getString");
+    if (reference === null) {
+        error("Null reference isn't supported"); return;
+    }
+    if (inBrowser) {
+        localStorageHandle(success, error, "NativeStorage", "getString", [reference]);
+    } else {
+        exec(success, error, "NativeStorage", "getString", [reference]);
+    }
+};
+
+/* object storage  COMPOSITE AND DOESNT CARE FOR BROWSER*/
+StorageHandle.prototype.putObject = function (reference, obj, success, error) {
+    var objAsString = "";
+    try {
+        objAsString = JSON.stringify(obj);
+    } catch (err) {
+        error(err);
+    }
+    this.putString(reference, objAsString, success, error);
+};
+
+StorageHandle.prototype.getObject = function (reference, success, error) {
+    //console.log(TAG+": getObject");
+    this.getString(reference, function (data) {
+        var obj = {};
+        try {
+            obj = JSON.parse(data);
+            success(obj);
+        } catch (err) {
+            error(err);
+        }
+    }, error);
+};
+
+
+var storageHandle = new StorageHandle();
+module.exports = storageHandle;

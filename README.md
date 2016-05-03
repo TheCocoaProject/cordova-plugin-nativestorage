@@ -246,7 +246,7 @@ Storage and retrieval of objects are now possible. This is done by means of JSON
 ### Added error when write to disk wasn't succesfull - v1.0.8
 Plugin-users will now be certain writing was successful when the `set` method is called. With thanks to [alokrajiv](https://github.com/GillesC/cordova-plugin-nativestorage/issues/1) for pointing out that the `apply()` method used in Android doesn't ensure the value is successful stored. As of version 1.0.8. the plugin-users will be certain the value is stored when the success-callback has been invoked --which is the case for both Android and iOS.
 
-### Gloabl remove method - v1.0.7 
+### Global remove method - v1.0.7 
 A global `remove` method is now provided so developers can now remove a variable for a reference.
 ```javascript
 NativeStorage.remove("reference_to_value", <success-callback>, <error-callback>);
