@@ -24,6 +24,24 @@ exports.defineAutoTests = function () {
                     fail("Write Boolean Failed");
                 });
         });
+        it('Ints', function (done) {
+            var dummyData = 154243;
+            NativeStorage.set("dummy_ref_int",
+                dummyData,
+                function (result) {
+                    NativeStorage.getInt("dummy_ref_int",
+                        function (result) {
+                            expect(result).toEqual(dummyData);
+                            done();
+                        },
+                        function (e) {
+                            fail("Read Int Failed");
+                        });
+                },
+                function (e) {
+                    fail("Write Int Failed");
+                });
+        });
         it('Objects', function (done) {
             var dummyData = { data1: "", data2: 2, data3: 3.0 };
             NativeStorage.set("dummy_ref_obj",
