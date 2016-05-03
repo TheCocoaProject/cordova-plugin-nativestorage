@@ -27,8 +27,6 @@ Pleas consider reading our [wiki](https://github.com/GillesC/cordova-plugin-nati
 	* [Example per type](#example_per_type)
 	* [Full example](#full_example)
 	* [Demo Example](#demo_example)
-- [Changelog](#changelog)
-- [How it works](#how)
 - [Default values](#defaults)
 - [Problems](#problems)
 - [Applications using this plugin](#applications)
@@ -235,16 +233,6 @@ cordova emulate ios
 cordova run android
 cordova run browser
 ```
-
-
-##<a name="how"></a>How?
-The values are native stored by using native functionalities provided by Android en iOS.
-* Android
-  - SharedPreferences
-* iOS
-  - NSUserDefaults
-* Browser (only for testing)
- - JSON in combination with localStorage
 
 ##<a name="defaults"></a>Defaults
 If the requested value for a giving response is not found a default value will be returned.
