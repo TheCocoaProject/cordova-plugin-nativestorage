@@ -56,7 +56,7 @@ public class NativeStorage extends CordovaPlugin{
                         Boolean bool = args.getBoolean(1);
                         editor.putBoolean(ref, bool);
                         boolean success = editor.commit();
-                        if(success) callbackContext.success(bool);
+                        if(success) callbackContext.success(String.valueOf(bool));
                         else callbackContext.error("Write failed");
                     } catch (Exception e) {
                         Log.e(TAG, "PutBoolean failed :", e);
@@ -75,7 +75,7 @@ public class NativeStorage extends CordovaPlugin{
                         String ref = args.getString(0);
                         //System.out.println("Receveived reference: " + ref);
                         Boolean bool = sharedPref.getBoolean(ref, false);
-                        callbackContext.success(bool);
+                        callbackContext.success(String.valueOf(bool));
                     } catch (Exception e) {
                         Log.e(TAG, "PutBoolean failed :", e);
                         callbackContext.error(e.getMessage());
