@@ -42,6 +42,24 @@ exports.defineAutoTests = function () {
                     fail("Write Int Failed");
                 });
         });
+        it('Doubles', function (done) {
+            var dummyData = 12327.023491;
+            NativeStorage.set("dummy_ref_double",
+                dummyData,
+                function (result) {
+                    NativeStorage.getDouble("dummy_ref_double",
+                        function (result) {
+                            expect(result).toEqual(dummyData);
+                            done();
+                        },
+                        function (e) {
+                            fail("Read Double Failed");
+                        });
+                },
+                function (e) {
+                    fail("Write String Failed");
+                });
+        });
         it('Objects', function (done) {
             var dummyData = { data1: "", data2: 2, data3: 3.0 };
             NativeStorage.set("dummy_ref_obj",
