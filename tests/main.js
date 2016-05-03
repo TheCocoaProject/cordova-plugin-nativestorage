@@ -51,7 +51,7 @@ exports.defineAutoTests = function () {
                 });
         });
         it('Doubles', function (done) {
-            var dummyData = 12327.023491;
+            var dummyData = 12327.023;
             NativeStorage.set("dummy_ref_double",
                 dummyData,
                 function (result) {

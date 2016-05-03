@@ -197,7 +197,14 @@ StorageHandle.prototype.getDouble = function (reference, success, error) {
         error("Null reference isn't supported");
         return;
     }
-    this.storageHandlerDelegate(success, error, "NativeStorage", "getDouble", [reference]);
+    this.storageHandlerDelegate(function(data){
+        if(isNaN(data)){
+            error('Expected double but got non-number');
+        }
+        else{
+            success(parseFloat(data));
+        }
+    }, error, "NativeStorage", "getDouble", [reference]);
 };
 
 /* string storage */
