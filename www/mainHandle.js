@@ -116,7 +116,13 @@ StorageHandle.prototype.putBoolean = function (reference, aBoolean, success, err
     }
 
     if (typeof aBoolean === 'boolean') {
-        this.storageHandlerDelegate(success, error, "NativeStorage", "putBoolean", [reference, aBoolean]);
+        this.storageHandlerDelegate(function(returnedBool){
+            if('string' === typeof returnedBool){
+                success((returnedBool==='true'));
+            }else{
+                success(returnedBool);
+            }
+        }, error, "NativeStorage", "putBoolean", [reference, aBoolean]);
     }
     else {
         error("Only boolean types are supported");
@@ -128,7 +134,13 @@ StorageHandle.prototype.getBoolean = function (reference, success, error) {
     if (reference === null) {
         error("Null reference isn't supported"); return;
     }
-    this.storageHandlerDelegate(success, error, "NativeStorage", "getBoolean", [reference]);
+    this.storageHandlerDelegate(function(returnedBool){
+        if('string' === typeof returnedBool){
+            success((returnedBool==='true'));
+        }else{
+            success(returnedBool);
+        }
+    }, error, "NativeStorage", "getBoolean", [reference]);
 };
 
 /* int storage */
