@@ -60,6 +60,24 @@ exports.defineAutoTests = function () {
                     fail("Write String Failed");
                 });
         });
+        it('Strings', function (done) {
+            var dummyData = "sdadadfsjdhbfwehfnciu7834fybzx2lnqo8japf;ckamicoa.c.a/";
+            NativeStorage.set("dummy_ref_str",
+                dummyData,
+                function (result) {
+                    NativeStorage.getString("dummy_ref_str",
+                        function (result) {
+                            expect(result).toEqual(dummyData);
+                            done();
+                        },
+                        function (e) {
+                            fail("Read String Failed");
+                        });
+                },
+                function (e) {
+                    fail("Write String Failed");
+                });
+        });
         it('Objects', function (done) {
             var dummyData = { data1: "", data2: 2, data3: 3.0 };
             NativeStorage.set("dummy_ref_obj",
