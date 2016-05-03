@@ -15,8 +15,6 @@
     </js-module>
     <js-module src="www/LocalStorageHandle.js" name="LocalStorageHandle">
     </js-module>
-    <js-module src="www/NativeStorageHandle.js" name="NativeStorageHandle">
-    </js-module>
 
     <!-- android -->
     <platform name="android">
