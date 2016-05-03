@@ -236,41 +236,6 @@ cordova run android
 cordova run browser
 ```
 
-##<a name="changelog"></a>Changelog
-
-### Fixes and rewiring - v1.1.1
-- Fixed wrong double/boolean behaviour in Android (Strings were being returned)
-- Increased Test Coverage
-- Rewire of the JS back-end (no change to API)
-
-### Added browser capability - v1.0.10
-For testing purposes the browser is also supported. If running in the browser localstorage is used.
-
-### Added object type - v1.0.9
-Storage and retrieval of objects are now possible. This is done by means of JSON functionalities.
-
-### Added error when write to disk wasn't succesfull - v1.0.8
-Plugin-users will now be certain writing was successful when the `set` method is called. With thanks to [alokrajiv](https://github.com/GillesC/cordova-plugin-nativestorage/issues/1) for pointing out that the `apply()` method used in Android doesn't ensure the value is successful stored. As of version 1.0.8. the plugin-users will be certain the value is stored when the success-callback has been invoked --which is the case for both Android and iOS.
-
-### Global remove method - v1.0.7 
-A global `remove` method is now provided so developers can now remove a variable for a reference.
-```javascript
-NativeStorage.remove("reference_to_value", <success-callback>, <error-callback>);
-```
-
-The `<success-callback>` will be called when the deletion was succesfull, otherwise the `<error-callback>` will provide you with an error message.
-
-### Newly Global set method - v1.0.4
-Now developers can use a simple `set` method for saving all the supported types.
-An overall `get` method is'nt (yet) supported.
-
-```javascript
-NativeStorage.set("reference_to_value",<value>, <success-callback>, <error-callback>);
-
-NativeStorage.get<type>("reference_to_value",<success-callback>, <error-callback>);
-```
-The developers can also opt to call a `put` method specified by the type, like shown below.
-
 
 ##<a name="how"></a>How?
 The values are native stored by using native functionalities provided by Android en iOS.
