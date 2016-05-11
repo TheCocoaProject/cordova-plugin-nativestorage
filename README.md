@@ -15,7 +15,7 @@ Via this plugin the developer can store integers, doubles, strings, booleans and
 ***NEW API!!*** 
 Simple `setItem` and `getItem` are provided to store variables natively
 
-Old API isn't broken, documentation about this API can be found at the [wiki](https://github.com/GillesC/cordova-plugin-nativestorage/wiki/How-to-use)
+Old API isn't broken, documentation about this API (prior to v2) can be found at the [wiki](https://github.com/GillesC/cordova-plugin-nativestorage/wiki/Usage-API-(prior-to-v2.0.0))
 
 ***
 
