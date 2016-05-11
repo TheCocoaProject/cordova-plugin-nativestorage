@@ -113,10 +113,10 @@ cordova run browser
 ```
 
 ##<a name="errors"></a>Errors
-Error object:
-	- code
-	- source ("Native"/"JS")
-	- exception (if any, e.g. JSON exception)
+Error object contains:
+- code
+- source (= "Native"/"JS")
+- exception (if any, e.g. JSON exception)
 
 ### Error codes
 the code contains an integer whichs specifies the occured error/problem
