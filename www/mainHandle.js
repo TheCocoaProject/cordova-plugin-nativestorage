@@ -274,6 +274,7 @@ StorageHandle.prototype.getItem = function (reference, success, error) {
         return;
     }
     var obj = {};
+
     this.storageHandlerDelegate(
         function (data) {
             try {
@@ -282,8 +283,7 @@ StorageHandle.prototype.getItem = function (reference, success, error) {
             } catch (err) {
                 error(new NativeStorageError(NativeStorageError.JSON_ERROR, "JS", err));
             }
-        }
-        , function (code) {
+        }, function (code) {
             error(new NativeStorageError(code, "Native", ""));
         }, "NativeStorage", "getItem", [reference]);
 };
