@@ -120,11 +120,11 @@ Error object contains:
 
 ### Error codes
 the code contains an integer whichs specifies the occured error/problem
-- NATIVE_WRITE_FAILED = 1;
-- ITEM_NOT_FOUND = 2;
-- NULL_REFERENCE = 3;
-- UNDEFINED_TYPE = 4;
-- JSON_ERROR = 5;
+- `NATIVE_WRITE_FAILED` = 1;
+- `ITEM_NOT_FOUND` = 2;
+- `NULL_REFERENCE` = 3;
+- `UNDEFINED_TYPE` = 4;
+- `JSON_ERROR` = 5;
 
 ##<a name="problems"></a>Problems
 If you encounter any problems, please remove the current plugin and re-add it.
