@@ -95,7 +95,7 @@ exports.defineAutoTests = function () {
                 });
         });
         it('Objects', function (done) {
-            var dummyData = { data1: "", data2: 2, data3: 3.0 };
+            var dummyData = {data1: "", data2: 2, data3: 3.0};
             NativeStorage.set("dummy_ref_obj",
                 dummyData,
                 function (result) {
@@ -118,4 +118,151 @@ exports.defineAutoTests = function () {
         });
     });
 
+    /* NEW API test */
+    describe('Write/Read/Delete Tests new API', function () {
+        it("Plugin available", function () {
+            expect(NativeStorage).toEqual(jasmine.anything());
+        });
+        it('Booleans', function (done) {
+            var dummyData = true;
+            NativeStorage.setItem("dummy_ref_bool_new",
+                dummyData,
+                function (result) {
+                    NativeStorage.getItem("dummy_ref_bool_new",
+                        function (result) {
+                            expect(result).toEqual(dummyData);
+                            NativeStorage.remove("dummy_ref_bool_new", function () {
+                                done();
+                            }, function (e) {
+                                fail("Delete Boolean Failed");
+                            });
+                        },
+                        function (e) {
+                            fail("Read Boolean Failed");
+                        });
+                },
+                function (e) {
+                    fail("Write Boolean Failed");
+                });
+        });
+        it('Ints', function (done) {
+            var dummyData = 154243;
+            NativeStorage.setItem("dummy_ref_int_new",
+                dummyData,
+                function (result) {
+                    NativeStorage.getItem("dummy_ref_int_new",
+                        function (result) {
+                            expect(result).toEqual(dummyData);
+                            NativeStorage.remove("dummy_ref_int_new", function () {
+                                done();
+                            }, function (e) {
+                                fail("Delete Boolean Failed");
+                            });
+                        },
+                        function (e) {
+                            fail("Read Int Failed");
+                        });
+                },
+                function (e) {
+                    fail("Write Int Failed");
+                });
+        });
+        it('Doubles', function (done) {
+            var dummyData = 12327.023;
+            NativeStorage.setItem("dummy_ref_double_new",
+                dummyData,
+                function (result) {
+                    NativeStorage.getItem("dummy_ref_double_new",
+                        function (result) {
+                            expect(result).toEqual(dummyData);
+                            NativeStorage.remove("dummy_ref_double_new", function () {
+                                done();
+                            }, function (e) {
+                                fail("Delete Boolean Failed");
+                            });
+                        },
+                        function (e) {
+                            fail("Read Double Failed");
+                        });
+                },
+                function (e) {
+                    fail("Write String Failed");
+                });
+        });
+        it('Strings', function (done) {
+            var dummyData = "sdadadfsjdhbfwehfnciu7834fybzx2lnqo8japf;ckamicoa.c.a/";
+            NativeStorage.setItem("dummy_ref_str_new",
+                dummyData,
+                function (result) {
+                    NativeStorage.getItem("dummy_ref_str_new",
+                        function (result) {
+                            expect(result).toEqual(dummyData);
+                            NativeStorage.remove("dummy_ref_str_new", function () {
+                                done();
+                            }, function (e) {
+                                fail("Delete Boolean Failed");
+                            });
+                        },
+                        function (e) {
+                            fail("Read String Failed");
+                        });
+                },
+                function (e) {
+                    fail("Write String Failed");
+                });
+        });
+        it('Objects', function (done) {
+            var dummyData = {data1: "", data2: 2, data3: 3.0};
+            NativeStorage.setItem("dummy_ref_obj_new",
+                dummyData,
+                function (result) {
+                    NativeStorage.getItem("dummy_ref_obj_new",
+                        function (result) {
+                            expect(result).toEqual(dummyData);
+                            NativeStorage.remove("dummy_ref_obj_new", function () {
+                                done();
+                            }, function (e) {
+                                fail("Delete Boolean Failed");
+                            });
+                        },
+                        function (e) {
+                            fail("Read Object Failed");
+                        });
+                },
+                function (e) {
+                    fail("Write Object Failed");
+                });
+        });
+    });
+
+
+    /* NEW API test */
+    describe('Fail Tests new API', function () {
+        it("Plugin available", function () {
+            expect(NativeStorage).toEqual(jasmine.anything());
+        });
+        it('Null reference', function (done) {
+            NativeStorage.setItem(null,"objbio",
+                function (result) {
+                    //expect(result).toEqual(dummyData);
+                },
+                function (e) {
+                    expect(e.code).toEqual(3);
+                    done();
+                });
+        });
+
+        it('Item Not Found', function (done) {
+            NativeStorage.getItem("dummy_ref_fail",
+                function (result) {
+                    //expect(result).toEqual(dummyData);
+                },
+                function (e) {
+                    expect(e.code).toEqual(2);
+                    done();
+                });
+        });
+
+
+    });
 };
