@@ -102,7 +102,7 @@ git clone https://github.com/GillesC/cordova-plugin-nativestorage.git
 ```sh
 cd cordova-plugin-nativestorage/examples/demo/
 ```
-* Adding platforms you require
+* Adding target platforms
 ```sh
 cordova platform add ios
 cordova platform add android
