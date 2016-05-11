@@ -1,5 +1,7 @@
 var inBrowser = false;
 var NativeStorageError = require('./NativeStorageError');
+
+
 function isInBrowser() {
     inBrowser = (window.cordova && window.cordova.platformId === 'browser') || !(window.phonegap || window.cordova);
     return inBrowser;
@@ -198,11 +200,11 @@ StorageHandle.prototype.getDouble = function (reference, success, error) {
         error("Null reference isn't supported");
         return;
     }
-    this.storageHandlerDelegate(function(data){
-        if(isNaN(data)){
+    this.storageHandlerDelegate(function (data) {
+        if (isNaN(data)) {
             error('Expected double but got non-number');
         }
-        else{
+        else {
             success(parseFloat(data));
         }
     }, error, "NativeStorage", "getDouble", [reference]);
@@ -248,43 +250,41 @@ StorageHandle.prototype.getObject = function (reference, success, error) {
     }, error);
 };
 
-
-
 /* New API */
 StorageHandle.prototype.setItem = function (reference, obj, success, error) {
     var objAsString = "";
     try {
         objAsString = JSON.stringify(obj);
     } catch (err) {
-        error(new NativeStorageError(NativeStorageError.JSON_ERROR,"JS",err));
+        error(new NativeStorageError(NativeStorageError.JSON_ERROR, "JS", err));
         return;
     }
     if (reference === null) {
-        error(new NativeStorageError(NativeStorageError.NULL_REFERENCE,"JS",""));
+        error(new NativeStorageError(NativeStorageError.NULL_REFERENCE, "JS", ""));
         return;
     }
-    this.storageHandlerDelegate(success, function(code){
-        error(new NativeStorageError(code,"Native",""));
+    this.storageHandlerDelegate(success, function (code) {
+        error(new NativeStorageError(code, "Native", ""));
     }, "NativeStorage", "setItem", [reference, objAsString]);
 };
 
 StorageHandle.prototype.getItem = function (reference, success, error) {
     if (reference === null) {
-        error(new NativeStorageError(NativeStorageError.NULL_REFERENCE,"JS",""));
+        error(new NativeStorageError(NativeStorageError.NULL_REFERENCE, "JS", ""));
         return;
     }
     var obj = {};
     this.storageHandlerDelegate(
-        function(data){
+        function (data) {
             try {
                 obj = JSON.parse(data);
                 success(obj);
             } catch (err) {
-                error(new NativeStorageError(NativeStorageError.JSON_ERROR,"JS",err));
+                error(new NativeStorageError(NativeStorageError.JSON_ERROR, "JS", err));
             }
         }
-        , function(code){
-            error(new NativeStorageError(code,"Native",""));
+        , function (code) {
+            error(new NativeStorageError(code, "Native", ""));
         }, "NativeStorage", "getItem", [reference]);
 };
 

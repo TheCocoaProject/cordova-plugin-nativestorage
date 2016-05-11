@@ -11,7 +11,13 @@ description: Persistent storage of variables and objects.
 
 Via this plugin the developer can store integers, doubles, strings, booleans and objects, native on Android and iOS, in a persistence way.
 
-**REMARK**: All versions are backward compatible, so updating the plugin will not brick our application, instead it will give you all the latest features.
+***
+NEW API!! 
+Simple setItem and getItem are provided to store variables natively
+
+Old API isn't broken, documentation about this API can be found at the [wiki](https://github.com/GillesC/cordova-plugin-nativestorage/wiki/How-to-use)
+
+***
 
 The plugin was created and developed by [Gilles Callebaut](https://be.linkedin.com/in/gilles-callebaut-46a751104), in the scope of an [IWT/VlAIO](http://www.vlaio.be/english) Tetra project [CrossMoS](https://www.msec.be/crossmos/) which assesses Mobile Cross-Platform Tools. This wouldn't be possible without the contributions of [Alok Rajiv](https://github.com/alokrajiv), our Cordova and JavaScript guru.
 
