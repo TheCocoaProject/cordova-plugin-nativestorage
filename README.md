@@ -30,10 +30,8 @@ Please consider reading our [wiki](https://github.com/GillesC/cordova-plugin-nat
 	* [Storing values](#storing_values)
 	* [Retrieving values](#retrieving_values)
 	* [Removing values](#removing_values)
-	* [Example per type](#example_per_type)
-	* [Full example](#full_example)
 	* [Demo Example](#demo_example)
-- [Default values](#defaults)
+- [Erros](#errors)
 - [Problems](#problems)
 - [Applications using this plugin](#applications)
 
@@ -71,146 +69,20 @@ cordova plugin add https://github.com/GillesC/cordova-plugin-nativestorage.git
 ##<a name="usage"></a>Usage
 The parameter of the success-callback function will be the saved or retreived value, the error-callback will specify the occurred error.
 
-###<a name="supported_types"></a>Supported types
-- Booleans
-- Strings
-- Doubles
-- Integers
-- Objects
-
 ###<a name="storing_values"></a>Storing values
-The developr can opt to store values through the `set` or the `put<type>` method.
 ```javascript
-NativeStorage.set("reference_to_value",<value>, <success-callback>, <error-callback>);
-NativeStorage.put<type>("reference_to_value",<value>, <success-callback>, <error-callback>);
-NativeStorage.get<type>("reference_to_value",<success-callback>, <error-callback>);
-NativeStorage.remove("reference_to_value",<success-callback>, <error-callback>);
+NativeStorage.setItem("reference_to_value",<value>, <success-callback>, <error-callback>);
 ```
 ###<a name="retrieving_values"></a>Retrieving values
 ```javascript
-NativeStorage.get<type>("reference_to_value",<success-callback>, <error-callback>);
+NativeStorage.getItem("reference_to_value",<success-callback>, <error-callback>);
 ```
 
 ###<a name="removing_values"></a>Removing values
 ```javascript
 NativeStorage.remove("reference_to_value",<success-callback>, <error-callback>);
 ```
-###<a name="example_per_type"></a>Example per type
-#### Booleans
-```javascript
-NativeStorage.putBoolean("reference_to_value",<bool-value>, <success-callback>, <error-callback>);
 
-NativeStorage.getBoolean("reference_to_value",<success-callback>, <error-callback>);
-```
-
-#### Integers
-```javascript
-NativeStorage.putInt("reference_to_value",<int-value>, <success-callback>, <error-callback>);
-
-NativeStorage.getInt("reference_to_value", <success-callback>, <error-callback>);
-```
-
-#### Doubles
-```javascript
-NativeStorage.putDouble("reference_to_value",<double-value>, <success-callback>, <error-callback>);
-
-NativeStorage.getDouble("reference_to_value",<success-callback>, <error-callback>);
-```
-
-#### Strings
-```javascript
-NativeStorage.putString("reference_to_value",<string>, <success-callback>, <error-callback>);
-
-NativeStorage.getString("reference_to_value",<success-callback>, <error-callback>);
-```
-
-#### Objects
-```javascript
-NativeStorage.putObject("reference_to_value",<object>, <success-callback>, <error-callback>);
-
-NativeStorage.getObject("reference_to_value",<success-callback>, <error-callback>);
-```
-
-###<a name="full_example"></a>Full Example
-```javascript
-var app = {
-	initialize: function() {
-		this.bindEvents();
-	},
-	bindEvents: function() {
-		document.addEventListener('deviceready', this.onDeviceReady, false);
-	},
-	onDeviceReady: function() {
-		app.receivedEvent('deviceready');
-	},
-	receivedEvent: function(id) {
-		NativeStorage.set("ref_bool",true, function(result){
-			console.log("Put! "+result);
-
-			NativeStorage.getBoolean("ref_bool", function(result){
-				console.log("Got: "+result);
-			},
-			function(e){
-				console.log(e);
-			});
-		},
-		function(e){
-			console.log(e);
-		});
-
-
-
-		NativeStorage.set("ref_int",22, function(result){
-			console.log("Put! "+result);
-
-			NativeStorage.getInt("ref_int", function(result){
-				console.log("Got: "+result);
-			},
-			function(e){
-				console.log(e);
-			});
-		},
-		function(e){
-			console.log(e);
-		});
-
-
-
-		NativeStorage.set("ref_float",3.14, function(result){
-			console.log("Put! "+result);
-
-			NativeStorage.getDouble("ref_float", function(result){
-				console.log("Got: "+result);
-			},
-			function(e){
-				console.log(e);
-			});
-		},
-		function(e){
-			console.log(e);
-		});
-
-
-
-		NativeStorage.set("ref_string","hahaha", function(result){
-			console.log("Put! "+result);
-
-			NativeStorage.getString("ref_string", function(result){
-				console.log("Got: "+result);
-				console.log("Now removing it");
-				NativeStorage.remove("ref_string", function(){console.log("Removed with success!");}, function(e){console.log(e);})
-			},
-			function(e){
-				console.log(e);
-			});
-		},
-		function(e){
-			console.log(e);
-		});
-	}
-};
-app.initialize();
-```
 ###<a name="demo_example"></a>Demo Example
 A demo application can be found at `cordova-plugin-nativestorage/examples/demo`. This application will save a String when the SAVE (`btn_load`) is pushed. This String is the value which has been typed in the input field (`data_input`). When the LOAD button is pressed, the value is shown by means of an alert message. 
 
@@ -240,18 +112,19 @@ cordova run android
 cordova run browser
 ```
 
-##<a name="defaults"></a>Defaults
-If the requested value for a giving response is not found a default value will be returned.
-* Android
-  - Boolean: `false`
-  - Integer: `-1`
-  - Double: `-1.0`
-  - String: `"null"`
-* iOS
-  - Boolean: `false`
-  - Integer: `0`
-  - Double: `0.0`
-  - String: `nil`
+##<a name="errors"></a>Errors
+Error object:
+	- code
+	- source ("Native"/"JS")
+	- exception (if any, e.g. JSON exception)
+
+### Error codes
+the code contains an integer whichs specifies the occured error/problem
+- NATIVE_WRITE_FAILED = 1;
+- ITEM_NOT_FOUND = 2;
+- NULL_REFERENCE = 3;
+- UNDEFINED_TYPE = 4;
+- JSON_ERROR = 5;
 
 ##<a name="problems"></a>Problems
 If you encounter any problems, please remove the current plugin and re-add it.
