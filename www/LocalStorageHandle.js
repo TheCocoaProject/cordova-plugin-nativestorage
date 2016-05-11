@@ -4,9 +4,9 @@ function LocalStorageHandle(success, error, intent, operation, [reference, varia
     if (operation.startsWith('put') || operation.startsWith('set')) {
         try {
             var varAsString = JSON.stringify(variable);
-            if(reference==null){
-            	error(new NativeStorageError(NativeStorageError.NULL_REFERENCE, "JS", ""));
-        	   return;
+            if (reference === null) {
+                error(new NativeStorageError(NativeStorageError.NULL_REFERENCE, "JS", ""));
+                return;
             }
             localStorage.setItem(reference, varAsString);
             success(varAsString);
@@ -15,14 +15,14 @@ function LocalStorageHandle(success, error, intent, operation, [reference, varia
         }
     }
     else if (operation.startsWith('get')) {
-    	var obj = {};
-    	obj = localStorage.getItem(reference);
-    	if(obj===null){
-    		error(new NativeStorageError(NativeStorageError.ITEM_NOT_FOUND, "JS", ""));
-    		return;
-    	}
+        var item = {};
+        item = localStorage.getItem(reference);
+        if (item === null) {
+            error(new NativeStorageError(NativeStorageError.ITEM_NOT_FOUND, "JS", ""));
+            return;
+        }
         try {
-            var obj = JSON.parse(obj);
+            var obj = JSON.parse(item);
             //console.log("LocalStorage Reading: "+obj);
             success(obj);
         } catch (err) {
