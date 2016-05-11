@@ -200,9 +200,48 @@ public class NativeStorage extends CordovaPlugin{
             return true;
         }
 
+        if(("setItem").equals(action)){
+            cordova.getThreadPool().execute(new Runnable() {
+                public void run() {
+                    try {
+                        /* getting arguments */
+                        String ref = args.getString(0);
+                        String aString = args.getString(1);
+                        editor.putString(ref, aString);
+                        boolean success = editor.commit();
+                        if(success) callbackContext.success(aString);
+                        else callbackContext.error(1); //nativeWrite failed
+                    } catch (Exception e) {
+                        Log.e(TAG, "setItem :", e);
+                        callbackContext.error(e.getMessage());
+                    }
+                }
+            });
+            return true;
+        }
+
+        if(("getItem").equals(action)){
+            cordova.getThreadPool().execute(new Runnable() {
+                public void run() {
+                    try {
+                        /* getting arguments */
+                        String ref = args.getString(0);
+                        //System.out.println("Receveived reference: " + ref);
+                        String s = sharedPref.getString(ref, "nativestorage_null");
+                        if(s.equals("nativestorage_null")){
+                            callbackContext.error(2);  // item not found
+                        }
+                        else callbackContext.success(s);
+                    } catch (Exception e) {
+                        Log.e(TAG, "getItem failed :", e);
+                        callbackContext.error(e.getMessage());
+                    }
+                }
+            });
+            return true;
+        }
+
         return false;
-
-
 
     }
 }

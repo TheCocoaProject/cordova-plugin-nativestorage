@@ -1,4 +1,5 @@
 var inBrowser = false;
+var NativeStorageError = require('./NativeStorageError');
 function isInBrowser() {
     inBrowser = (window.cordova && window.cordova.platformId === 'browser') || !(window.phonegap || window.cordova);
     return inBrowser;
@@ -245,6 +246,44 @@ StorageHandle.prototype.getObject = function (reference, success, error) {
             error(err);
         }
     }, error);
+};
+
+
+
+/* New API */
+StorageHandle.prototype.setItem = function (reference, obj, success, error) {
+    var objAsString = "";
+    try {
+        objAsString = JSON.stringify(obj);
+    } catch (err) {
+        error(err);
+        return;
+    }
+    if (reference === null) {
+        error(3);
+        return;
+    }
+    this.storageHandlerDelegate(success, function(code){
+        error(new NativeStorageError(code,"Native",""));
+    }, "NativeStorage", "setItem", [reference, objAsString]);
+};
+
+StorageHandle.prototype.getItem = function (reference, success, error) {
+    if (reference === null) {
+        error(3);
+        return;
+    }
+    var obj = {};
+    this.storageHandlerDelegate(
+        function(data){
+            try {
+                obj = JSON.parse(data);
+                success(obj);
+            } catch (err) {
+                error(err);
+            }
+        }
+        , error, "NativeStorage", "getItem", [reference]);
 };
 
 

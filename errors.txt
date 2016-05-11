@@ -1,0 +1,5 @@
+Errors:
+-	1: Native write failed
+-	2: item not found (natively)
+-	3: reference was null
+-	4: undefinied item type (in JS)
