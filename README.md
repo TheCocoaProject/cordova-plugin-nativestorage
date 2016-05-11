@@ -65,13 +65,6 @@ cordova plugin add https://github.com/GillesC/cordova-plugin-nativestorage.git
 ##<a name="usage"></a>Usage
 The parameter of the success-callback function will be the saved or retreived value, the error-callback will specify the occurred error.
 
-###<a name="supported_types"></a>Supported types
-- Booleans
-- Strings
-- Doubles
-- Integers
-- Objects
-
 ###<a name="storing_values"></a>Storing values
 The developr can opt to store values through the `set` or the `put<type>` method.
 ```javascript
