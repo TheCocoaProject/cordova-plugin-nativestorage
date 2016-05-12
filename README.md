@@ -63,6 +63,13 @@ or through this git repo if you want to be running the development version:
 cordova plugin add https://github.com/TheCocoaProject/cordova-plugin-nativestorage
 ```
 
+If you're using ngCordova you can use the ngCordova-wrapper:
+```sh
+bower install git://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage --save-dev
+cordova plugin add cordova-plugin-nativestorage
+```
+For more information and usage check the [wrappers repo](https://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage).
+
 ##<a name="supported_platforms"></a>Supported platforms
 - Android
 - iOS
