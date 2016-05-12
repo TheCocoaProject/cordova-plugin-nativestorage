@@ -226,7 +226,7 @@
 		{
 			NSString* aString = [[NSUserDefaults standardUserDefaults] stringForKey:reference];
 			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsString:aString];
-			if(pluginResult==nil)
+			if(aString==nil)
 			{
 				pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsInt:2]; //Ref not found
 			}

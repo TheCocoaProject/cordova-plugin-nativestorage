@@ -18,7 +18,7 @@ function LocalStorageHandle(success, error, intent, operation, [reference, varia
         var item = {};
         item = localStorage.getItem(reference);
         if (item === null) {
-            error(new NativeStorageError(NativeStorageError.ITEM_NOT_FOUND, "JS", ""));
+            error(NativeStorageError.ITEM_NOT_FOUND);
             return;
         }
         try {
