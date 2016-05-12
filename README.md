@@ -15,13 +15,13 @@ Via this plugin the developer can store integers, doubles, strings, booleans and
 ***NEW API!!*** 
 Simple `setItem` and `getItem` are provided to store variables natively
 
-Old API isn't broken, documentation about this API (prior to v2) can be found at the [wiki](https://github.com/GillesC/cordova-plugin-nativestorage/wiki/Usage-API-(prior-to-v2.0.0))
+Old API isn't broken, documentation about this API (prior to v2) can be found at the [wiki](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/wiki/Usage-API-(prior-to-v2.0.0))
 
 ***
 
 The plugin was created and developed by [Gilles Callebaut](https://be.linkedin.com/in/gilles-callebaut-46a751104), in the scope of an [IWT/VlAIO](http://www.vlaio.be/english) Tetra project [CrossMoS](https://www.msec.be/crossmos/) which assesses Mobile Cross-Platform Tools. This wouldn't be possible without the contributions of [Alok Rajiv](https://github.com/alokrajiv), our Cordova and JavaScript guru.
 
-Please consider reading our [wiki](https://github.com/GillesC/cordova-plugin-nativestorage/wiki) for more documentation about this plugin.
+Please consider reading our [wiki](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/wiki) for more documentation about this plugin.
 
 ## Contents
 - [Installation](#installation)
@@ -60,7 +60,7 @@ cordova plugin add cordova-plugin-nativestorage
 ```
 or through this git repo if you want to be running the development version:
 ```sh
-cordova plugin add https://github.com/GillesC/cordova-plugin-nativestorage.git
+cordova plugin add https://github.com/TheCocoaProject/cordova-plugin-nativestorage
 ```
 
 ##<a name="supported_platforms"></a>Supported platforms
