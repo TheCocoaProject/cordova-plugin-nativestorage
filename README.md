@@ -54,18 +54,13 @@ The plugin can be installed via the Cordova command line interface:
 * Navigate to the root folder for your phonegap project.
 * Run the command:
 
-OLD API:
+
 ```sh
 cordova plugin add cordova-plugin-nativestorage
 ```
 or through this git repo if you want to be running the development version:
 ```sh
 cordova plugin add https://github.com/GillesC/cordova-plugin-nativestorage.git
-```
-
-***NEW API***:
-```sh
-cordova plugin add https://github.com/GillesC/cordova-plugin-nativestorage.git#v2_alpha_dev
 ```
 
 ##<a name="supported_platforms"></a>Supported platforms
