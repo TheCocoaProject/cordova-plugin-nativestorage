@@ -15,4 +15,7 @@
 - (void) putString: (CDVInvokedUrlCommand*) command;
 - (void) getString: (CDVInvokedUrlCommand*) command;
 
+- (void) setItem: (CDVInvokedUrlCommand*) command;
+- (void) getItem: (CDVInvokedUrlCommand*) command;
+
 @end

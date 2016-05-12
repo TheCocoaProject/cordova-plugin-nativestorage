@@ -191,4 +191,52 @@
 	}];
 }
 
+
+- (void) setItem: (CDVInvokedUrlCommand*) command
+{
+	[self.commandDelegate runInBackground:^{
+		CDVPluginResult* pluginResult = nil;
+		NSString* reference = [command.arguments objectAtIndex:0];
+		NSString* aString = [command.arguments objectAtIndex:1];
+
+		if(reference!=nil)
+		{
+			NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+			[defaults setObject: aString forKey:reference];
+			BOOL success = [defaults synchronize];
+			if(success) pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsString:aString];
+			else pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsInt:1]; //Write has failed
+		
+		}
+		else
+		{
+			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsInt:3]; //Reference was null
+		}
+		[self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
+	}];
+}
+
+- (void) getItem: (CDVInvokedUrlCommand*) command
+{
+		[self.commandDelegate runInBackground:^{
+		CDVPluginResult* pluginResult = nil;
+		NSString* reference = [command.arguments objectAtIndex:0];
+
+		if(reference!=nil)
+		{
+			NSString* aString = [[NSUserDefaults standardUserDefaults] stringForKey:reference];
+			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsString:aString];
+			if(aString==nil)
+			{
+				pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsInt:2]; //Ref not found
+			}
+		}
+		else
+		{
+			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsInt:3]; //Reference was null
+		}
+		[self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
+	}];
+}
+
 @end
