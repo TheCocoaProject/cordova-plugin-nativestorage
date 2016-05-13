@@ -242,7 +242,7 @@ exports.defineAutoTests = function () {
             expect(NativeStorage).toEqual(jasmine.anything());
         });
         it('Null reference', function (done) {
-            NativeStorage.setItem(null,"objbio",
+            NativeStorage.setItem(null, "objbio",
                 function (result) {
                     //expect(result).toEqual(dummyData);
                 },
@@ -259,6 +259,15 @@ exports.defineAutoTests = function () {
                 },
                 function (e) {
                     expect(e.code).toEqual(2);
+                    done();
+                });
+        });
+
+        it('bad JSON', function (done) {
+            NativeStorage.setItem("kbjkbo", {one: 'one', two: 'two'}, function (result) {
+                },
+                function (e) {
+                    expect(e.code).toEqual(5);
                     done();
                 });
         });
