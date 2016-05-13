@@ -264,7 +264,8 @@ exports.defineAutoTests = function () {
         });
 
         it('bad JSON', function (done) {
-            NativeStorage.setItem("kbjkbo", {one: 'one', two: 'two'}, function (result) {
+            NativeStorage.setItem("kbjkbo", {one: 'one', two: '"two'}, function (result) {
+                fail("JSON stringify should give an error");
                 },
                 function (e) {
                     expect(e.code).toEqual(5);
