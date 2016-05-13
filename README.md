@@ -118,7 +118,7 @@ cordova plugin add cordova-plugin-nativestorage
 ```sh
 cordova plugin add http://git-wip-us.apache.org/repos/asf/cordova-plugin-test-framework.git
 cordova plugin add https://github.com/GillesC/cordova-plugin-nativestorage.git#:/tests
-``
+```
 * Run or emulate the demo application
 ```sh
 cordova emulate ios
