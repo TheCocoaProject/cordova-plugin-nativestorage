@@ -1,6 +1,6 @@
 ---
 title: Cordova plugin NativeStorage
-description: Persistent storage of variables and objects.
+description: Persistent native storage of variables in Android and iOS.
 ---
 # Cordova plugin NativeStorage
 
@@ -8,8 +8,6 @@ description: Persistent storage of variables and objects.
 
 [![NPM](https://nodei.co/npm/cordova-plugin-nativestorage.png?downloads=true&downloadRank=true)](https://nodei.co/npm/cordova-plugin-nativestorage/)
 
-
-Via this plugin the developer can store integers, doubles, strings, booleans and objects, native on Android and iOS, in a persistence way.
 
 ***
 ***NEW API!!*** 
@@ -51,10 +49,8 @@ Some complaints:
 
 ##<a name="installation"></a>Installation
 The plugin can be installed via the Cordova command line interface:
-* Navigate to the root folder for your phonegap project.
+* Navigate to the root folder for your cordova/phonegap/ionic project.
 * Run the command:
-
-
 ```sh
 cordova plugin add cordova-plugin-nativestorage
 ```
@@ -66,9 +62,8 @@ cordova plugin add https://github.com/TheCocoaProject/cordova-plugin-nativestora
 If you're using ngCordova you can use the ngCordova-wrapper:
 ```sh
 bower install git://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage --save-dev
-cordova plugin add cordova-plugin-nativestorage
 ```
-For more information and usage check the [wrappers repo](https://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage).
+For more information about the usage of the plugini check the [wrappers repo](https://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage).
 
 ##<a name="supported_platforms"></a>Supported platforms
 - Android
@@ -90,6 +85,71 @@ NativeStorage.getItem("reference_to_value",<success-callback>, <error-callback>)
 ###<a name="removing_values"></a>Removing values
 ```javascript
 NativeStorage.remove("reference_to_value",<success-callback>, <error-callback>);
+```
+
+###<a name="example"></a>Example
+```javascript
+var app = {
+    initialize: function () {
+        this.bindEvents();
+    },
+    bindEvents: function () {
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+    },
+    onDeviceReady: function () {
+        var obj = {name: "NativeStorage", author: "GillesCallebaut"};
+
+        // be certain to make an unique reference String for each variable!
+        NativeStorage.setItem("reference", obj, this.setSuccess, this.setError);
+    },
+    setSuccess: function (obj) {
+        console.log(obj.name);
+        NativeStorage.getItem("reference", this.getSuccess, this.getError);
+    },
+    setError: function (error) {
+        console.log(error.code);
+        if (error.exception !== "") console.log(error.exception);
+    },
+    getSuccess: function (obj) {
+        console.log(obj.name);
+        NativeStorage.remove("reference", this.removeSuccess, this.removeError);
+    },
+    getError: function (error) {
+        console.log(error.code);
+        if (error.exception !== "") console.log(error.exception);
+    },
+    removeSuccess: function (obj) {
+        console.log(obj.name);
+    },
+    removeError: function (error) {
+        console.log(error.code);
+        if (error.exception !== "") console.log(error.exception);
+    }
+};
+
+app.initialize();
+```
+
+###<a name="ngcordova_example"></a>ngCordova (ionic) example
+```javascript
+var app = angular.module('starter.controllers', ['ngCordova.plugins.nativeStorage'])
+
+app.controller('myCtrl', function ($ionicPlatform, $scope, $cordovaNativeStorage, $log) {
+    $ionicPlatform.ready(function () {
+        $scope.$apply(function () {
+            $cordovaNativeStorage.setItem("ref", "value").then(function (value) {
+                $log.log(value);
+                $cordovaNativeStorage.getItem("ref").then(function (value) {
+                    $log.log(value);
+                }, function (error) {
+                    $log.log(error);
+                });
+            }, function (error) {
+                $log.log(error);
+            });
+        });
+    });
+});
 ```
 
 ###<a name="demo_example"></a>Demo Example
