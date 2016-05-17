@@ -1,6 +1,10 @@
 var NativeStorageError = require('./NativeStorageError');
 
-function LocalStorageHandle(success, error, intent, operation, [reference, variable]) {
+// args = [reference, variable]
+function LocalStorageHandle(success, error, intent, operation, args) {
+    var reference = args[0];
+    var variable = args[1];
+
     if (operation.startsWith('put') || operation.startsWith('set')) {
         try {
             var varAsString = JSON.stringify(variable);
