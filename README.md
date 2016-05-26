@@ -1,7 +1,3 @@
----
-title: Cordova plugin NativeStorage
-description: Persistent native storage of variables in Android and iOS.
----
 # Cordova plugin NativeStorage
 
 [![Build Status](https://travis-ci.org/TheCocoaProject/cordova-plugin-nativestorage.svg?branch=master)](https://travis-ci.org/TheCocoaProject/cordova-plugin-nativestorage) [![npm version](https://badge.fury.io/js/cordova-plugin-nativestorage.svg)](https://badge.fury.io/js/cordova-plugin-nativestorage)
@@ -40,12 +36,14 @@ In iOS stored data from LocalStorage can be removed by the OS, when running out 
 
 Some complaints:
 
-<http://gonehybrid.com/dont-assume-localstorage-will-always-work-in-your-hybrid-app/>
-<http://stackoverflow.com/questions/7750857/how-permanent-is-local-storage-on-android-and-ios>
-<http://stackoverflow.com/questions/25627991/ios-7-webview-and-localstorage-persistence-update>
-<http://stackoverflow.com/questions/28082624/localstorage-persistence-in-ios-android-webview>
-<https://forum.ionicframework.com/t/localstorage-is-it-cleared-after-app-restarts-periodically-in-ios/21819>
-<https://bugs.chromium.org/p/chromium/issues/detail?id=481380>
+- <http://gonehybrid.com/dont-assume-localstorage-will-always-work-in-your-hybrid-app/>
+- <http://stackoverflow.com/questions/7750857/how-permanent-is-local-storage-on-android-and-ios>
+- <http://stackoverflow.com/questions/25627991/ios-7-webview-and-localstorage-persistence-update>
+- <http://stackoverflow.com/questions/28082624/localstorage-persistence-in-ios-android-webview>
+- <https://forum.ionicframework.com/t/localstorage-is-it-cleared-after-app-restarts-periodically-in-ios/21819>
+- <https://bugs.chromium.org/p/chromium/issues/detail?id=481380>
+
+- From Cordova itself: http://cordova.apache.org/docs/en/latest/cordova/storage/storage.html
 
 ##<a name="installation"></a>Installation
 The plugin can be installed via the Cordova command line interface:
