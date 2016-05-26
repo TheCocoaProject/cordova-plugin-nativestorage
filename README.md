@@ -4,7 +4,7 @@ description: Persistent native storage of variables in Android and iOS.
 ---
 # Cordova plugin NativeStorage
 
-[![Build Status](https://travis-ci.org/GillesC/cordova-plugin-nativestorage.svg?branch=master)](https://travis-ci.org/GillesC/cordova-plugin-nativestorage) [![npm version](https://badge.fury.io/js/cordova-plugin-nativestorage.svg)](https://badge.fury.io/js/cordova-plugin-nativestorage)
+[![Build Status](https://travis-ci.org/TheCocoaProject/cordova-plugin-nativestorage.svg?branch=master)](https://travis-ci.org/TheCocoaProject/cordova-plugin-nativestorage)[![npm version](https://badge.fury.io/js/cordova-plugin-nativestorage.svg)](https://badge.fury.io/js/cordova-plugin-nativestorage)
 
 [![NPM](https://nodei.co/npm/cordova-plugin-nativestorage.png?downloads=true&downloadRank=true)](https://nodei.co/npm/cordova-plugin-nativestorage/)
 
