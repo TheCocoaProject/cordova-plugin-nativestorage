@@ -2,7 +2,7 @@
  * NativeStorageError
  * @constructor
  */
-var NativeStorageError = function (code, source, exception) {
+var NativeStorageError = function(code, source, exception) {
     this.code = code || null;
     this.source = source || null;
     this.exception = exception || null;

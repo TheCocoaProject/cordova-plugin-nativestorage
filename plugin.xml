@@ -2,11 +2,11 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="cordova-plugin-nativestorage"
-    version="2.0.0">
+    version="2.0.1">
     <name>NativeStorage</name>
     <description>Native storage of variables in Android and iOS</description>
     <license>Apache 2.0</license>
-    <keywords>cordova, native storage, localstorage, NSUserDefaults, SharedPreferences</keywords>
+    <keywords>cordova, native storage, LocalStorage, NSUserDefaults, SharedPreferences</keywords>
     <repo></repo>
     <issue></issue>
 

@@ -4,13 +4,13 @@ description: Persistent native storage of variables in Android and iOS.
 ---
 # Cordova plugin NativeStorage
 
-[![Build Status](https://travis-ci.org/TheCocoaProject/cordova-plugin-nativestorage.svg?branch=master)](https://travis-ci.org/TheCocoaProject/cordova-plugin-nativestorage)[![npm version](https://badge.fury.io/js/cordova-plugin-nativestorage.svg)](https://badge.fury.io/js/cordova-plugin-nativestorage)
+[![Build Status](https://travis-ci.org/TheCocoaProject/cordova-plugin-nativestorage.svg?branch=master)](https://travis-ci.org/TheCocoaProject/cordova-plugin-nativestorage) [![npm version](https://badge.fury.io/js/cordova-plugin-nativestorage.svg)](https://badge.fury.io/js/cordova-plugin-nativestorage)
 
 [![NPM](https://nodei.co/npm/cordova-plugin-nativestorage.png?downloads=true&downloadRank=true)](https://nodei.co/npm/cordova-plugin-nativestorage/)
 
 
 ***
-***NEW API!!*** 
+***NEW API!!***
 Simple `setItem` and `getItem` are provided to store variables natively
 
 Old API isn't broken, documentation about this API (prior to v2) can be found at the [wiki](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/wiki/Usage-API-(prior-to-v2.0.0))
@@ -29,14 +29,14 @@ Please consider reading our [wiki](https://github.com/TheCocoaProject/cordova-pl
 	* [Retrieving values](#retrieving_values)
 	* [Removing values](#removing_values)
 	* [Demo Example](#demo_example)
-- [Erros](#errors)
+- [Errors](#errors)
 - [Problems](#problems)
 - [Applications using this plugin](#applications)
 
 
 ## Why?
-This plugin is created because of the non-persistent property of localstorage in the WebView of Android and iOS.
-In iOS stored data from localstorage can be removed by the OS, when running out of memory.
+This plugin is created because of the non-persistent property of LocalStorage in the WebView of Android and iOS.
+In iOS stored data from LocalStorage can be removed by the OS, when running out of memory.
 
 Some complaints:
 
@@ -49,7 +49,7 @@ Some complaints:
 
 ##<a name="installation"></a>Installation
 The plugin can be installed via the Cordova command line interface:
-* Navigate to the root folder for your cordova/phonegap/ionic project.
+* Navigate to the root folder for your Cordova/Phonegap/Ionic project.
 * Run the command:
 ```sh
 cordova plugin add cordova-plugin-nativestorage
@@ -63,7 +63,7 @@ If you're using ngCordova you can use the ngCordova-wrapper:
 ```sh
 bower install git://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage --save-dev
 ```
-For more information about the usage of the plugini check the [wrappers repo](https://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage).
+For more information about the usage of the plugin check the repo for the [ngCordova-wrapper](https://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage).
 
 ##<a name="supported_platforms"></a>Supported platforms
 - Android
@@ -71,7 +71,7 @@ For more information about the usage of the plugini check the [wrappers repo](ht
 - Browser (for testing purposes)
 
 ##<a name="usage"></a>Usage
-The parameter of the success-callback function will be the saved or retreived value, the error-callback will specify the occurred error.
+The parameter of the success-callback function will be the saved or retrieved value, the error-callback will specify the occurred error.
 
 ###<a name="storing_values"></a>Storing values
 ```javascript
@@ -153,7 +153,7 @@ app.controller('myCtrl', function ($ionicPlatform, $scope, $cordovaNativeStorage
 ```
 
 ###<a name="demo_example"></a>Demo Example
-A demo application can be found at `cordova-plugin-nativestorage/examples/demo`. This application will save a String when the SAVE (`btn_load`) is pushed. This String is the value which has been typed in the input field (`data_input`). When the LOAD button is pressed, the value is shown by means of an alert message. 
+A demo application can be found at `cordova-plugin-nativestorage/examples/demo`. This application will save a String when the SAVE (`btn_load`) is pushed. This String is the value which has been typed in the input field (`data_input`). When the LOAD button is pressed, the value is shown by means of an alert message.
 
 #### Installation
 * Cloning the repo to a local dir
@@ -193,7 +193,7 @@ Error object contains:
 - exception (if any, e.g. JSON exception)
 
 ### Error codes
-the code contains an integer whichs specifies the occured error/problem
+the code contains an integer whichs specifies the occurred error/problem
 - `NATIVE_WRITE_FAILED` = 1
 - `ITEM_NOT_FOUND` = 2
 - `NULL_REFERENCE` = 3
@@ -202,11 +202,9 @@ the code contains an integer whichs specifies the occured error/problem
 
 ##<a name="problems"></a>Problems
 If you encounter any problems, please remove the current plugin and re-add it.
-This will install the latest version. 
+This will install the latest version.
 
-- Be certain to only retrieve a saved value when the put/set succes-callback method was invoked.
+- Be certain to only retrieve a saved value when the put/set success-callback method was invoked.
 
 ##<a name="applications"></a>Applications using this plugin
 Currently there are no registered applications which use this plugin. If you're utilizing this plugin and wish to add your application to this readme, please contact [me](mailto:callebaut.gilles@gmail.com).
-
-

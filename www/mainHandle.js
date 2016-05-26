@@ -6,17 +6,16 @@ function isInBrowser() {
     inBrowser = (window.cordova && window.cordova.platformId === 'browser') || !(window.phonegap || window.cordova);
     return inBrowser;
 }
+
 function storageSupportAnalyse() {
     if (!isInBrowser()) {
         return 0;
         //storageHandlerDelegate = exec;
-    }
-    else {
+    } else {
         if (window.localStorage) {
             return 1;
             //storageHandlerDelegate = localStorageHandle;
-        }
-        else {
+        } else {
             return 2;
             //console.log("ALERT! localstorage isn't supported");
         }
@@ -45,7 +44,7 @@ function StorageHandle() {
 }
 
 
-StorageHandle.prototype.set = function (reference, value, success, error) {
+StorageHandle.prototype.set = function(reference, value, success, error) {
     if (reference === null) {
         error("The reference can't be null");
         return;
@@ -59,36 +58,35 @@ StorageHandle.prototype.set = function (reference, value, success, error) {
             error("an undefined type isn't supported");
             break;
         case 'boolean':
-        {
-            this.putBoolean(reference, value, success, error);
-            break;
-        }
+            {
+                this.putBoolean(reference, value, success, error);
+                break;
+            }
         case 'number':
-        {
-            // Good now check if it's a float or an int
-            if (value === +value) {
-                if (value === (value | 0)) {
-                    // it's an int
-                    this.putInt(reference, value, success, error);
-                } else if (value !== (value | 0)) {
-                    this.putDouble(reference, value, success, error);
+            {
+                // Good now check if it's a float or an int
+                if (value === +value) {
+                    if (value === (value | 0)) {
+                        // it's an int
+                        this.putInt(reference, value, success, error);
+                    } else if (value !== (value | 0)) {
+                        this.putDouble(reference, value, success, error);
+                    }
+                } else {
+                    error("The value doesn't seem to be a number");
                 }
+                break;
             }
-            else {
-                error("The value doesn't seem to be a number");
-            }
-            break;
-        }
         case 'string':
-        {
-            this.putString(reference, value, success, error);
-            break;
-        }
+            {
+                this.putString(reference, value, success, error);
+                break;
+            }
         case 'object':
-        {
-            this.putObject(reference, value, success, error);
-            break;
-        }
+            {
+                this.putObject(reference, value, success, error);
+                break;
+            }
         default:
             error("The type isn't supported or isn't been recognized");
             break;
@@ -96,7 +94,7 @@ StorageHandle.prototype.set = function (reference, value, success, error) {
 };
 
 /* removing */
-StorageHandle.prototype.remove = function (reference, success, error) {
+StorageHandle.prototype.remove = function(reference, success, error) {
     if (reference === null) {
         error("Null reference isn't supported");
         return;
@@ -116,7 +114,7 @@ StorageHandle.prototype.remove = function (reference, success, error) {
 
 
 /* boolean storage */
-StorageHandle.prototype.putBoolean = function (reference, aBoolean, success, error) {
+StorageHandle.prototype.putBoolean = function(reference, aBoolean, success, error) {
     if (reference === null) {
         error("Null reference isn't supported");
         return;
@@ -128,7 +126,7 @@ StorageHandle.prototype.putBoolean = function (reference, aBoolean, success, err
     }
 
     if (typeof aBoolean === 'boolean') {
-        this.storageHandlerDelegate(function (returnedBool) {
+        this.storageHandlerDelegate(function(returnedBool) {
             if ('string' === typeof returnedBool) {
                 if ((returnedBool === 'true')) {
                     success(true);
@@ -141,19 +139,18 @@ StorageHandle.prototype.putBoolean = function (reference, aBoolean, success, err
                 success(returnedBool);
             }
         }, error, "NativeStorage", "putBoolean", [reference, aBoolean]);
-    }
-    else {
+    } else {
         error("Only boolean types are supported");
     }
 };
 
 
-StorageHandle.prototype.getBoolean = function (reference, success, error) {
+StorageHandle.prototype.getBoolean = function(reference, success, error) {
     if (reference === null) {
         error("Null reference isn't supported");
         return;
     }
-    this.storageHandlerDelegate(function (returnedBool) {
+    this.storageHandlerDelegate(function(returnedBool) {
         if ('string' === typeof returnedBool) {
             if ((returnedBool === 'true')) {
                 success(true);
@@ -169,7 +166,7 @@ StorageHandle.prototype.getBoolean = function (reference, success, error) {
 };
 
 /* int storage */
-StorageHandle.prototype.putInt = function (reference, anInt, success, error) {
+StorageHandle.prototype.putInt = function(reference, anInt, success, error) {
     if (reference === null) {
         error("Null reference isn't supported");
         return;
@@ -177,7 +174,7 @@ StorageHandle.prototype.putInt = function (reference, anInt, success, error) {
     this.storageHandlerDelegate(success, error, "NativeStorage", "putInt", [reference, anInt]);
 };
 
-StorageHandle.prototype.getInt = function (reference, success, error) {
+StorageHandle.prototype.getInt = function(reference, success, error) {
     if (reference === null) {
         error("Null reference isn't supported");
         return;
@@ -187,7 +184,7 @@ StorageHandle.prototype.getInt = function (reference, success, error) {
 
 
 /* float storage */
-StorageHandle.prototype.putDouble = function (reference, aFloat, success, error) {
+StorageHandle.prototype.putDouble = function(reference, aFloat, success, error) {
     if (reference === null) {
         error("Null reference isn't supported");
         return;
@@ -195,23 +192,22 @@ StorageHandle.prototype.putDouble = function (reference, aFloat, success, error)
     this.storageHandlerDelegate(success, error, "NativeStorage", "putDouble", [reference, aFloat]);
 };
 
-StorageHandle.prototype.getDouble = function (reference, success, error) {
+StorageHandle.prototype.getDouble = function(reference, success, error) {
     if (reference === null) {
         error("Null reference isn't supported");
         return;
     }
-    this.storageHandlerDelegate(function (data) {
+    this.storageHandlerDelegate(function(data) {
         if (isNaN(data)) {
             error('Expected double but got non-number');
-        }
-        else {
+        } else {
             success(parseFloat(data));
         }
     }, error, "NativeStorage", "getDouble", [reference]);
 };
 
 /* string storage */
-StorageHandle.prototype.putString = function (reference, s, success, error) {
+StorageHandle.prototype.putString = function(reference, s, success, error) {
     if (reference === null) {
         error("Null reference isn't supported");
         return;
@@ -219,7 +215,7 @@ StorageHandle.prototype.putString = function (reference, s, success, error) {
     this.storageHandlerDelegate(success, error, "NativeStorage", "putString", [reference, s]);
 };
 
-StorageHandle.prototype.getString = function (reference, success, error) {
+StorageHandle.prototype.getString = function(reference, success, error) {
     if (reference === null) {
         error("Null reference isn't supported");
         return;
@@ -228,7 +224,7 @@ StorageHandle.prototype.getString = function (reference, success, error) {
 };
 
 /* object storage  COMPOSITE AND DOESNT CARE FOR BROWSER*/
-StorageHandle.prototype.putObject = function (reference, obj, success, error) {
+StorageHandle.prototype.putObject = function(reference, obj, success, error) {
     var objAsString = "";
     try {
         objAsString = JSON.stringify(obj);
@@ -238,8 +234,8 @@ StorageHandle.prototype.putObject = function (reference, obj, success, error) {
     this.putString(reference, objAsString, success, error);
 };
 
-StorageHandle.prototype.getObject = function (reference, success, error) {
-    this.getString(reference, function (data) {
+StorageHandle.prototype.getObject = function(reference, success, error) {
+    this.getString(reference, function(data) {
         var obj = {};
         try {
             obj = JSON.parse(data);
@@ -251,7 +247,7 @@ StorageHandle.prototype.getObject = function (reference, success, error) {
 };
 
 /* New API */
-StorageHandle.prototype.setItem = function (reference, obj, success, error) {
+StorageHandle.prototype.setItem = function(reference, obj, success, error) {
     var objAsString = "";
     try {
         objAsString = JSON.stringify(obj);
@@ -263,12 +259,12 @@ StorageHandle.prototype.setItem = function (reference, obj, success, error) {
         error(new NativeStorageError(NativeStorageError.NULL_REFERENCE, "JS", ""));
         return;
     }
-    this.storageHandlerDelegate(success, function (code) {
+    this.storageHandlerDelegate(success, function(code) {
         error(new NativeStorageError(code, "Native", ""));
     }, "NativeStorage", "setItem", [reference, objAsString]);
 };
 
-StorageHandle.prototype.getItem = function (reference, success, error) {
+StorageHandle.prototype.getItem = function(reference, success, error) {
     if (reference === null) {
         error(new NativeStorageError(NativeStorageError.NULL_REFERENCE, "JS", ""));
         return;
@@ -276,14 +272,15 @@ StorageHandle.prototype.getItem = function (reference, success, error) {
     var obj = {};
 
     this.storageHandlerDelegate(
-        function (data) {
+        function(data) {
             try {
                 obj = JSON.parse(data);
                 success(obj);
             } catch (err) {
                 error(new NativeStorageError(NativeStorageError.JSON_ERROR, "JS", err));
             }
-        }, function (code) {
+        },
+        function(code) {
             error(new NativeStorageError(code, "Native", ""));
         }, "NativeStorage", "getItem", [reference]);
 };
