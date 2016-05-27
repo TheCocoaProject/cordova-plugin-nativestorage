@@ -203,6 +203,10 @@ If you encounter any problems, please remove the current plugin and re-add it.
 This will install the latest version.
 
 - Be certain to only retrieve a saved value when the put/set success-callback method was invoked.
+- When using Ionic the plugin can be undefined, the solution was descibed in issue [#10](../../issues/10):
+	* Remove `ng-app` from `body`
+	* put this code at the end of `index.html`:
+	* ```<script type="text/javascript"> document.addEventListener('deviceready', function onDeviceReady() { angular.bootstrap(document.querySelector('body'), ['starter']); }, false); </script>```
 
 ##<a name="applications"></a>Applications using this plugin
 Currently there are no registered applications which use this plugin. If you're utilizing this plugin and wish to add your application to this readme, please contact [me](mailto:callebaut.gilles@gmail.com).
