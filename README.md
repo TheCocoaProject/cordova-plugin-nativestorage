@@ -207,6 +207,12 @@ This will install the latest version.
 	* Remove `ng-app` from `body`
 	* put this code at the end of `index.html`:
 	* ```<script type="text/javascript"> document.addEventListener('deviceready', function onDeviceReady() { angular.bootstrap(document.querySelector('body'), ['starter']); }, false); </script>```
+- `Unknown provider: $cordovaNativeStorageProvider`
+	* Are you certain you've included the [wrapper](https://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage)? 
+- `Failed to instantiate module ngCordova.plugins.nativeStorage`
+- `Module 'ngCordova.plugins.nativeStorage' is not available`
+	* Check your bower json file (`bower.json`) to see if everything is correct
+	* be certain that the wrappers js file is included as described in the [README of the wrapper](https://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage/blob/master/README.md)
 
 ##<a name="applications"></a>Applications using this plugin
 Currently there are no registered applications which use this plugin. If you're utilizing this plugin and wish to add your application to this readme, please contact [me](mailto:callebaut.gilles@gmail.com).
