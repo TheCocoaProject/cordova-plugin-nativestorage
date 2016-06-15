@@ -71,14 +71,14 @@
 	[self.commandDelegate runInBackground:^{
 		CDVPluginResult* pluginResult = nil;
 		NSString* reference = [command.arguments objectAtIndex:0];
-		int anInt = [[command.arguments objectAtIndex:1] integerValue];
+		NSInteger anInt = [[command.arguments objectAtIndex:1] integerValue];
 
 		if(reference!=nil)
 		{
 			NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 			[defaults setInteger: anInt forKey:reference];
 			BOOL success = [defaults synchronize];
-			if(success) pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsInt:anInt];
+			if(success) pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsNSInteger:anInt];
 			else pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsString:@"Write has failed"];
 		}
 		else
@@ -96,8 +96,8 @@
 
 		if(reference!=nil)
 		{
-			int anInt = [[NSUserDefaults standardUserDefaults] integerForKey:reference];
-			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsInt:anInt];
+			NSInteger anInt = [[NSUserDefaults standardUserDefaults] integerForKey:reference];
+			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsNSInteger:anInt];
 		}
 		else
 		{
