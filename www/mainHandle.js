@@ -303,11 +303,11 @@ StorageHandle.prototype.setItem = function(reference, obj, encryptConfig, succes
     var params = [reference, objAsString];
     switch (encryptConfig.mode) {
         case "password":
-            method = "setItemWithPassword";
-            params = [reference, objAsString, encryptConfig.value];
+            action = "setItemWithPassword";
+            action = [reference, objAsString, encryptConfig.value];
             break;
         case "key":
-            method = "setItemWithKey";
+            action = "setItemWithKey";
             break;
         case "none":
             break;
@@ -333,11 +333,11 @@ StorageHandle.prototype.getItem = function(reference, encryptConfig, success, er
     var params = [reference];
     switch (encryptConfig.mode) {
         case "password":
-            method = "getItemWithPassword";
+            action = "getItemWithPassword";
             params = [reference, encryptConfig.value];
             break;
         case "key":
-            method = "getItemWithKey";
+            action = "getItemWithKey";
             break;
         case "none":
             break;
