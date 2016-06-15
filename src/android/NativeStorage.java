@@ -228,12 +228,33 @@ public class NativeStorage extends CordovaPlugin {
             /* getting arguments */
             String ref = args.getString(0);
             String aString = args.getString(1);
-            String pwd = ars.getString(2);
+            String pwd = args.getString(2);
 
             String ciphertext = "";
             try {
               String ciphertext = Crypto.encrypt(aString, pwd);
-            } catch (InvalidKeySpecException | NoSuchAlgorithmException | InvalidAlgorithmParameterException | NoSuchPaddingException | InvalidKeyException | UnsupportedEncodingException | IllegalBlockSizeException | BadPaddingException e) {
+            }catch (InvalidKeySpecException e) {
+              e.printStackTrace();
+              callbackContext.error(e.getMessage());
+            } catch (NoSuchAlgorithmException e) {
+              e.printStackTrace();
+              callbackContext.error(e.getMessage());
+            } catch (NoSuchPaddingException e) {
+              e.printStackTrace();
+              callbackContext.error(e.getMessage());
+            } catch (InvalidAlgorithmParameterException e) {
+              e.printStackTrace();
+              callbackContext.error(e.getMessage());
+            } catch (InvalidKeyException e) {
+              e.printStackTrace();
+              callbackContext.error(e.getMessage());
+            } catch (UnsupportedEncodingException e) {
+              e.printStackTrace();
+              callbackContext.error(e.getMessage());
+            } catch (BadPaddingException e) {
+              e.printStackTrace();
+              callbackContext.error(e.getMessage());
+            } catch (IllegalBlockSizeException e) {
               e.printStackTrace();
               callbackContext.error(e.getMessage());
             }
@@ -243,7 +264,7 @@ public class NativeStorage extends CordovaPlugin {
               if (success) callbackContext.success(aString);
               else callbackContext.error(1); //nativeWrite failed
             }else{
-              callbackContext.error();
+              callbackContext.error("Encryption failed");
             }
 
           } catch (Exception e) {
@@ -285,12 +306,33 @@ public class NativeStorage extends CordovaPlugin {
             String pwd = args.getString(1);
             //System.out.println("Receveived reference: " + ref);
             String ciphertext = sharedPref.getString(ref, "nativestorage_null");
-            if (s.equals("nativestorage_null")) {
+            if (ciphertext.equals("nativestorage_null")) {
               callbackContext.error(2);  // item not found
             } else{
               try {
                 String plaintext = Crypto.decryptPbkdf2(ciphertext, pwd);
-              } catch (InvalidKeySpecException | NoSuchAlgorithmException | InvalidAlgorithmParameterException | NoSuchPaddingException | InvalidKeyException | UnsupportedEncodingException | IllegalBlockSizeException | BadPaddingException e) {
+              } catch (InvalidKeySpecException e) {
+                e.printStackTrace();
+                callbackContext.error(e.getMessage());
+              } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+                callbackContext.error(e.getMessage());
+              } catch (NoSuchPaddingException e) {
+                e.printStackTrace();
+                callbackContext.error(e.getMessage());
+              } catch (InvalidAlgorithmParameterException e) {
+                e.printStackTrace();
+                callbackContext.error(e.getMessage());
+              } catch (InvalidKeyException e) {
+                e.printStackTrace();
+                callbackContext.error(e.getMessage());
+              } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                callbackContext.error(e.getMessage());
+              } catch (BadPaddingException e) {
+                e.printStackTrace();
+                callbackContext.error(e.getMessage());
+              } catch (IllegalBlockSizeException e) {
                 e.printStackTrace();
                 callbackContext.error(e.getMessage());
               }
