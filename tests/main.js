@@ -295,7 +295,7 @@ exports.defineAutoTests = function() {
         });
         it('set', function(done) {
             //reference, obj, encryptConfig, success, error
-            NativeStorage.setItem("ref_to_value", "SomeVerySecretText", {
+            NativeStorage.setSecretItem("ref_to_value", "SomeVerySecretText", {
                     mode: "password",
                     value: "mySecretPassword"
                 },

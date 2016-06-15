@@ -231,7 +231,15 @@ StorageHandle.prototype.putObject = function(reference, obj, success, error) {
     } catch (err) {
         error(err);
     }
-    this.putString(reference, objAsString, success, error);
+    this.putString(reference, objAsString, function(data) {
+        var obj = {};
+        try {
+            obj = JSON.parse(data);
+            success(obj);
+        } catch (err) {
+            error(err);
+        }
+    }, error);
 };
 
 StorageHandle.prototype.getObject = function(reference, success, error) {
@@ -259,7 +267,14 @@ StorageHandle.prototype.setItem = function(reference, obj, success, error) {
         error(new NativeStorageError(NativeStorageError.NULL_REFERENCE, "JS", ""));
         return;
     }
-    this.storageHandlerDelegate(success, function(code) {
+    this.storageHandlerDelegate(function(data) {
+        try {
+            obj = JSON.parse(data);
+            success(obj);
+        } catch (err) {
+            error(new NativeStorageError(NativeStorageError.JSON_ERROR, "JS", err));
+        }
+    }, function(code) {
         error(new NativeStorageError(code, "Native", ""));
     }, "NativeStorage", "setItem", [reference, objAsString]);
 };
@@ -286,7 +301,7 @@ StorageHandle.prototype.getItem = function(reference, success, error) {
 };
 
 /* API >= 2 */
-StorageHandle.prototype.setItem = function(reference, obj, encryptConfig, success, error) {
+StorageHandle.prototype.setSecretItem = function(reference, obj, encryptConfig, success, error) {
     var objAsString = "";
     try {
         objAsString = JSON.stringify(obj);
@@ -304,7 +319,7 @@ StorageHandle.prototype.setItem = function(reference, obj, encryptConfig, succes
     switch (encryptConfig.mode) {
         case "password":
             action = "setItemWithPassword";
-            action = [reference, objAsString, encryptConfig.value];
+            params = [reference, objAsString, encryptConfig.value];
             break;
         case "key":
             action = "setItemWithKey";
@@ -317,12 +332,19 @@ StorageHandle.prototype.setItem = function(reference, obj, encryptConfig, succes
                 return;
             }
     }
-    this.storageHandlerDelegate(success, function(code) {
+    this.storageHandlerDelegate(function(data) {
+        try {
+            obj = JSON.parse(data);
+            success(obj);
+        } catch (err) {
+            error(new NativeStorageError(NativeStorageError.JSON_ERROR, "JS", err));
+        }
+    }, function(code) {
         error(new NativeStorageError(code, "Native", ""));
     }, "NativeStorage", action, params);
 };
 
-StorageHandle.prototype.getItem = function(reference, encryptConfig, success, error) {
+StorageHandle.prototype.getSecretItem = function(reference, encryptConfig, success, error) {
     if (reference === null) {
         error(new NativeStorageError(NativeStorageError.NULL_REFERENCE, "JS", ""));
         return;
