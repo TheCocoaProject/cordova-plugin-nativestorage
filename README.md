@@ -197,6 +197,7 @@ the code contains an integer whichs specifies the occurred error/problem
 - `NULL_REFERENCE` = 3
 - `UNDEFINED_TYPE` = 4
 - `JSON_ERROR` = 5
+- `WRONG_PARAMETER` = 6
 
 ##<a name="problems"></a>Problems
 If you encounter any problems, please remove the current plugin and re-add it.
@@ -208,7 +209,7 @@ This will install the latest version.
 	* put this code at the end of `index.html`:
 	* ```<script type="text/javascript"> document.addEventListener('deviceready', function onDeviceReady() { angular.bootstrap(document.querySelector('body'), ['starter']); }, false); </script>```
 - `Unknown provider: $cordovaNativeStorageProvider`
-	* Are you certain you've included the [wrapper](https://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage)? 
+	* Are you certain you've included the [wrapper](https://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage)?
 - `Failed to instantiate module ngCordova.plugins.nativeStorage`
 - `Module 'ngCordova.plugins.nativeStorage' is not available`
 	* Check your bower json file (`bower.json`) to see if everything is correct
