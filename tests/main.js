@@ -3,7 +3,7 @@
 exports.defineAutoTests = function() {
 
     describe('Write/Read/Delete Tests', function() {
-        it("Plugin available", function() {
+        it("checks if th plugin is available", function() {
             expect(NativeStorage).toEqual(jasmine.anything());
         });
         it('Booleans', function(done) {
@@ -291,7 +291,7 @@ exports.defineAutoTests = function() {
         it("Plugin available", function() {
             expect(NativeStorage).toEqual(jasmine.anything());
         });
-        it('set', function(done) {
+        it('should store, retrieve and remove a secret item', function(done) {
             //reference, obj, encryptConfig, success, error
             NativeStorage.setSecretItem("ref_to_secret_value", "SomeVerySecretText", {
                     mode: "password",
@@ -314,7 +314,43 @@ exports.defineAutoTests = function() {
                             fail("Delete item Failed");
                         });
                     }, function(e) {
-                        fail("Delete item Failed");
+                        fail("Get item Failed");
+                    });
+                },
+                function(e) {
+                    fail("Set item Failed");
+                });
+        });
+
+    });
+
+    /* NEW API test with Password encryption*/
+    describe('Password encryption Error Tests new API', function() {
+        it("Plugin available", function() {
+            expect(NativeStorage).toEqual(jasmine.anything());
+        });
+        it('should invoke the error callback function for a secret item', function(done) {
+            //reference, obj, encryptConfig, success, error
+            NativeStorage.setSecretItem("ref_to_secret_value", "SomeVerySecretText", {
+                    mode: "password",
+                    value: "mySecretPassword"
+                },
+                function(result) {
+                    // Oke good we've set the secret
+                    expect(result).toEqual("SomeVerySecretText");
+                    // let's grab it back
+                    NativeStorage.getSecretItem("ref_to_secret_value", {
+                        mode: "password",
+                        value: "SomeOhterPassword"
+                    }, function(result) {
+                          fail("We've giving the pasword so it shouldn't work");
+                        NativeStorage.remove("ref_to_secret_value", function() {
+                            fail("We shouldn't got here... maybe we are in a browser!");
+                        }, function(e) {
+                            fail("Delete item Failed");
+                        });
+                    }, function(e) {
+                        done();
                     });
                 },
                 function(e) {
