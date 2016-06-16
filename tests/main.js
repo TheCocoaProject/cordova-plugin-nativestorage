@@ -286,8 +286,6 @@ exports.defineAutoTests = function() {
 
     });
 
-
-
     /* NEW API test with Password encryption*/
     describe('Password encryption Tests new API', function() {
         it("Plugin available", function() {
@@ -295,14 +293,26 @@ exports.defineAutoTests = function() {
         });
         it('set', function(done) {
             //reference, obj, encryptConfig, success, error
-            NativeStorage.setSecretItem("ref_to_value", "SomeVerySecretText", {
+            NativeStorage.setSecretItem("ref_to_secret_value", "SomeVerySecretText", {
                     mode: "password",
                     value: "mySecretPassword"
                 },
                 function(result) {
+                    // Oke good we've set the secret
                     expect(result).toEqual("SomeVerySecretText");
-                    NativeStorage.remove("ref_to_value", function() {
-                        done();
+                    // let's grab it back
+                    NativeStorage.getSecretItem("ref_to_secret_value", {
+                        mode: "password",
+                        value: "mySecretPassword"
+                    }, function(result) {
+                        // we've got it again, yes! :D
+                        // let's remove it
+                        NativeStorage.remove("ref_to_secret_value", function() {
+                            // We're done!
+                            done();
+                        }, function(e) {
+                            fail("Delete item Failed");
+                        });
                     }, function(e) {
                         fail("Delete item Failed");
                     });
