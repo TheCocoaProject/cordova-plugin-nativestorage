@@ -25,6 +25,19 @@
 	}];
 }
 
+- (void) clear: (CDVInvokedUrlCommand*) command
+{
+	[self.commandDelegate runInBackground:^{
+		CDVPluginResult* pluginResult = nil;
+		[[NSUserDefaults standardUserDefaults] removePersistentDomainForName:[[NSBundle mainBundle] bundleIdentifier]];
+		BOOL success = [[NSUserDefaults standardUserDefaults] synchronize];
+		if(success) pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK];
+		else pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsString:@"Clear has failed"];
+
+		[self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
+	}];
+}
+
 - (void) putBoolean: (CDVInvokedUrlCommand*) command
 {
 	[self.commandDelegate runInBackground:^{
@@ -38,7 +51,7 @@
 			[defaults setBool: aBoolean forKey:reference];
 			BOOL success = [defaults synchronize];
 			if(success) pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsBool:aBoolean];
-			else pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsString:@"Write has failed"];		
+			else pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsString:@"Write has failed"];
 		}
 		else
 		{
@@ -163,7 +176,7 @@
 			BOOL success = [defaults synchronize];
 			if(success) pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsString:aString];
 			else pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsString:@"Write has failed"];
-		
+
 		}
 		else
 		{
@@ -174,7 +187,7 @@
 }
 - (void) getString: (CDVInvokedUrlCommand*) command
 {
-		[self.commandDelegate runInBackground:^{
+	[self.commandDelegate runInBackground:^{
 		CDVPluginResult* pluginResult = nil;
 		NSString* reference = [command.arguments objectAtIndex:0];
 
@@ -206,7 +219,7 @@
 			BOOL success = [defaults synchronize];
 			if(success) pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsString:aString];
 			else pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsInt:1]; //Write has failed
-		
+
 		}
 		else
 		{
@@ -218,7 +231,7 @@
 
 - (void) getItem: (CDVInvokedUrlCommand*) command
 {
-		[self.commandDelegate runInBackground:^{
+	[self.commandDelegate runInBackground:^{
 		CDVPluginResult* pluginResult = nil;
 		NSString* reference = [command.arguments objectAtIndex:0];
 

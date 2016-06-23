@@ -6,11 +6,7 @@
 
 
 ***
-***NEW API!!***
-Simple `setItem` and `getItem` are provided to store variables natively
-
-Old API isn't broken, documentation about this API (prior to v2) can be found at the [wiki](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/wiki/Usage-API-(prior-to-v2.0.0))
-
+API prior to v2 can be found at the [wiki](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/wiki/Usage-API-(prior-to-v2.0.0))
 ***
 
 The plugin was created and developed by [Gilles Callebaut](https://be.linkedin.com/in/gilles-callebaut-46a751104), in the scope of an [IWT/VlAIO](http://www.vlaio.be/english) Tetra project [CrossMoS](https://www.msec.be/crossmos/) which assesses Mobile Cross-Platform Tools. This wouldn't be possible without the contributions of [Alok Rajiv](https://github.com/alokrajiv), our Cordova and JavaScript guru.
@@ -83,6 +79,10 @@ NativeStorage.getItem("reference_to_value",<success-callback>, <error-callback>)
 ###<a name="removing_values"></a>Removing values
 ```javascript
 NativeStorage.remove("reference_to_value",<success-callback>, <error-callback>);
+```
+
+```javascript
+NativeStorage.remove(<success-callback>, <error-callback>);
 ```
 
 ###<a name="example"></a>Example
@@ -189,6 +189,7 @@ Error object contains:
 - code
 - source (= "Native"/"JS")
 - exception (if any, e.g. JSON exception)
+
 
 ### Error codes
 the code contains an integer whichs specifies the occurred error/problem

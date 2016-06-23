@@ -112,6 +112,20 @@ StorageHandle.prototype.remove = function(reference, success, error) {
     }
 };
 
+/* clearing */
+StorageHandle.prototype.clear = function(success, error) {
+    if (inBrowser) {
+        try {
+            localStorage.clear();
+            success();
+        } catch (e) {
+            error(e);
+        }
+    } else {
+        this.storageHandlerDelegate(success, error, "NativeStorage", "clear", []);
+    }
+};
+
 
 /* boolean storage */
 StorageHandle.prototype.putBoolean = function(reference, aBoolean, success, error) {

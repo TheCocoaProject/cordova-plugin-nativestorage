@@ -1,6 +1,6 @@
 {
     "name": "cordova-plugin-nativestorage",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "Native storage of variables in Android and iOS",
     "author": "Gilles Callebaut <gilles.callebaut.cs@gmail.com>",
     "contributors":[

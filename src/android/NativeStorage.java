@@ -47,7 +47,28 @@ public class NativeStorage extends CordovaPlugin{
             return true;
         }
 
+<<<<<<< HEAD
+        if (("clear").equals(action)) {
+            cordova.getThreadPool().execute(new Runnable() {
+                public void run() {
+                    try {
+                        editor.clear();
+                        boolean success = editor.commit();
+                        if (success) callbackContext.success();
+                        else callbackContext.error("Clear operation failed");
+                    } catch (Exception e) {
+                        Log.e(TAG, "Clearing failed :", e);
+                        callbackContext.error(e.getMessage());
+                    }
+                }
+            });
+            return true;
+        }
+
+        if (("putBoolean").equals(action)) {
+=======
         if(("putBoolean").equals(action)){
+>>>>>>> origin/master
             cordova.getThreadPool().execute(new Runnable() {
                 public void run() {
                     try {
