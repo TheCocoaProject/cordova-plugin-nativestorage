@@ -326,70 +326,71 @@ exports.defineAutoTests = function() {
 
     /* NEW API test with Password encryption*/
     describe('Password encryption Error Tests new API', function() {
-            it("Plugin available", function() {
-                expect(NativeStorage).toEqual(jasmine.anything());
-            });
-            it('should invoke the error callback function for a secret item', function(done) {
-                    //reference, obj, encryptConfig, success, error
-                    NativeStorage.setSecretItem("ref_to_secret_value", "SomeVerySecretText", {
-                                mode: "password",
-                                value: "mySecretPassword"
-                            },
-                            function(result) {
-                                // Oke good we've set the secret
-                                expect(result).toEqual("SomeVerySecretText");
-                                // let's grab it back
-                                NativeStorage.getSecretItem("ref_to_secret_value", {
-                                            mode: "password",
-                                            value: "SomeOhterPassword"
-                                        }, function(result) {
-                                            // if we are in the browser
-                                            if (window.cordova && window.cordova.platformId === 'browser') || !(window.phonegap || window.cordova)) {
-                                            done();
-                                        }
-                                        fail("We've giving the pasword so it shouldn't work"); NativeStorage.remove("ref_to_secret_value", function() {
-                                            fail("We shouldn't got here... maybe we are in a browser!");
-                                        }, function(e) {
-                                            fail("Delete item Failed");
-                                        });
-                                    },
-                                    function(e) {
-                                        done();
-                                    });
+        it("Plugin available", function() {
+            expect(NativeStorage).toEqual(jasmine.anything());
+        });
+        it('should invoke the error callback function for a secret item', function(done) {
+            //reference, obj, encryptConfig, success, error
+            NativeStorage.setSecretItem("ref_to_secret_value", "SomeVerySecretText", {
+                    mode: "password",
+                    value: "mySecretPassword"
+                },
+                function(result) {
+                    // Oke good we've set the secret
+                    expect(result).toEqual("SomeVerySecretText");
+                    // let's grab it back
+                    NativeStorage.getSecretItem("ref_to_secret_value", {
+                            mode: "password",
+                            value: "SomeOhterPassword"
+                        }, function(result) {
+                            // if we are in the browser
+                            if ((window.cordova && window.cordova.platformId === 'browser') || !(window.phonegap || window.cordova)) {
+                                done();
+                            }
+                            fail("We've giving the pasword so it shouldn't work");
+                            NativeStorage.remove("ref_to_secret_value", function() {
+                                fail("We shouldn't got here... maybe we are in a browser!");
+                            }, function(e) {
+                                fail("Delete item Failed");
+                            });
                         },
                         function(e) {
-                            fail("Set item Failed");
-                        });
-            });
-
-    });
-
-
-/* NEW API test with clear() function*/
-describe('clear function', function() {
-    it("Plugin available", function() {
-        expect(NativeStorage).toEqual(jasmine.anything());
-    });
-    it('should invoke the error callback function with error code 2', function(done) {
-        var a = {};
-        NativeStorage.setItem("dummy_ref_clear", a, function(result) {
-                expect(result).toEqual(a);
-                NativeStorage.clear(function(result) {
-                        NativeStorage.getItem("dummy_ref_clear", function(result) {
-                            fail("Should not give a result");
-                        }, function(e) {
-                            expect(e.code).toEqual(2);
                             done();
                         });
-                    },
-                    function(e) {
-                        fail("Error when clearing native storage");
-                    });
-            },
-            function(e) {
-                fail("Error when item is set");
-            });
+                },
+                function(e) {
+                    fail("Set item Failed");
+                });
+        });
+
     });
 
-});
+
+    /* NEW API test with clear() function*/
+    describe('clear function', function() {
+        it("Plugin available", function() {
+            expect(NativeStorage).toEqual(jasmine.anything());
+        });
+        it('should invoke the error callback function with error code 2', function(done) {
+            var a = {};
+            NativeStorage.setItem("dummy_ref_clear", a, function(result) {
+                    expect(result).toEqual(a);
+                    NativeStorage.clear(function(result) {
+                            NativeStorage.getItem("dummy_ref_clear", function(result) {
+                                fail("Should not give a result");
+                            }, function(e) {
+                                expect(e.code).toEqual(2);
+                                done();
+                            });
+                        },
+                        function(e) {
+                            fail("Error when clearing native storage");
+                        });
+                },
+                function(e) {
+                    fail("Error when item is set");
+                });
+        });
+
+    });
 };
