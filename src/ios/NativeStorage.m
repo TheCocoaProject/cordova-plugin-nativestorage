@@ -28,13 +28,11 @@
 - (void) clear: (CDVInvokedUrlCommand*) command
 {
 	[self.commandDelegate runInBackground:^{
-        CDVPluginResult* pluginResult = nil;
-        
+		CDVPluginResult* pluginResult = nil;
 		[[NSUserDefaults standardUserDefaults] removePersistentDomainForName:[[NSBundle mainBundle] bundleIdentifier]];
 		BOOL success = [[NSUserDefaults standardUserDefaults] synchronize];
 		if(success) pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK];
 		else pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsString:@"Clear has failed"];
-
 		[self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
 	}];
 }
