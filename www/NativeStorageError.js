@@ -13,6 +13,5 @@ NativeStorageError.ITEM_NOT_FOUND = 2;
 NativeStorageError.NULL_REFERENCE = 3;
 NativeStorageError.UNDEFINED_TYPE = 4;
 NativeStorageError.JSON_ERROR = 5;
-NativeStorageError.WRONG_PARAMETER = 6;
 
 module.exports = NativeStorageError;

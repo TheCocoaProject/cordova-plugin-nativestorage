@@ -13,7 +13,7 @@ function LocalStorageHandle(success, error, intent, operation, args) {
                 return;
             }
             localStorage.setItem(reference, varAsString);
-            success(variable);
+            success(varAsString);
         } catch (err) {
             error(new NativeStorageError(NativeStorageError.JSON_ERROR, "JS", err));
         }

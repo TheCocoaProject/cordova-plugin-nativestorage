@@ -26,7 +26,6 @@
             </feature>
         </config-file>
         <source-file src="src/android/NativeStorage.java" target-dir="src/" />
-        <source-file src="src/android/Crypto.java" target-dir="src/" />
     </platform>
 
 
