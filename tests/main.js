@@ -343,7 +343,7 @@ exports.defineAutoTests = function() {
                         mode: "password",
                         value: "SomeOhterPassword"
                     }, function(result) {
-                          fail("We've giving the pasword so it shouldn't work");
+                        fail("We've giving the pasword so it shouldn't work");
                         NativeStorage.remove("ref_to_secret_value", function() {
                             fail("We shouldn't got here... maybe we are in a browser!");
                         }, function(e) {
@@ -367,24 +367,24 @@ exports.defineAutoTests = function() {
             expect(NativeStorage).toEqual(jasmine.anything());
         });
         it('should invoke the error callback function with error code 2', function(done) {
-          var a = {};
-          NativeStorage.setItem("dummy_ref_clear", a, function(result) {
-                  expect(result).toEqual(a);
-                  NativeStorage.clear(function(result){
-                    NativeStorage.getItem("dummy_ref_clear", function(result){
-                      fail("Should not give a result");
-                    }, function(e){
-                      expect(e.code).toEqual(2);
-                      done();
-                    });
-                  },
-                function(e){
-                  fail("Error when clearing native storage")
+            var a = {};
+            NativeStorage.setItem("dummy_ref_clear", a, function(result) {
+                    expect(result).toEqual(a);
+                    NativeStorage.clear(function(result) {
+                            NativeStorage.getItem("dummy_ref_clear", function(result) {
+                                fail("Should not give a result");
+                            }, function(e) {
+                                expect(e.code).toEqual(2);
+                                done();
+                            });
+                        },
+                        function(e) {
+                            fail("Error when clearing native storage");
+                        });
+                },
+                function(e) {
+                    fail("Error when item is set");
                 });
-              },
-              function(e) {
-                  fail("Error when item is set")
-              });
         });
 
     });
