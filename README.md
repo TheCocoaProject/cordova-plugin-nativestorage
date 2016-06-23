@@ -6,7 +6,7 @@
 
 
 ***
-API prior to v2 can be found at the [wiki](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/wiki/Usage-API-(prior-to-v2.0.0))
+Documentation about the API prior to v2 can be found at the [wiki](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/wiki/Usage-API-(prior-to-v2.0.0))
 ***
 
 The plugin was created and developed by [Gilles Callebaut](https://be.linkedin.com/in/gilles-callebaut-46a751104), in the scope of an [IWT/VlAIO](http://www.vlaio.be/english) Tetra project [CrossMoS](https://www.msec.be/crossmos/) which assesses Mobile Cross-Platform Tools. This wouldn't be possible without the contributions of [Alok Rajiv](https://github.com/alokrajiv), our Cordova and JavaScript guru.
@@ -77,12 +77,15 @@ NativeStorage.getItem("reference_to_value",<success-callback>, <error-callback>)
 ```
 
 ###<a name="removing_values"></a>Removing values
+
+Removing a single variable:
 ```javascript
 NativeStorage.remove("reference_to_value",<success-callback>, <error-callback>);
 ```
 
+Removing all stored variables:
 ```javascript
-NativeStorage.remove(<success-callback>, <error-callback>);
+NativeStorage.clear(<success-callback>, <error-callback>);
 ```
 
 ###<a name="example"></a>Example
@@ -190,7 +193,6 @@ Error object contains:
 - source (= "Native"/"JS")
 - exception (if any, e.g. JSON exception)
 
-
 ### Error codes
 the code contains an integer whichs specifies the occurred error/problem
 - `NATIVE_WRITE_FAILED` = 1
@@ -198,6 +200,7 @@ the code contains an integer whichs specifies the occurred error/problem
 - `NULL_REFERENCE` = 3
 - `UNDEFINED_TYPE` = 4
 - `JSON_ERROR` = 5
+- `WRONG_PARAMETER` = 6
 
 ##<a name="problems"></a>Problems
 If you encounter any problems, please remove the current plugin and re-add it.
@@ -209,7 +212,7 @@ This will install the latest version.
 	* put this code at the end of `index.html`:
 	* ```<script type="text/javascript"> document.addEventListener('deviceready', function onDeviceReady() { angular.bootstrap(document.querySelector('body'), ['starter']); }, false); </script>```
 - `Unknown provider: $cordovaNativeStorageProvider`
-	* Are you certain you've included the [wrapper](https://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage)? 
+	* Are you certain you've included the [wrapper](https://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage)?
 - `Failed to instantiate module ngCordova.plugins.nativeStorage`
 - `Module 'ngCordova.plugins.nativeStorage' is not available`
 	* Check your bower json file (`bower.json`) to see if everything is correct
