@@ -343,6 +343,10 @@ exports.defineAutoTests = function() {
                         mode: "password",
                         value: "SomeOhterPassword"
                     }, function(result) {
+                      // if we are in the browser
+                      if(window.cordova && window.cordova.platformId === 'browser') || !(window.phonegap || window.cordova){
+                        done();
+                      }
                         fail("We've giving the pasword so it shouldn't work");
                         NativeStorage.remove("ref_to_secret_value", function() {
                             fail("We shouldn't got here... maybe we are in a browser!");
