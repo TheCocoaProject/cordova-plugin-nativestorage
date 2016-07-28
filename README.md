@@ -219,7 +219,8 @@ This will install the latest version.
 	* Check your bower json file (`bower.json`) to see if everything is correct
 	* be certain that the wrappers js file is included as described in the [README of the wrapper](https://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage/blob/master/README.md)
 
-##<a name="applications"></a>
+##<a name="applications"></a>Applications using this plugin
+
 - [Battles of East March](https://itunes.apple.com/us/app/id1135312617) (it was made using the Phaser game engine and compiled using CocoonJS)
 
 If you're utilizing this plugin and wish to add your application to this readme, please contact [me](mailto:callebaut.gilles@gmail.com).
