@@ -222,5 +222,6 @@ This will install the latest version.
 ##<a name="applications"></a>Applications using this plugin
 
 - [Battles of East March](https://itunes.apple.com/us/app/id1135312617) (it was made using the Phaser game engine and compiled using CocoonJS)
+- [Brain Lift](https://itunes.apple.com/us/app/brain-lift/id1130098860?mt=8) by Michael Brown
 
 If you're utilizing this plugin and wish to add your application to this readme, please contact [me](mailto:callebaut.gilles@gmail.com).
