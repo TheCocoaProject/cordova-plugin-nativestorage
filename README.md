@@ -58,7 +58,7 @@ If you're using ngCordova you can use the ngCordova-wrapper:
 ```sh
 bower install git://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage --save-dev
 ```
-For more information about the usage of the plugin check the repo for the [ngCordova-wrapper](https://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage).
+For more information about the usage of the plugin check the repo for the [ngCordova-wrapper](https://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage) - Ionic 1. The plugin is also supported for Ionic 2, pleas check the [official Ionic documentation](http://ionicframework.com/docs/v2/native/native-storage/) for the installation procedure and use. 
 
 ##<a name="supported_platforms"></a>Supported platforms
 - Android
