@@ -120,8 +120,8 @@ var app = {
         console.log(error.code);
         if (error.exception !== "") console.log(error.exception);
     },
-    removeSuccess: function (obj) {
-        console.log(obj.name);
+    removeSuccess: function () {
+        console.log("Removed");
     },
     removeError: function (error) {
         console.log(error.code);
