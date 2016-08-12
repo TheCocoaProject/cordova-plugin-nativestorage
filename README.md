@@ -57,7 +57,11 @@ Storage of:
 - Game progress
 - Text
 - ...
-- 
+
+###When not to use the plugin
+- Storing and retrieving files can be done by means of the [file plugin](https://github.com/apache/cordova-plugin-file)
+- For storing many objects please consider trying a database-based strategy, for instance: WebSQL and [SQLite plugin](https://github.com/litehelpers/Cordova-sqlite-storage).
+
 ##<a name="installation"></a>Installation
 The plugin can be installed via the Cordova command line interface:
 * Navigate to the root folder for your Cordova/Phonegap/Ionic project.
