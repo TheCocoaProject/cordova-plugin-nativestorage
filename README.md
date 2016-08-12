@@ -15,6 +15,8 @@ The plugin was created and developed by [Gilles Callebaut](https://be.linkedin.c
 Please consider reading our [wiki](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/wiki) for more documentation about this plugin.
 
 ## Contents
+- [Why the need for this plugin?](#why)
+	* [When to use the plugin](#when)
 - [Installation](#installation)
 - [Supported Platforms](#supported_platforms)
 - [Usage](#usage)
@@ -27,7 +29,7 @@ Please consider reading our [wiki](https://github.com/TheCocoaProject/cordova-pl
 - [Applications using this plugin](#applications)
 
 
-## Why?
+##<a name="why"></a>Why?
 This plugin is created because of the non-persistent property of LocalStorage in the WebView of Android and iOS.
 In iOS stored data from LocalStorage can be removed by the OS, when running out of memory.
 
@@ -42,6 +44,20 @@ Some complaints:
 
 - From Cordova itself: http://cordova.apache.org/docs/en/latest/cordova/storage/storage.html
 
+###<a name="when"></a>When to use the plugin
+- **Simple**: Uniform and convenient way of organizing, storing, and accessing the data
+- **Fast**: Less than 1 milisecond to save or retrieve an object (in general)
+- **Persistence**: Save data over multiple sessions, i.e. holds the data till the application is removed from the device
+- **Small data**: Store small amounts of persistent data (less than a few hundred kilobytes)
+	* It is possible to store more than a few megabytes, but that's not the intended usage of the plugin.
+
+####Examples
+Storage of:
+- User preferences
+- Game progress
+- Text
+- ...
+- 
 ##<a name="installation"></a>Installation
 The plugin can be installed via the Cordova command line interface:
 * Navigate to the root folder for your Cordova/Phonegap/Ionic project.
@@ -64,6 +80,7 @@ For more information about the usage of the plugin check the repo for the [ngCor
 - Android
 - iOS
 - Browser (for testing purposes)
+
 
 ##<a name="usage"></a>Usage
 The parameter of the success-callback function will be the saved or retrieved value, the error-callback will specify the occurred error.
