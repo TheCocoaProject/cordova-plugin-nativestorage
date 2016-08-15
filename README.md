@@ -20,6 +20,7 @@ Please consider reading our [wiki](https://github.com/TheCocoaProject/cordova-pl
 - [Installation](#installation)
 - [Supported Platforms](#supported_platforms)
 - [Usage](#usage)
+	* [Supported data types] (#supported_data_types)
 	* [Storing values](#storing_values)
 	* [Retrieving values](#retrieving_values)
 	* [Removing values](#removing_values)
@@ -88,6 +89,9 @@ For more information about the usage of the plugin check the repo for the [ngCor
 
 ##<a name="usage"></a>Usage
 The parameter of the success-callback function will be the saved or retrieved value, the error-callback will specify the occurred error.
+
+###<a name="supported_data_types"></a>Supported data types
+As of version v2.0 all data types that can be stringified can be stored with the `setItem` and `getItem` method, see [storing values](#storing_values). A more fine grained storage method is also provided. These methods can be used to store type-specific data types, see [API prior to v2](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/wiki/Usage-API-(prior-to-v2.0.0)).
 
 ###<a name="storing_values"></a>Storing values
 ```javascript
