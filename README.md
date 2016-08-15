@@ -27,6 +27,7 @@ Please consider reading our [wiki](https://github.com/TheCocoaProject/cordova-pl
 	* [Demo Example](#demo_example)
 - [Errors](#errors)
 - [Problems](#problems)
+- [F.A.Q](#FAQ)
 - [Applications using this plugin](#applications)
 
 
@@ -243,6 +244,19 @@ This will install the latest version.
 - `Module 'ngCordova.plugins.nativeStorage' is not available`
 	* Check your bower json file (`bower.json`) to see if everything is correct
 	* be certain that the wrappers js file is included as described in the [README of the wrapper](https://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage/blob/master/README.md)
+
+##<a name="FAQ"></a>F.A.Q.
+- Is data persistent between app updates?
+	* Yes. The data should persistent till the app has been deleted from the device. This because the plugin uses `Sharedpreferences` in Android and `NSUserDefaults` in iOS.
+- What database are you using and why?
+	* None.Tthe plugin uses `Sharedpreferences` in Android and `NSUserDefaults` in iOS. These strategies are designed for storing data quick and easy. See the [usage of the plugin](#when) for more info about DB vs NativeStorage.
+- Is it possible to save images and audio with the plugin?
+	* Yes. If you could stringify the data. Should I save imaged and audio is a different question. If the provided data isn't large and there isn't need to store a large amount of it, it will be OK.  See the [usage of the plugin](#when) for more info about storing large data with the plugin.
+- Is there a forum where people interested in the plugin could discuss issues like this?
+	* Yes
+		- See our own [issues page](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/issues)
+		- Check out our [chat](https://gitter.im/TheCocoaProject/cordova-plugin-nativestorage?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) on Gitter
+
 
 ##<a name="applications"></a>Applications using this plugin
 
