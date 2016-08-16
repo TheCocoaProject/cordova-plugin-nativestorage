@@ -52,6 +52,7 @@ Some complaints:
 - **Persistence**: Save data over multiple sessions, i.e. holds the data till the application is removed from the device
 - **Small data**: Store small amounts of persistent data (less than a few hundred kilobytes)
 	* It is possible to store more than a few megabytes, but that's not the intended usage of the plugin.
+	* See issue [#31](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/issues/31) for a more 'in-depth' explanation of size limit.
 
 ####Examples
 Storage of:
