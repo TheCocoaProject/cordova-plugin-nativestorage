@@ -232,7 +232,9 @@ the code contains an integer whichs specifies the occurred error/problem
 
 ##<a name="problems"></a>Problems
 If you encounter any problems, please remove the current plugin and re-add it.
-This will install the latest version.
+This will install the latest version. 
+
+If you have code issues, things not related to a bug of the plugin please consider posting your question on Stackoverflow. And add our own tag, [cordova-nativestorage](http://stackoverflow.com/tags/cordova-nativestorage).
 
 - Be certain to only retrieve a saved value when the put/set success-callback method was invoked.
 - When using Ionic the plugin can be undefined, the solution was descibed in issue [#10](../../issues/10):
