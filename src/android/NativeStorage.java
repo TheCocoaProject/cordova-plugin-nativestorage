@@ -19,8 +19,11 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
+import android.app.Activity;
+
 public class NativeStorage extends CordovaPlugin {
     public static final String TAG = "Native Storage";
+    public static final String PREFS_NAME = "NativeStorage";
     private SharedPreferences sharedPref;
     private SharedPreferences.Editor editor;
 
@@ -31,7 +34,7 @@ public class NativeStorage extends CordovaPlugin {
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
         Log.v(TAG, "Init NativeStorage");
-        sharedPref = cordova.getActivity().getPreferences(Context.MODE_PRIVATE);
+        sharedPref = cordova.getActivity().getSharedPreferences(PREFS_NAME, Activity.MODE_PRIVATE);
         editor = sharedPref.edit();
     }
 
