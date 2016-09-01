@@ -23,12 +23,13 @@ var NativeStorageProxy = {
             var value = args[1];
             var vault = new Windows.Security.Credentials.PasswordVault();
             vault.add(new Windows.Security.Credentials.PasswordCredential(service, key, value));
-            win(key);
+            win(value);
         } catch (e) {
             fail('failed to set Item in NativeStorage - ' + e.message);
         }
     },
     clear: function (win, fail, args) {
+        //todo: Clear all values in NativeStorage
         try {
             var service = packageId.name;
             var vault = new Windows.Security.Credentials.PasswordVault();
@@ -43,7 +44,7 @@ var NativeStorageProxy = {
             var value = args[1];
             var vault = new Windows.Security.Credentials.PasswordVault();
             vault.add(new Windows.Security.Credentials.PasswordCredential(service, key, value));
-            win(key);
+            win(value);
         } catch (e) {
             fail('failed to put String in NativeStorage - ' + e.message);
         }
