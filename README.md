@@ -247,6 +247,8 @@ If you have code issues, things not related to a bug of the plugin please consid
 - `Module 'ngCordova.plugins.nativeStorage' is not available`
 	* Check your bower json file (`bower.json`) to see if everything is correct
 	* be certain that the wrappers js file is included as described in the [README of the wrapper](https://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage/blob/master/README.md)
+- Plugin doesn't seem to work in iOS 10
+	* Solution is presented on Stackoverflow in [this thread](http://stackoverflow.com/questions/38410159/cordova-app-hanging-during-startup-on-ios-10-beta). The issue was also discussed in issue [#36](../../issues/36).
 
 ##<a name="FAQ"></a>F.A.Q.
 - Is data persistent between app updates?
