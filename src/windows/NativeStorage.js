@@ -1,5 +1,6 @@
 /**
  * Created by Christian on 30.08.2016.
+ * christian@helbighof.de
  */
 
 var package = Windows.ApplicationModel.Package.current;
