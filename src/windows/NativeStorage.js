@@ -95,7 +95,7 @@ var NativeStorageProxy = {
         try {
             var key = args[0];
             var vault = new Windows.Security.Credentials.PasswordVault();
-            var passwordCredential = vault.retrieve(service, key);
+            var passwordCredential = parseInt(vault.retrieve(service, key));
             win(passwordCredential.password);
         } catch (e) {
             fail('failed to get Int from NativeStorage - ' + e.message);
