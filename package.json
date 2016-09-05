@@ -1,8 +1,8 @@
 {
     "name": "cordova-plugin-nativestorage",
-    "version": "2.0.2",
-    "description": "Native storage of variables in Android and iOS",
-    "author": "Gilles Callebaut <gilles.callebaut.cs@gmail.com>",
+    "version": "2.1.0",
+    "description": "Native storage of variables in Android, iOS and Windows",
+    "author": "Gilles Callebaut <callebaut.gilles@gmail.com>",
     "contributors":[
     {"name":"Alok Rajiv"}
     ],
@@ -11,7 +11,8 @@
         "platforms": [
             "android",
             "ios",
-            "browser"
+            "browser",
+            "windows"
         ]
     },
     "repository": {
@@ -30,6 +31,7 @@
         "cordova-android",
         "cordova-ios",
         "cordova-browser",
+        "cordova-windows",
         "LocalStorage",
         "NSUserDefaults",
         "SharedPreferences"

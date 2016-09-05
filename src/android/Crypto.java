@@ -23,13 +23,13 @@ public class Crypto {
 
     private static final String TAG = Crypto.class.getSimpleName();
 
-    public static final String PBKDF2_DERIVATION_ALGORITHM = "PBKDF2WithHmacSHA1";
-    private static final String CIPHER_ALGORITHM = "AES/CBC/PKCS5Padding";
+    public static final String PBKDF2_DERIVATION_ALGORITHM = "PBKDF2WithHmacSHA1"; // Android 10+
+    private static final String CIPHER_ALGORITHM = "AES/CBC/PKCS5Padding"; // Android 1+
 
     private static String DELIMITER = "@~@~@";
 
     private static int KEY_LENGTH = 256;
-    private static int ITERATION_COUNT = 1000;
+    private static int ITERATION_COUNT = 10000;
     private static final int PKCS5_SALT_LENGTH = 8;
 
     private static SecureRandom random = new SecureRandom();

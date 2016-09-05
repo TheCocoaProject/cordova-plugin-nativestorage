@@ -7,6 +7,8 @@
 Join the chat for questions and updates [![Join the chat at https://gitter.im/TheCocoaProject/cordova-plugin-nativestorage](https://badges.gitter.im/TheCocoaProject/cordova-plugin-nativestorage.svg)](https://gitter.im/TheCocoaProject/cordova-plugin-nativestorage?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ***
+NEW: Windows is supported!
+
 Documentation about the API prior to v2 can be found at the [wiki](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/wiki/Usage-API-(prior-to-v2.0.0))
 ***
 
@@ -81,12 +83,13 @@ If you're using ngCordova you can use the ngCordova-wrapper:
 ```sh
 bower install git://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage --save-dev
 ```
-For more information about the usage of the plugin check the repo for the [ngCordova-wrapper](https://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage) - Ionic 1. The plugin is also supported for Ionic 2, pleas check the [official Ionic documentation](http://ionicframework.com/docs/v2/native/native-storage/) for the installation procedure and use. 
+For more information about the usage of the plugin check the repo for the [ngCordova-wrapper](https://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage) - Ionic 1. The plugin is also supported for Ionic 2, pleas check the [official Ionic documentation](http://ionicframework.com/docs/v2/native/native-storage/) for the installation procedure and use.
 
 ##<a name="supported_platforms"></a>Supported platforms
 - Android
 - iOS
 - Browser (for testing purposes)
+- Windows (thanks to Christian Helbig see [PR](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/pull/38))
 
 
 ##<a name="usage"></a>Usage
@@ -232,7 +235,7 @@ the code contains an integer whichs specifies the occurred error/problem
 
 ##<a name="problems"></a>Problems
 If you encounter any problems, please remove the current plugin and re-add it.
-This will install the latest version. 
+This will install the latest version.
 
 If you have code issues, things not related to a bug of the plugin please consider posting your question on Stackoverflow. And add our own tag, [cordova-nativestorage](http://stackoverflow.com/tags/cordova-nativestorage).
 

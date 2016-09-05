@@ -251,7 +251,7 @@ public class NativeStorage extends CordovaPlugin {
             cordova.getThreadPool().execute(new Runnable() {
                 public void run() {
                     try {
-            /* getting arguments */
+                        /* getting arguments */
                         String ref = args.getString(0);
                         String aString = args.getString(1);
                         String pwd = args.getString(2);
