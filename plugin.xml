@@ -43,12 +43,19 @@
 
     <!-- Browser -->
     <platform name="browser">
-    <config-file target="config.xml" parent="/*">
-        <feature name="NativeStorage">
-            <param name="browser-package" value="NativeStorage" />
-        </feature>
-    </config-file>
-</platform>
+        <config-file target="config.xml" parent="/*">
+            <feature name="NativeStorage">
+                <param name="browser-package" value="NativeStorage" />
+            </feature>
+        </config-file>
+    </platform>
+
+    <!-- windows -->
+    <platform name="windows">
+        <js-module src="src/windows/NativeStorage.js" name="NativeStorage">
+            <runs />
+        </js-module>
+    </platform>
 
 
 </plugin>
