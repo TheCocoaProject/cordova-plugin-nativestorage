@@ -14,7 +14,7 @@ var NativeStorageProxy = {
             var passwordCredential = vault.retrieve(service, key);
             win(passwordCredential.password);
         } catch (e) {
-            fail('failed to get Item from NativeStorage - ' + e.message);
+            fail(2);
         }
     },
     setItem: function (win, fail, args) {
@@ -25,17 +25,22 @@ var NativeStorageProxy = {
             vault.add(new Windows.Security.Credentials.PasswordCredential(service, key, value));
             win(value);
         } catch (e) {
-            fail('failed to set Item in NativeStorage - ' + e.message);
+            fail(1);
         }
     },
     clear: function (win, fail, args) {
         //todo: Clear all values in NativeStorage
         try {
-            var service = packageId.name;
             var vault = new Windows.Security.Credentials.PasswordVault();
-            var iVectorView = passwordVault.retrieveAll();
+            var iVectorView = vault.retrieveAll();
+            if (iVectorView == null)
+                win();
+            for (var i = 0; i < iVectorView.size; i++) {
+                vault.remove(iVectorView[i]);
+            }
+            win();
         } catch (e) {
-            fail('Failed to clear Storage variable - ' + e.message);
+            fail();
         }
     },
     putString: function (win, fail, args) {
@@ -46,7 +51,7 @@ var NativeStorageProxy = {
             vault.add(new Windows.Security.Credentials.PasswordCredential(service, key, value));
             win(value);
         } catch (e) {
-            fail('failed to put String in NativeStorage - ' + e.message);
+            fail(1);
         }
     },
     getString: function (win, fail, args) {
@@ -56,7 +61,7 @@ var NativeStorageProxy = {
             var passwordCredential = vault.retrieve(service, key);
             win(passwordCredential.password);
         } catch (e) {
-            fail('failed to get String from NativeStorage - ' + e.message);
+            fail(2);
         }
     },
     putBoolean: function (win, fail, args) {
@@ -67,7 +72,7 @@ var NativeStorageProxy = {
             vault.add(new Windows.Security.Credentials.PasswordCredential(service, key, value));
             win(value);
         } catch (e) {
-            fail('failed to put Boolean in NativeStorage - ' + e.message);
+            fail(1);
         }
     },
     getBoolean: function (win, fail, args) {
@@ -77,7 +82,7 @@ var NativeStorageProxy = {
             var passwordCredential = vault.retrieve(service, key);
             win(passwordCredential.password);
         } catch (e) {
-            fail('failed to get Boolen from NativeStorage - ' + e.message);
+            fail(2);
         }
     },
     putInt: function (win, fail, args) {
@@ -88,17 +93,17 @@ var NativeStorageProxy = {
             vault.add(new Windows.Security.Credentials.PasswordCredential(service, key, value));
             win(value);
         } catch (e) {
-            fail('failed to set Int in NativeStorage - ' + e.message);
+            fail(1);
         }
     },
     getInt: function (win, fail, args) {
         try {
             var key = args[0];
             var vault = new Windows.Security.Credentials.PasswordVault();
-            var passwordCredential = parseInt(vault.retrieve(service, key));
-            win(passwordCredential.password);
+            var passwordCredential = vault.retrieve(service, key);
+            win(parseInt(passwordCredential.password));
         } catch (e) {
-            fail('failed to get Int from NativeStorage - ' + e.message);
+            fail(2);
         }
     },
     putDouble: function (win, fail, args) {
@@ -109,7 +114,7 @@ var NativeStorageProxy = {
             vault.add(new Windows.Security.Credentials.PasswordCredential(service, key, value));
             win(value);
         } catch (e) {
-            fail('failed to set Double in NativeStorage - ' + e.message);
+            fail(1);
         }
     },
     getDouble: function (win, fail, args) {
@@ -119,7 +124,7 @@ var NativeStorageProxy = {
             var passwordCredential = vault.retrieve(service, key);
             win(passwordCredential.password);
         } catch (e) {
-            fail('failed to get Double from NativeStorage - ' + e.message);
+            fail(2);
         }
     },
     remove: function (win, fail, args) {
@@ -132,7 +137,7 @@ var NativeStorageProxy = {
             }
             win(key);
         } catch (e) {
-            fail('failed to remove from NativeStorage - ' + e.message);
+            fail(2);
         }
     },
 };
