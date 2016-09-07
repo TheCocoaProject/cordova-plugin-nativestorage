@@ -201,6 +201,7 @@ cd cordova-plugin-nativestorage/examples/demo/
 cordova platform add ios
 cordova platform add android
 cordova platform add browser
+cordova platform add windows
 ```
 * Adding the plugin
 ```sh
@@ -216,6 +217,7 @@ cordova plugin add https://github.com/TheCocoaProject/cordova-plugin-nativestora
 cordova emulate ios
 cordova run android
 cordova run browser
+cordova run windows
 ```
 
 ##<a name="errors"></a>Errors
