@@ -85,6 +85,16 @@ bower install git://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage -
 ```
 For more information about the usage of the plugin check the repo for the [ngCordova-wrapper](https://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage) - Ionic 1. The plugin is also supported for Ionic 2, pleas check the [official Ionic documentation](http://ionicframework.com/docs/v2/native/native-storage/) for the installation procedure and use.
 
+###<a name="reinstalling_dev"></a>Reinstalling/installing developer version
+Remove the plugin from the current project:
+```sh
+cordova plugin remove cordova-plugin-nativestorage
+```
+Install the developer version from Github:
+```sh
+cordova plugin add https://github.com/TheCocoaProject/cordova-plugin-nativestorage
+```
+
 ##<a name="supported_platforms"></a>Supported platforms
 - Android
 - iOS
