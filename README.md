@@ -8,6 +8,7 @@ Join the chat for questions and updates [![Join the chat at https://gitter.im/Th
 
 ***
 NEW: Windows is supported!
+UPDATE: The Plugin can now also be found at the [Telerik Plugin Market](http://plugins.telerik.com/cordova/plugin/nativestorage).
 
 Documentation about the API prior to v2 can be found at the [wiki](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/wiki/Usage-API-(prior-to-v2.0.0))
 ***
