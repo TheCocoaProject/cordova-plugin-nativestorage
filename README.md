@@ -279,6 +279,8 @@ If you have code issues, things not related to a bug of the plugin please consid
 		- Check out our [chat](https://gitter.im/TheCocoaProject/cordova-plugin-nativestorage?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) on Gitter
 - Can I access the saved value in Android?
 	* Yes, check out [this thread](http://stackoverflow.com/questions/39159754/how-get-data-from-cordova-plugin-nativestorage-in-android-java/39269620#39269620) on StackOverflow.
+- Can I access saved values in JavaScript?
+	* Yes, see [this thread](http://stackoverflow.com/questions/25657749/cordova-plugin-expose-js-variable-android-cardflight/39331899#39331899) on StackOverflow.
 
 
 ##<a name="applications"></a>Applications using this plugin
