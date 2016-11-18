@@ -281,6 +281,8 @@ If you have code issues, things not related to a bug of the plugin please consid
 	* Yes, check out [this thread](http://stackoverflow.com/questions/39159754/how-get-data-from-cordova-plugin-nativestorage-in-android-java/39269620#39269620) on StackOverflow.
 - Can I access saved values in JavaScript?
 	* Yes, see [this thread](http://stackoverflow.com/questions/25657749/cordova-plugin-expose-js-variable-android-cardflight/39331899#39331899) on StackOverflow.
+- Does this plugin supports Cordova 3.9.2?
+	* Yes, look at [this fork](cordova-plugin-nativestorage-3.9.2-compatible)
 
 
 ##<a name="applications"></a>Applications using this plugin
