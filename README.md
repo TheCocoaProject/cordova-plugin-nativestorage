@@ -105,6 +105,7 @@ cordova plugin add https://github.com/TheCocoaProject/cordova-plugin-nativestora
 
 ##<a name="supported_frameworks"></a>Supported frameworks
 - [vanilla Cordova](https://www.npmjs.com/package/cordova-plugin-nativestorage)
+- [Cordova 3.9.2](https://github.com/GillesC/cordova-plugin-nativestorage-3.9.2-compatible) and previous versions
 - [Ionic 2](http://ionicframework.com/docs/v2/native/nativestorage/)
 - [ngCordova](https://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage) (not all functions are yet supported)
 
