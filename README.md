@@ -22,6 +22,7 @@ Please consider reading our [wiki](https://github.com/TheCocoaProject/cordova-pl
 	* [When to use the plugin](#when)
 - [Installation](#installation)
 - [Supported Platforms](#supported_platforms)
+- [Supported Frameworks](#supported_frameworks)
 - [Usage](#usage)
 	* [Supported data types] (#supported_data_types)
 	* [Storing values](#storing_values)
@@ -102,6 +103,10 @@ cordova plugin add https://github.com/TheCocoaProject/cordova-plugin-nativestora
 - Browser (for testing purposes)
 - Windows (thanks to Christian Helbig see [PR](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/pull/38))
 
+##<a name="supported_frameworks"></a>Supported frameworks
+- [vanilla Cordova](https://www.npmjs.com/package/cordova-plugin-nativestorage)
+- [Ionic 2](http://ionicframework.com/docs/v2/native/nativestorage/)
+- [ngCordova](https://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage) (not all functions are yet supported)
 
 ##<a name="usage"></a>Usage
 The parameter of the success-callback function will be the saved or retrieved value, the error-callback will specify the occurred error.
