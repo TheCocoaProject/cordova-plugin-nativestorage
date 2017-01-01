@@ -3,7 +3,7 @@ var NativeStorageError = require('./NativeStorageError');
 
 
 function isInBrowser() {
-  inBrowser = (window.cordova && window.cordova.platformId === 'browser') || !(window.phonegap || window.cordova);
+  inBrowser = (window.cordova && (window.cordova.platformId === 'browser' || window.cordova.platformId === 'osx')) || !(window.phonegap || window.cordova);
   return inBrowser;
 }
 
