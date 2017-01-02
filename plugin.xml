@@ -50,6 +50,15 @@
         </config-file>
     </platform>
 
+    <!-- osx -->
+    <platform name="osx">
+        <config-file target="config.xml" parent="/*">
+            <feature name="NativeStorage">
+                <param name="osx-package" value="NativeStorage" />
+            </feature>
+        </config-file>
+    </platform>
+
     <!-- windows -->
     <platform name="windows">
         <js-module src="src/windows/NativeStorage.js" name="NativeStorage">
