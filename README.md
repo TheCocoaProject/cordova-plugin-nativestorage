@@ -7,7 +7,7 @@
 Join the chat for questions and updates [![Join the chat at https://gitter.im/TheCocoaProject/cordova-plugin-nativestorage](https://badges.gitter.im/TheCocoaProject/cordova-plugin-nativestorage.svg)](https://gitter.im/TheCocoaProject/cordova-plugin-nativestorage?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ***
-NEW: Windows is supported!
+NEW: Windows and OS X is supported!
 UPDATE: The Plugin can now also be found at the [Telerik Plugin Market](http://plugins.telerik.com/cordova/plugin/nativestorage).
 
 Documentation about the API prior to v2 can be found at the [wiki](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/wiki/Usage-API-(prior-to-v2.0.0))
@@ -102,6 +102,7 @@ cordova plugin add https://github.com/TheCocoaProject/cordova-plugin-nativestora
 - iOS
 - Browser (for testing purposes)
 - Windows (thanks to Christian Helbig see [PR](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/pull/38))
+- OS X (thanks to [Javier Ribó](https://github.com/elribonazo) see [PR](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/pull/58))
 
 ##<a name="supported_frameworks"></a>Supported frameworks
 - [vanilla Cordova](https://www.npmjs.com/package/cordova-plugin-nativestorage)
