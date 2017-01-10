@@ -392,6 +392,11 @@ StorageHandle.prototype.getSecretItem = function(reference, encryptConfig, succe
     }, "NativeStorage", action, params);
 };
 
+/* list keys */
+StorageHandle.prototype.keys = function(success, error) {
+  this.storageHandlerDelegate(success, error, "NativeStorage", "keys");
+};
+
 
 var storageHandle = new StorageHandle();
 module.exports = storageHandle;

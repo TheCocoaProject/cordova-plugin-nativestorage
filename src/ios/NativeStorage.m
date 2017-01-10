@@ -251,5 +251,16 @@
 	}];
 }
 
+- (void) keys: (CDVInvokedUrlCommand*) command
+{
+	[self.commandDelegate runInBackground:^{
+		CDVPluginResult* pluginResult = nil;
+		NSArray *keys = [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys];
+		pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsString:keys];
+
+		[self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
+	}];
+}
+
 
 @end

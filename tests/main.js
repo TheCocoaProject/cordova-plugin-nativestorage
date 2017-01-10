@@ -393,4 +393,26 @@ exports.defineAutoTests = function() {
     });
 
   });
+
+  describe('keys function', function() {
+    it("Plugin available", function() {
+      expect(NativeStorage).toEqual(jasmine.anything());
+    });
+    it('should return the keys', function(done) {
+      var a = {};
+      NativeStorage.setItem("dummy_ref_clear", a, function(result) {
+        expect(result).toEqual(a);
+        NativeStorage.keys(function(result) {
+            expect(result).toContain('dummy_ref_clear');
+            done();
+          },
+          function(e) {
+            fail("Error when listing keys in native storage");
+          });
+      },
+        function(e) {
+          fail("Error when item is set");
+        });
+    });
+  });
 };

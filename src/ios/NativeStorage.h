@@ -1,3 +1,4 @@
+#import <UIKit/UIKit.h>
 #import <Cordova/CDVPlugin.h>
 @interface NativeStorage : CDVPlugin
 
@@ -18,6 +19,8 @@
 
 - (void) setItem: (CDVInvokedUrlCommand*) command;
 - (void) getItem: (CDVInvokedUrlCommand*) command;
+
+- (void) keys: (CDVInvokedUrlCommand*) command;
 
 
 @end
