@@ -240,8 +240,8 @@ cordova run windows
 ```
 
 ##<a name="security"></a>Security
-Is it save to store a password via this plugin?
- - Yes and No, all stored values are only accessible by your application, which makes it save. However, the values can be viewed when the attacker has access to your phone's password (e.g. lock-pattern). An extra encryption mechanism would be of value when an extra user-supplied password is used. This mode is on our [Future Track](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/wiki/Future-track) list.
+Is it safe to store sensitive data via this plugin?
+ - Yes and No, all stored values are only accessible by your application, which makes it safe. However, the values can be viewed when the attacker has access to your phone's password (e.g. lock-pattern) through an un-encrypted back-up on Android (if back-up is enabled) or through root-access. The latter is only possible if the phone is rooted. An extra encryption mechanism would be of value when an extra user-supplied password is used. This mode is on our [Future Track](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/wiki/Future-track) list.
 
 ##<a name="errors"></a>Errors
 Error object contains:
