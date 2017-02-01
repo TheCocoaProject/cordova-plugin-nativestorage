@@ -27,6 +27,7 @@ Please consider reading our [wiki](https://github.com/TheCocoaProject/cordova-pl
 	* [Supported data types] (#supported_data_types)
 	* [Storing values](#storing_values)
 	* [Retrieving values](#retrieving_values)
+	* [Retrieving all keys](#retrieving_keys)
 	* [Removing values](#removing_values)
 	* [Demo Example](#demo_example)
 - [Errors](#errors)
@@ -123,6 +124,11 @@ NativeStorage.setItem("reference_to_value",<value>, <success-callback>, <error-c
 ###<a name="retrieving_values"></a>Retrieving values
 ```javascript
 NativeStorage.getItem("reference_to_value",<success-callback>, <error-callback>);
+```
+
+###<a name="retrieving_keys"></a>Retrieving all keys
+```javascript
+NativeStorage.keys(<success-callback>, <error-callback>);
 ```
 
 ###<a name="removing_values"></a>Removing values
