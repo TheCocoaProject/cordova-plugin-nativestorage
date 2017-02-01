@@ -380,7 +380,7 @@ public class NativeStorage extends CordovaPlugin {
                 public void run() {
                     try {
                         Map<String, ?> allEntries = sharedPref.getAll();
-                        callbackContext.success(allEntries.keySet().toArray());
+                        callbackContext.success(new JSONArray(allEntries.keySet()));
                     } catch (Exception e) {
                         Log.e(TAG, "Get keys failed :", e);
                         callbackContext.error(e.getMessage());
