@@ -140,6 +140,19 @@ var NativeStorageProxy = {
             fail(2);
         }
     },
+    keys: function (win, fail) {
+        try {
+            var vault = new Windows.Security.Credentials.PasswordVault();
+            var all = vault.retrieveAll();
+            var keys = [];
+            for(var i=0;i<all.Size;i++) {
+              keys.push(all.GetAt(i).UserName);
+            }
+            win(keys);
+        } catch (e) {
+            fail(2);
+        }
+    },
 };
 
 require("cordova/exec/proxy").add("NativeStorage", NativeStorageProxy);

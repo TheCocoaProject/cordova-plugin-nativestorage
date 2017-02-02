@@ -19,6 +19,8 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
+import java.util.Map;
+
 import android.app.Activity;
 
 public class NativeStorage extends CordovaPlugin {
@@ -366,6 +368,21 @@ public class NativeStorage extends CordovaPlugin {
                         }
                     } catch (Exception e) {
                         Log.e(TAG, "getItem failed :", e);
+                        callbackContext.error(e.getMessage());
+                    }
+                }
+            });
+            return true;
+        }
+
+        if (("keys").equals(action)) {
+            cordova.getThreadPool().execute(new Runnable() {
+                public void run() {
+                    try {
+                        Map<String, ?> allEntries = sharedPref.getAll();
+                        callbackContext.success(new JSONArray(allEntries.keySet()));
+                    } catch (Exception e) {
+                        Log.e(TAG, "Get keys failed :", e);
                         callbackContext.error(e.getMessage());
                     }
                 }

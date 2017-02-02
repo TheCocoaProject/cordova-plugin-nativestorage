@@ -4,7 +4,8 @@
     "description": "Native storage of variables in Android, iOS and Windows",
     "author": "Gilles Callebaut <callebaut.gilles@gmail.com>",
     "contributors":[
-    {"name":"Alok Rajiv"}
+      {"name":"Alok Rajiv"},
+      {"name":"Yann Deshayes", "email": "deshayes.yann@gmail.com", "url": "https://github.com/ydeshayes"}
     ],
     "cordova": {
         "id": "cordova-plugin-nativestorage",
