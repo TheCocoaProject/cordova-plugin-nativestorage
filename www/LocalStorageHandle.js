@@ -31,13 +31,13 @@ function LocalStorageHandle(success, error, intent, operation, args) {
         } catch (err) {
             error(new NativeStorageError(NativeStorageError.JSON_ERROR, "JS", err));
         }
-    } else if(operation === 'keys') {
-      const keys = [];
-      let key = localStorage.key(0);
+    } else if (operation === 'keys') {
+      var keys = [];
+      var key = localStorage.key(0);
       if(!key) {
         return success(keys);
       }
-      let i = 0;
+      var i = 0;
       while(key) {
         keys.push(key);
         i++;
