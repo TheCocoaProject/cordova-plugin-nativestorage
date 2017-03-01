@@ -287,6 +287,8 @@ If you have code issues, things not related to a bug of the plugin please consid
 ##<a name="FAQ"></a>F.A.Q.
 - Is data persistent between app updates?
 	* Yes. The data should persistent till the app has been deleted from the device. This because the plugin uses `Sharedpreferences` in Android and `NSUserDefaults` in iOS.
+- Oh no my stored data is not cleared after reinstalling my application. How do I resolve this 'issue'?
+	* You need to set `android:allowBackup=false` in the application tag of AndroidManifest.xml. More information at [this issue](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/issues/57) and [this StackOverflow question](http://stackoverflow.com/questions/42538421/ionic-nativestorage-not-clear-when-reinstal-application-release).
 - What database are you using and why?
 	* None.Tthe plugin uses `Sharedpreferences` in Android and `NSUserDefaults` in iOS. These strategies are designed for storing data quick and easy. See the [usage of the plugin](#when) for more info about DB vs NativeStorage.
 - Is it possible to save images and audio with the plugin?
