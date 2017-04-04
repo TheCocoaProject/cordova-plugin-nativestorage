@@ -37,7 +37,7 @@ Please consider reading our [wiki](https://github.com/TheCocoaProject/cordova-pl
 - [Applications using this plugin](#applications)
 
 
-##<a name="why"></a>Why?
+## <a name="why"></a>Why?
 This plugin is created because of the non-persistent property of LocalStorage in the WebView of Android and iOS.
 In iOS stored data from LocalStorage can be removed by the OS, when running out of memory.
 
@@ -52,7 +52,7 @@ Some complaints:
 
 - From Cordova itself: http://cordova.apache.org/docs/en/latest/cordova/storage/storage.html
 
-###<a name="when"></a>When to use the plugin
+### <a name="when"></a>When to use the plugin
 - **Simple**: Uniform and convenient way of organizing, storing, and accessing the data
 - **Fast**: Less than 1 milisecond to save or retrieve an object (in general)
 - **Persistence**: Save data over multiple sessions, i.e. holds the data till the application is removed from the device
@@ -60,18 +60,18 @@ Some complaints:
 	* It is possible to store more than a few megabytes, but that's not the intended usage of the plugin.
 	* See issue [#31](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/issues/31) for a more 'in-depth' explanation of size limit.
 
-####Examples
+#### Examples
 Storage of:
 - User preferences
 - Game progress
 - Text
 - ...
 
-###When not to use the plugin
+### When not to use the plugin
 - Storing and retrieving files can be done by means of the [file plugin](https://github.com/apache/cordova-plugin-file)
 - For storing many objects please consider trying a database-based strategy, for instance: WebSQL and [SQLite plugin](https://github.com/litehelpers/Cordova-sqlite-storage).
 
-##<a name="installation"></a>Installation
+## <a name="installation"></a>Installation
 The plugin can be installed via the Cordova command line interface:
 * Navigate to the root folder for your Cordova/Phonegap/Ionic project.
 * Run the command:
@@ -89,7 +89,7 @@ bower install git://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage -
 ```
 For more information about the usage of the plugin check the repo for the [ngCordova-wrapper](https://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage) - Ionic 1. The plugin is also supported for Ionic 2, pleas check the [official Ionic documentation](http://ionicframework.com/docs/v2/native/native-storage/) for the installation procedure and use.
 
-###<a name="reinstalling_dev"></a>Reinstalling/installing developer version
+### <a name="reinstalling_dev"></a>Reinstalling/installing developer version
 Remove the plugin from the current project:
 ```sh
 cordova plugin remove cordova-plugin-nativestorage
@@ -99,40 +99,40 @@ Install the developer version from Github:
 cordova plugin add https://github.com/TheCocoaProject/cordova-plugin-nativestorage
 ```
 
-##<a name="supported_platforms"></a>Supported platforms
+## <a name="supported_platforms"></a>Supported platforms
 - Android
 - iOS
 - Browser (for testing purposes)
 - Windows (thanks to Christian Helbig see [PR](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/pull/38))
 - OS X (thanks to [Javier Ribó](https://github.com/elribonazo) see [PR](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/pull/58))
 
-##<a name="supported_frameworks"></a>Supported frameworks
+## <a name="supported_frameworks"></a>Supported frameworks
 - [vanilla Cordova](https://www.npmjs.com/package/cordova-plugin-nativestorage)
 - [Cordova 3.9.2](https://github.com/GillesC/cordova-plugin-nativestorage-3.9.2-compatible) and previous versions
 - [Ionic 2](http://ionicframework.com/docs/v2/native/nativestorage/)
 - [ngCordova](https://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage) (not all functions are yet supported)
 
-##<a name="usage"></a>Usage
+## <a name="usage"></a>Usage
 The parameter of the success-callback function will be the saved or retrieved value, the error-callback will specify the occurred error.
 
-###<a name="supported_data_types"></a>Supported data types
+### <a name="supported_data_types"></a>Supported data types
 As of version v2.0 all data types that can be stringified can be stored with the `setItem` and `getItem` method, see [storing values](#storing_values). A more fine grained storage method is also provided. These methods can be used to store type-specific data types, see [API prior to v2](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/wiki/Usage-API-(prior-to-v2.0.0)).
 
-###<a name="storing_values"></a>Storing values
+### <a name="storing_values"></a>Storing values
 ```javascript
 NativeStorage.setItem("reference_to_value",<value>, <success-callback>, <error-callback>);
 ```
-###<a name="retrieving_values"></a>Retrieving values
+### <a name="retrieving_values"></a>Retrieving values
 ```javascript
 NativeStorage.getItem("reference_to_value",<success-callback>, <error-callback>);
 ```
 
-###<a name="retrieving_keys"></a>Retrieving all keys
+### <a name="retrieving_keys"></a>Retrieving all keys
 ```javascript
 NativeStorage.keys(<success-callback>, <error-callback>);
 ```
 
-###<a name="removing_values"></a>Removing values
+### <a name="removing_values"></a>Removing values
 
 Removing a single variable:
 ```javascript
@@ -144,7 +144,7 @@ Removing all stored variables:
 NativeStorage.clear(<success-callback>, <error-callback>);
 ```
 
-###<a name="example"></a>Example
+### <a name="example"></a>Example
 ```javascript
 var app = {
     initialize: function () {
@@ -187,7 +187,7 @@ var app = {
 app.initialize();
 ```
 
-###<a name="ngcordova_example"></a>ngCordova (ionic) example
+### <a name="ngcordova_example"></a>ngCordova (ionic) example
 ```javascript
 var app = angular.module('starter.controllers', ['ngCordova.plugins.nativeStorage'])
 
@@ -209,7 +209,7 @@ app.controller('myCtrl', function ($ionicPlatform, $scope, $cordovaNativeStorage
 });
 ```
 
-###<a name="demo_example"></a>Demo Example
+### <a name="demo_example"></a>Demo Example
 A demo application can be found at `cordova-plugin-nativestorage/examples/demo`. This application will save a String when the SAVE (`btn_load`) is pushed. This String is the value which has been typed in the input field (`data_input`). When the LOAD button is pressed, the value is shown by means of an alert message.
 
 #### Installation
@@ -245,11 +245,11 @@ cordova run browser
 cordova run windows
 ```
 
-##<a name="security"></a>Security
+## <a name="security"></a>Security
 Is it safe to store sensitive data via this plugin?
  - Yes and No, all stored values are only accessible by your application, which makes it safe. However, the values can be viewed when the attacker has access to your phone's password (e.g. lock-pattern) through an un-encrypted back-up on Android (if back-up is enabled) or through root-access. The latter is only possible if the phone is rooted. An extra encryption mechanism would be of value when an extra user-supplied password is used. This mode is on our [Future Track](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/wiki/Future-track) list.
 
-##<a name="errors"></a>Errors
+## <a name="errors"></a>Errors
 Error object contains:
 - code
 - source (= "Native"/"JS")
@@ -264,7 +264,7 @@ the code contains an integer whichs specifies the occurred error/problem
 - `JSON_ERROR` = 5
 - `WRONG_PARAMETER` = 6
 
-##<a name="problems"></a>Problems
+## <a name="problems"></a>Problems
 If you encounter any problems, please remove the current plugin and re-add it.
 This will install the latest version.
 
@@ -284,7 +284,7 @@ If you have code issues, things not related to a bug of the plugin please consid
 - Plugin doesn't seem to work in iOS 10
 	* Solution is presented on Stackoverflow in [this thread](http://stackoverflow.com/questions/38410159/cordova-app-hanging-during-startup-on-ios-10-beta). The issue was also discussed in issue [#36](../../issues/36).
 
-##<a name="FAQ"></a>F.A.Q.
+## <a name="FAQ"></a>F.A.Q.
 - Is data persistent between app updates?
 	* Yes. The data should persistent till the app has been deleted from the device. This because the plugin uses `Sharedpreferences` in Android and `NSUserDefaults` in iOS.
 - Oh no my stored data is not cleared after reinstalling my application. How do I resolve this 'issue'?
@@ -305,7 +305,7 @@ If you have code issues, things not related to a bug of the plugin please consid
 	* Yes, look at [this fork](cordova-plugin-nativestorage-3.9.2-compatible)
 
 
-##<a name="applications"></a>Applications using this plugin
+## <a name="applications"></a>Applications using this plugin
 
 - [Battles of East March](https://itunes.apple.com/us/app/id1135312617) (it was made using the Phaser game engine and compiled using CocoonJS)
 
