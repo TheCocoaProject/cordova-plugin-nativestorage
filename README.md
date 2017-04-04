@@ -24,7 +24,7 @@ Please consider reading our [wiki](https://github.com/TheCocoaProject/cordova-pl
 - [Supported Platforms](#supported_platforms)
 - [Supported Frameworks](#supported_frameworks)
 - [Usage](#usage)
-	* [Supported data types] (#supported_data_types)
+	* [Supported data types](#supported_data_types)
 	* [Storing values](#storing_values)
 	* [Retrieving values](#retrieving_values)
 	* [Retrieving all keys](#retrieving_keys)
@@ -42,14 +42,12 @@ This plugin is created because of the non-persistent property of LocalStorage in
 In iOS stored data from LocalStorage can be removed by the OS, when running out of memory.
 
 Some complaints:
-
-- <http://gonehybrid.com/dont-assume-localstorage-will-always-work-in-your-hybrid-app/>
-- <http://stackoverflow.com/questions/7750857/how-permanent-is-local-storage-on-android-and-ios>
-- <http://stackoverflow.com/questions/25627991/ios-7-webview-and-localstorage-persistence-update>
-- <http://stackoverflow.com/questions/28082624/localstorage-persistence-in-ios-android-webview>
-- <https://forum.ionicframework.com/t/localstorage-is-it-cleared-after-app-restarts-periodically-in-ios/21819>
-- <https://bugs.chromium.org/p/chromium/issues/detail?id=481380>
-
+- http://gonehybrid.com/dont-assume-localstorage-will-always-work-in-your-hybrid-app/
+- http://stackoverflow.com/questions/7750857/how-permanent-is-local-storage-on-android-and-ios
+- http://stackoverflow.com/questions/25627991/ios-7-webview-and-localstorage-persistence-update
+- http://stackoverflow.com/questions/28082624/localstorage-persistence-in-ios-android-webview
+- https://forum.ionicframework.com/t/localstorage-is-it-cleared-after-app-restarts-periodically-in-ios/21819
+- https://bugs.chromium.org/p/chromium/issues/detail?id=481380
 - From Cordova itself: http://cordova.apache.org/docs/en/latest/cordova/storage/storage.html
 
 ### <a name="when"></a>When to use the plugin
@@ -187,7 +185,7 @@ var app = {
 app.initialize();
 ```
 
-### <a name="ngcordova_example"></a>ngCordova (ionic) example
+### <a name="ngcordova_example"></a>ngCordova (Ionic 1) example
 ```javascript
 var app = angular.module('starter.controllers', ['ngCordova.plugins.nativeStorage'])
 
@@ -271,7 +269,7 @@ This will install the latest version.
 If you have code issues, things not related to a bug of the plugin please consider posting your question on Stackoverflow. And add our own tag, [cordova-nativestorage](http://stackoverflow.com/tags/cordova-nativestorage).
 
 - Be certain to only retrieve a saved value when the put/set success-callback method was invoked.
-- When using Ionic the plugin can be undefined, the solution was descibed in issue [#10](../../issues/10):
+- When using Ionic 1 the plugin can be undefined, the solution was descibed in issue [#10](../../issues/10):
 	* Remove `ng-app` from `body`
 	* put this code at the end of `index.html`:
 	* ```<script type="text/javascript"> document.addEventListener('deviceready', function onDeviceReady() { angular.bootstrap(document.querySelector('body'), ['starter']); }, false); </script>```
