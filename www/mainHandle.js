@@ -394,7 +394,7 @@ StorageHandle.prototype.getSecretItem = function(reference, encryptConfig, succe
 
 /* list keys */
 StorageHandle.prototype.keys = function(success, error) {
-  this.storageHandlerDelegate(success, error, "NativeStorage", "keys");
+  this.storageHandlerDelegate(success, error, "NativeStorage", "keys", []);
 };
 
 
