@@ -85,7 +85,7 @@ If you're using ngCordova you can use the ngCordova-wrapper:
 ```sh
 bower install git://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage --save-dev
 ```
-For more information about the usage of the plugin check the repo for the [ngCordova-wrapper](https://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage) - Ionic 1. The plugin is also supported for Ionic 2, pleas check the [official Ionic documentation](http://ionicframework.com/docs/v2/native/native-storage/) for the installation procedure and use.
+For more information about the usage of the plugin check the repo for the [ngCordova-wrapper](https://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage) - Ionic V1. The plugin is also supported for Ionic, please check the [official Ionic documentation](http://ionicframework.com/docs/v2/native/native-storage/) for the installation procedure and use.
 
 ### <a name="reinstalling_dev"></a>Reinstalling/installing developer version
 Remove the plugin from the current project:
@@ -107,7 +107,7 @@ cordova plugin add https://github.com/TheCocoaProject/cordova-plugin-nativestora
 ## <a name="supported_frameworks"></a>Supported frameworks
 - [vanilla Cordova](https://www.npmjs.com/package/cordova-plugin-nativestorage)
 - [Cordova 3.9.2](https://github.com/GillesC/cordova-plugin-nativestorage-3.9.2-compatible) and previous versions
-- [Ionic 2](http://ionicframework.com/docs/v2/native/nativestorage/)
+- [Ionic](http://ionicframework.com/docs/v2/native/nativestorage/)
 - [ngCordova](https://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage) (not all functions are yet supported)
 
 ## <a name="usage"></a>Usage
@@ -185,7 +185,7 @@ var app = {
 app.initialize();
 ```
 
-### <a name="ngcordova_example"></a>ngCordova (Ionic 1) example
+### <a name="ngcordova_example"></a>ngCordova (Ionic V1) example
 ```javascript
 var app = angular.module('starter.controllers', ['ngCordova.plugins.nativeStorage'])
 
@@ -269,7 +269,7 @@ This will install the latest version.
 If you have code issues, things not related to a bug of the plugin please consider posting your question on Stackoverflow. And add our own tag, [cordova-nativestorage](http://stackoverflow.com/tags/cordova-nativestorage).
 
 - Be certain to only retrieve a saved value when the put/set success-callback method was invoked.
-- When using Ionic 1 the plugin can be undefined, the solution was descibed in issue [#10](../../issues/10):
+- When using Ionic V1 the plugin can be undefined, the solution was descibed in issue [#10](../../issues/10):
 	* Remove `ng-app` from `body`
 	* put this code at the end of `index.html`:
 	* ```<script type="text/javascript"> document.addEventListener('deviceready', function onDeviceReady() { angular.bootstrap(document.querySelector('body'), ['starter']); }, false); </script>```
