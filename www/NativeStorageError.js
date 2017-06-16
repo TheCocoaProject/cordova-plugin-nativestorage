@@ -8,6 +8,11 @@ var NativeStorageError = function(code, source, exception) {
     this.exception = exception || null;
 };
 
+// Make NativeStorageError a real Error, you can test with `instanceof Error`
+NativeStorageError.prototype = Object.create(Error.prototype, {
+  constructor: { value: NativeStorageError }
+});
+
 NativeStorageError.NATIVE_WRITE_FAILED = 1;
 NativeStorageError.ITEM_NOT_FOUND = 2;
 NativeStorageError.NULL_REFERENCE = 3;
