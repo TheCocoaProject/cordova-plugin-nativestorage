@@ -33,15 +33,8 @@ function LocalStorageHandle(success, error, intent, operation, args) {
         }
     } else if (operation === 'keys') {
       var keys = [];
-      var key = localStorage.key(0);
-      if(!key) {
-        return success(keys);
-      }
-      var i = 0;
-      while(key) {
-        keys.push(key);
-        i++;
-        key = localStorage.key(i);
+      for(var i = 0; i < localStorage.length; i++){
+         keys.push(localStorage.key(i));
       }
       success(keys);
     }
