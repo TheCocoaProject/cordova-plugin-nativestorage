@@ -43,6 +43,13 @@ function StorageHandle() {
   }
 }
 
+StorageHandle.prototype.initWithSuiteName = function(reference, suiteName, success, error) {
+  if (reference === null) {
+    error("Null reference isn't supported");
+    return;
+  }
+  this.storageHandlerDelegate(success, error, "NativeStorage", "initWithSuiteName", [reference, suiteName]);
+};
 
 StorageHandle.prototype.set = function(reference, value, success, error) {
   if (reference === null) {
