@@ -289,7 +289,7 @@ If you have code issues, things not related to a bug of the plugin please consid
 - Oh no my stored data is not cleared after reinstalling my application. How do I resolve this 'issue'?
 	* You need to set `android:allowBackup=false` in the application tag of AndroidManifest.xml. More information at [this issue](https://github.com/TheCocoaProject/cordova-plugin-nativestorage/issues/57) and [this StackOverflow question](http://stackoverflow.com/questions/42538421/ionic-nativestorage-not-clear-when-reinstal-application-release).
 - What database are you using and why?
-	* None.Tthe plugin uses `Sharedpreferences` in Android and `NSUserDefaults` in iOS. These strategies are designed for storing data quick and easy. See the [usage of the plugin](#when) for more info about DB vs NativeStorage.
+	* None. The plugin uses `Sharedpreferences` in Android and `NSUserDefaults` in iOS. These strategies are designed for storing data quick and easy. See the [usage of the plugin](#when) for more info about DB vs NativeStorage.
 - Is it possible to save images and audio with the plugin?
 	* Yes. If you could stringify the data. Should I save imaged and audio is a different question. If the provided data isn't large and there isn't need to store a large amount of it, it will be OK.  See the [usage of the plugin](#when) for more info about storing large data with the plugin.
 - Is there a forum where people interested in the plugin could discuss issues like this?
