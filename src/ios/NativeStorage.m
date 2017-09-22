@@ -9,21 +9,20 @@
 
 - (void) initWithSuiteName: (CDVInvokedUrlCommand*) command
 {
-	[self.commandDelegate runInBackground:^{
-		CDVPluginResult* pluginResult = nil;
-		NSString* reference = [command.arguments objectAtIndex:0];
-		NSString* aSuiteName = [command.arguments objectAtIndex:1];
-
-		if(reference!=nil && aSuiteName!=nil)
-		{
-			_suiteName = aSuiteName;
-		}
-		else
-		{
-			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsString:@"Reference or SuiteName was null"];
-		}
-		[self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
-	}];
+    [self.commandDelegate runInBackground:^{
+        CDVPluginResult* pluginResult = nil;
+        NSString* aSuiteName = [command.arguments objectAtIndex:0];
+        
+        if(aSuiteName!=nil)
+        {
+            _suiteName = aSuiteName;
+        }
+        else
+        {
+            pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsString:@"Reference or SuiteName was null"];
+        }
+        [self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
+    }];
 }
 
 - (NSUserDefaults*) getUserDefault {
