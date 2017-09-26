@@ -2,6 +2,7 @@
 #import <Cordova/CDVPlugin.h>
 
 @interface NativeStorage()
+@property NSUserDefaults *appGroupUserDefaults;
 @property NSString* suiteName;
 @end
 
@@ -16,6 +17,7 @@
         if(aSuiteName!=nil)
         {
             _suiteName = aSuiteName;
+            _appGroupUserDefaults = [[NSUserDefaults alloc] initWithSuiteName:_suiteName];
         }
         else
         {
@@ -28,7 +30,7 @@
 - (NSUserDefaults*) getUserDefault {
 	if (_suiteName != nil)
 	{
-		return [[NSUserDefaults alloc] initWithSuiteName:_suiteName];
+        return _appGroupUserDefaults;
 	}
 	return [NSUserDefaults standardUserDefaults];
 }
@@ -60,7 +62,7 @@
 	[self.commandDelegate runInBackground:^{
 		CDVPluginResult* pluginResult = nil;
 		[[self getUserDefault] removePersistentDomainForName:[[NSBundle mainBundle] bundleIdentifier]];
-		BOOL success = [[NSUserDefaults standardUserDefaults] synchronize];
+		BOOL success = [[self getUserDefault] synchronize];
 		if(success) pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK];
 		else pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsString:@"Clear has failed"];
 		[self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
