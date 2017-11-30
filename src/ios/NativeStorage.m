@@ -211,7 +211,7 @@
 		NSString* reference = [command.arguments objectAtIndex:0];
 		NSString* aString = [command.arguments objectAtIndex:1];
 
-		if(reference!=nil)
+		if(reference!=nil && (NsNull*) aString == [NsNull null]) {
 		{
 			NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 			[defaults setObject: aString forKey:reference];
