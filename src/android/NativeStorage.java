@@ -25,7 +25,6 @@ import android.app.Activity;
 
 public class NativeStorage extends CordovaPlugin {
     public static final String TAG = "Native Storage";
-    public static final String PREFS_NAME = "NativeStorage";
     private SharedPreferences sharedPref;
     private SharedPreferences.Editor editor;
 
@@ -36,6 +35,7 @@ public class NativeStorage extends CordovaPlugin {
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
         Log.v(TAG, "Init NativeStorage");
+        String PREFS_NAME = preferences.getString("NativeStorageSharedPreferencesName", "NativeStorage");
         sharedPref = cordova.getActivity().getSharedPreferences(PREFS_NAME, Activity.MODE_PRIVATE);
         editor = sharedPref.edit();
     }
