@@ -21,6 +21,7 @@ Please consider reading our [wiki](https://github.com/TheCocoaProject/cordova-pl
 ## Contents
 - [Why the need for this plugin?](#why)
 	* [When to use the plugin](#when)
+- [Scientific articles](#articles)
 - [Installation](#installation)
 - [Supported Platforms](#supported_platforms)
 - [Supported Frameworks](#supported_frameworks)
@@ -70,6 +71,10 @@ Storage of:
 - Storing and retrieving files can be done by means of the [file plugin](https://github.com/apache/cordova-plugin-file)
 - For storing many objects please consider trying a database-based strategy, for instance: WebSQL and [SQLite plugin](https://github.com/litehelpers/Cordova-sqlite-storage).
 
+
+## <a name="articles"></a>Scientific Articles
+[Assessment of Data Storage Strategies Using the Mobile Cross-Platform Tool Cordova](https://thinkmind.org/download.php?articleid=mobility_2017_2_10_90007)
+
 ## <a name="installation"></a>Installation
 The plugin can be installed via the Cordova command line interface:
 * Navigate to the root folder for your Cordova/Phonegap/Ionic project.
@@ -87,6 +92,8 @@ If you're using ngCordova you can use the ngCordova-wrapper:
 bower install git://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage --save-dev
 ```
 For more information about the usage of the plugin check the repo for the [ngCordova-wrapper](https://github.com/TheCocoaProject/ngcordova-wrapper-nativestorage) - Ionic V1. The plugin is also supported for Ionic, please check the [official Ionic documentation](http://ionicframework.com/docs/v2/native/native-storage/) for the installation procedure and use.
+
+
 
 ### <a name="reinstalling_dev"></a>Reinstalling/installing developer version
 Remove the plugin from the current project:
