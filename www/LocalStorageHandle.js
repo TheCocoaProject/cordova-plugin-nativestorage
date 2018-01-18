@@ -9,19 +9,19 @@ function LocalStorageHandle(success, error, intent, operation, args) {
         try {
             var varAsString = JSON.stringify(variable);
             if (reference === null) {
-                error(new NativeStorageError(NativeStorageError.NULL_REFERENCE, "JS", ""));
+                error(NativeStorageError.NULL_REFERENCE);
                 return;
             }
             localStorage.setItem(reference, varAsString);
             success(variable);
         } catch (err) {
-            error(new NativeStorageError(NativeStorageError.JSON_ERROR, "JS", err));
+            error(NativeStorageError.JSON_ERROR);
         }
     } else if (operation.startsWith('get')) {
         var item = {};
         item = localStorage.getItem(reference);
         if (item === null) {
-            error(new NativeStorageError(NativeStorageError.ITEM_NOT_FOUND,"JS",""));
+            error(NativeStorageError.ITEM_NOT_FOUND);
             return;
         }
         try {
@@ -29,7 +29,7 @@ function LocalStorageHandle(success, error, intent, operation, args) {
             //console.log("LocalStorage Reading: "+obj);
             success(obj);
         } catch (err) {
-            error(new NativeStorageError(NativeStorageError.JSON_ERROR, "JS", err));
+            error(NativeStorageError.JSON_ERROR);
         }
     } else if (operation === 'keys') {
       var keys = [];
