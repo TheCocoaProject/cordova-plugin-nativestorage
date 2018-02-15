@@ -211,11 +211,7 @@
 		NSString* reference = [command.arguments objectAtIndex:0];
 		NSString* aString = [command.arguments objectAtIndex:1];
 
-		if(reference==nil)
-		{
-			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsString:@"Reference was null"];
-		}
-		else if([aString class] == [NSNull class])
+		if(reference==nil || [aString class] == [NSNull class])
 		{
 			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsInt:3];
 		}
