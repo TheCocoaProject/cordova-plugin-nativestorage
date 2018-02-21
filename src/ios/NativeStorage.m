@@ -211,19 +211,19 @@
 		NSString* reference = [command.arguments objectAtIndex:0];
 		NSString* aString = [command.arguments objectAtIndex:1];
 
-		if(reference!=nil && [aString class] == [NSNull class])
+		if(reference==nil || [aString class] == [NSNull class])
+		{
+			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsInt:3];
+		}
+		else
 		{
 			NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 			[defaults setObject: aString forKey:reference];
 			BOOL success = [defaults synchronize];
 			if(success) pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsString:aString];
 			else pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsInt:1]; //Write has failed
+		}
 
-		}
-		else
-		{
-			pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsInt:3]; //Reference was null
-		}
 		[self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
 	}];
 }
