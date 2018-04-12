@@ -9,7 +9,7 @@ Join the chat for questions and updates [![Join the chat at https://gitter.im/Th
 
 ***
 
-#### :) As per [npm-stat](https://npm-stat.com/charts.html?package=cordova-plugin-nativestorage&from=2016-04-01) we just crossed 100k downloads!! Thanks to everyone who helped and to everyone who have send in their kind words!
+#### :) As per [npm-stat](https://npm-stat.com/charts.html?package=cordova-plugin-nativestorage&from=2016-04-01) we just crossed 150k downloads!! Thanks to everyone who helped and to everyone who have send in their kind words!
 
 NEW: Windows and OS X is supported!
 UPDATE: The Plugin can now also be found at the [Telerik Plugin Market](http://plugins.telerik.com/cordova/plugin/nativestorage).
