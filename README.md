@@ -10,11 +10,13 @@ Join the chat for questions and updates [![Join the chat at https://gitter.im/Th
 *** 
 
 Cite this plugin:
-@misc{callebaut18,
+```latex
+@misc{callebautNS,
 author =   {Gilles Callebaut and Alok Rajiv},
 title =    {NativeStorage - A Cordova Plugin},
 howpublished = {\url{https://github.com/TheCocoaProject/cordova-plugin-nativestorage}},
 }
+```
 
 You can also provide a `version` field to include a version number e.g., `version = {2.3.1}`.
 
