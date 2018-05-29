@@ -13,7 +13,7 @@ Cite this plugin:
 ```latex
 @misc{callebautNS,
 author =   {Gilles Callebaut and Alok Rajiv},
-title =    {NativeStorage - A Cordova Plugin},
+title =    {{NativeStorage - A Cordova Plugin}},
 howpublished = {\url{https://github.com/TheCocoaProject/cordova-plugin-nativestorage}},
 }
 ```
