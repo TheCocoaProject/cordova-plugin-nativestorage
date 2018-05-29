@@ -7,6 +7,17 @@
 
 Join the chat for questions and updates [![Join the chat at https://gitter.im/TheCocoaProject/cordova-plugin-nativestorage](https://badges.gitter.im/TheCocoaProject/cordova-plugin-nativestorage.svg)](https://gitter.im/TheCocoaProject/cordova-plugin-nativestorage?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+*** 
+
+Cite this plugin:
+@misc{callebaut18,
+author =   {Gilles Callebaut and Alok Rajiv},
+title =    {NativeStorage - A Cordova Plugin},
+howpublished = {\url{https://github.com/TheCocoaProject/cordova-plugin-nativestorage}},
+}
+
+You can also provide a `version` field to include a version number e.g., `version = {2.3.1}`.
+
 ***
 
 #### :) As per [npm-stat](https://npm-stat.com/charts.html?package=cordova-plugin-nativestorage&from=2016-04-01) we just crossed 150k downloads!! Thanks to everyone who helped and to everyone who have send in their kind words!
