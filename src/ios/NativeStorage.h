@@ -2,6 +2,8 @@
 #import <Cordova/CDVPlugin.h>
 @interface NativeStorage : CDVPlugin
 
+- (void) initWithSuiteName: (CDVInvokedUrlCommand*) command;
+
 - (void) remove: (CDVInvokedUrlCommand*) command;
 - (void) clear: (CDVInvokedUrlCommand*) command;
 

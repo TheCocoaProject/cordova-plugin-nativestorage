@@ -43,6 +43,13 @@ function StorageHandle() {
   }
 }
 
+StorageHandle.prototype.initWithSuiteName = function(suiteName, success, error) {
+  if (suiteName === null) {
+    error("Null suiteName isn't supported");
+    return;
+  }
+  this.storageHandlerDelegate(success, error, "NativeStorage", "initWithSuiteName", [suiteName]);
+};
 
 StorageHandle.prototype.set = function(reference, value, success, error) {
 
