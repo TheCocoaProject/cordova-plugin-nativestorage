@@ -166,6 +166,12 @@ Removing all stored variables:
 NativeStorage.clear(<success-callback>, <error-callback>);
 ```
 
+### iOS specific features
+- App Groups (share data between apps)
+First the suite name must be provided before accessing and retrieving data.
+```javascript
+NativeStorage.initWithSuiteName("suitename");
+```
 ### <a name="example"></a>Example
 ```javascript
 var app = {
