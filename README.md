@@ -14,6 +14,7 @@ Cite this plugin:
 @misc{callebautNS,
 author =   {Gilles Callebaut and Alok Rajiv},
 title =    {{NativeStorage - A Cordova Plugin}},
+doi = {10.5281/zenodo.1312615},
 howpublished = {\url{https://github.com/TheCocoaProject/cordova-plugin-nativestorage}},
 }
 ```
